@@ -1,3 +1,5 @@
+import React from 'react';
+
 import IPL from './ipl';
 
 import Header from './Header';
@@ -11,6 +13,15 @@ const codes = require('../codes.json');
 export default function IplReactApp () {
 	const ipl = new IPL(codes);
 	ipl.printStatus();
+
+	React.useEffect(function () {
+		fetch("data/bundle.json")
+			.then(response => response.text())
+			.then(text => JSON.parse(text))
+			.then(json => {
+				ipl.loadBundle(json);
+			});
+	});
 
 	return (
 		<div className="IplReactApp">

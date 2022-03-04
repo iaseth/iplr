@@ -27,6 +27,19 @@ export default class IPL {
 		}
 	}
 
+	loadBundle (json) {
+		this.bundle = json;
+		for (let season of json.seasons) {
+			console.log(season.year);
+			for (let match of season.matches) {
+				console.log(`\tmatch: ${match.meta}`);
+				console.log(match.meta);
+				break;
+			}
+			break;
+		}
+	}
+
 	printStatus () {
 		console.log(`IPL object:`);
 		console.log(`\t---- ${Object.keys(this.teams).length} teams`);
