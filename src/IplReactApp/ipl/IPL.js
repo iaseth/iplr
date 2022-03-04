@@ -37,6 +37,7 @@ export default class IPL {
 			this.seasons.push(x);
 			this.matches = this.matches.concat(x.matches);
 			console.log(`IPL ${x.year} has ${x.matches.length} matches.`);
+			break;
 		}
 	}
 
