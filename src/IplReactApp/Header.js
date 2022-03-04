@@ -9,7 +9,7 @@ export default function Header () {
 			<RainbowBorder />
 			<div className="max-w-5xl m-auto px-4 py-4">
 				<div className="font-bold">
-					<a href="/">Cricdocs Ipl R</a>
+					<a href="/">Cricdocs IPL R</a>
 				</div>
 			</div>
 			<RainbowBorder />

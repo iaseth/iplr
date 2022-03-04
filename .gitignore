@@ -26,3 +26,4 @@ yarn-error.log*
 .netlify
 
 src/codes.json
+public/data/bundle.json
