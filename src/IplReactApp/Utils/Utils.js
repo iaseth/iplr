@@ -1,9 +1,13 @@
+import './Utils.css';
 
 
 
 export function EA ({href, children}) {
 	return (
-		<a href={href} target="_blank" rel="noreferrer" className="font-bold border-b-2 border-blue-500 duration-300 pb-[1px] text-blue-500 hover:text-blue-300 hover:border-blue-300">{children}</a>
+		<a href={href} target="_blank" rel="noreferrer" className="EA inline-block font-bold duration-300 pb-[1px] text-blue-500 hover:text-blue-300">
+			<div>{children}</div>
+			<div class="bottom-border rounded duration-300 h-[2px] mt-[2px]"></div>
+		</a>
 	);
 }
 

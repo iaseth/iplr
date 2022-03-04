@@ -1,0 +1,12 @@
+
+
+a.EA > div.bottom-border {
+	@apply w-0 bg-blue-500;
+	transform: translateX(20px);
+}
+
+a.EA:hover > div.bottom-border {
+	@apply w-full bg-blue-300;
+	transform: translateX(0px);
+}
+
