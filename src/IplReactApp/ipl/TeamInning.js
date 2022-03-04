@@ -3,6 +3,8 @@ import BowlerInning from './BowlerInning';
 import Wicket from './Wicket';
 import OverHistory from './OverHistory';
 
+import {getBalls} from './Utils';
+
 
 
 export default class TeamInning {
@@ -11,6 +13,11 @@ export default class TeamInning {
 		this.match = squad.match;
 		this.tournament = squad.tournament;
 		this.jo = jo;
+
+		this.runs = jo.runs;
+		this.overs = jo.overs;
+		this.balls = getBalls(jo.overs);
+		this.wkts = jo.wickets.length;
 
 		this.batsmen = [];
 		for (let bj of jo.batting) {
@@ -27,8 +34,16 @@ export default class TeamInning {
 		this.consoleLog();
 	}
 
+	runrate () {
+		return (this.runs * 6 / this.balls);
+	}
+
+	runratePretty = () => this.runrate().toFixed(1);
+
 	consoleLog () {
 		const dashes = "=".repeat(50);
+		console.log(dashes);
+		console.log(`${this.squad.team.fullname} ${this.runs}/${this.wkts} (${this.overs}) @${this.runratePretty()}`);
 		console.log(dashes);
 
 		for (let batsman of this.batsmen) {
