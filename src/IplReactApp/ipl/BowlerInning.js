@@ -1,3 +1,6 @@
+import {getBalls} from './Utils';
+
+
 
 export default class BowlerInning {
 	constructor (teamInning, jo) {
@@ -6,6 +9,7 @@ export default class BowlerInning {
 		this.player = teamInning.tournament.players[jo.id];
 
 		this.overs = jo.ov;
+		this.balls = getBalls(jo.ov);
 		this.maidens = jo.maid;
 		this.runs = jo.r;
 		this.wickets = jo.w;
@@ -16,6 +20,12 @@ export default class BowlerInning {
 	}
 
 	consoleLog () {
-		console.log(`${this.player.jo.fullname.padEnd(18)} ${this.overs}-${this.maidens}-${this.runs}-${this.wickets}`);
+		console.log(`${this.player.jo.fullname.padEnd(18)} ${this.overs}-${this.maidens}-${this.runs}-${this.wickets} (${this.econPretty()})`);
 	}
+
+	econ () {
+		return (this.runs * 6 / this.balls);
+	}
+
+	econPretty = () => this.econ().toFixed(1);
 }
