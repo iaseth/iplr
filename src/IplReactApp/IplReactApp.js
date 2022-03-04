@@ -19,7 +19,7 @@ export default function IplReactApp () {
 			.then(text => JSON.parse(text))
 			.then(json => {
 				ipl.loadBundle(json);
-				ipl.printStatus();
+				ipl.doStuff();
 			});
 	});
 

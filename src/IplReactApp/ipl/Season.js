@@ -11,7 +11,7 @@ export default class Season {
 		for (let match of jo.matches) {
 			let m = new Match(this, match);
 			this.matches.push(m);
-			break;
+			// break;
 		}
 	}
 }

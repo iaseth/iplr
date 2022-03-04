@@ -41,6 +41,13 @@ export default class IPL {
 		}
 	}
 
+	doStuff () {
+		this.printStatus();
+		this.matches[1].consoleLog();
+		this.players["1036"].printBattingPerformances();
+		this.players["1038"].printBowlingPerformances();
+	}
+
 	printStatus () {
 		console.log(`IPL object:`);
 		console.log(`\t---- ${Object.keys(this.teams).length} teams`);
