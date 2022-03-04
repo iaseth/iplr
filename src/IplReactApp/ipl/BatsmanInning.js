@@ -3,7 +3,7 @@ export default class BatsmanInning {
 	constructor (teamInning, jo) {
 		this.teamInning = teamInning;
 		this.jo = jo;
-		this.player = teamInning.tournament.players[jo.player];
+		this.player = teamInning.tournament.players[jo.id];
 
 		this.runs = jo.r;
 		this.balls = jo.b;

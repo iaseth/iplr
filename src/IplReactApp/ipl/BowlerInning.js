@@ -10,7 +10,7 @@ export default class BowlerInning {
 
 		this.overs = jo.ov;
 		this.balls = getBalls(jo.ov);
-		this.maidens = jo.maid;
+		this.maidens = jo.m;
 		this.runs = jo.r;
 		this.wickets = jo.w;
 
