@@ -3,5 +3,19 @@ export default class BowlerInning {
 	constructor (teamInning, jo) {
 		this.teamInning = teamInning;
 		this.jo = jo;
+		this.player = teamInning.tournament.players[jo.id];
+
+		this.overs = jo.ov;
+		this.maidens = jo.maid;
+		this.runs = jo.r;
+		this.wickets = jo.w;
+
+		this.dots = jo.d;
+		this.wd = jo.wd;
+		this.nb = jo.nb;
+	}
+
+	consoleLog () {
+		console.log(`${this.player.jo.fullname.padEnd(18)} ${this.overs}-${this.maidens}-${this.runs}-${this.wickets}`);
 	}
 }

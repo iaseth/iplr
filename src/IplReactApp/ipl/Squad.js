@@ -13,7 +13,7 @@ export default class Squad {
 		this.wk = this.tournament.players[jo.wk];
 	}
 
-	printSquadLine () {
+	consoleLog () {
 		let member_names = this.members.map(m => m.jo.fullname);
 		console.log(member_names);
 	}
