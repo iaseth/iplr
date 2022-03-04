@@ -1,0 +1,2 @@
+
+export {Scorecard} from './Scorecard';
