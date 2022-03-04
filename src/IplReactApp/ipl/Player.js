@@ -7,19 +7,22 @@ export default class Player {
 		this.fn = jo.fn;
 		this.sn = jo.sn;
 
+		this.bats_right = jo.batright;
+		this.bowls_right = jo.bowlright;
+
 		this.batting_performances = [];
 		this.bowling_performances = [];
 	}
 
 	printBattingPerformances () {
-		console.log(this.fn);
+		console.log(`${this.fn} (${this.bats_right ? "Right" : "Left"} handed)`);
 		for (let x of this.batting_performances) {
 			x.consoleLog();
 		}
 	}
 
 	printBowlingPerformances () {
-		console.log(this.jo.fullname);
+		console.log(`${this.fn} (${this.bowls_right ? "Right" : "Left"} arm)`);
 		for (let x of this.bowling_performances) {
 			x.consoleLog();
 		}
