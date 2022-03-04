@@ -43,7 +43,10 @@ export default class IPL {
 
 	doStuff () {
 		this.printStatus();
+		// csk vs kxip
 		this.matches[1].consoleLog();
+
+		// dhoni and oram
 		this.players["1036"].printBattingPerformances();
 		this.players["1038"].printBowlingPerformances();
 	}
