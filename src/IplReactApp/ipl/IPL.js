@@ -8,22 +8,29 @@ export default class Ipl {
 	constructor (codes) {
 		this.codes = codes;
 
-		this.teams = [];
+		this.teams = {};
 		for (let k in codes.teams) {
 			let x = new Team(this, codes.teams[k]);
-			this.teams.push(x);
+			this.teams[k] = x;
 		}
 
-		this.grounds = [];
+		this.grounds = {};
 		for (let k in codes.grounds) {
 			let x = new Ground(this, codes.grounds[k]);
-			this.grounds.push(x);
+			this.grounds[k] = x;
 		}
 
-		this.players = [];
+		this.players = {};
 		for (let k in codes.players) {
 			let x = new Player(this, codes.players[k]);
-			this.players.push(x);
+			this.players[k] = x;
 		}
+	}
+
+	printStatus () {
+		console.log(`IPL object:`);
+		console.log(`\t---- ${Object.keys(this.teams).length} teams`);
+		console.log(`\t---- ${Object.keys(this.grounds).length} grounds`);
+		console.log(`\t---- ${Object.keys(this.players).length} players`);
 	}
 }

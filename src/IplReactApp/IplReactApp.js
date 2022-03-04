@@ -10,6 +10,7 @@ const codes = require('../codes.json');
 
 export default function IplReactApp () {
 	const ipl = new Ipl(codes);
+	ipl.printStatus();
 
 	return (
 		<div className="IplReactApp">
