@@ -20,7 +20,7 @@ export default class BowlerInning {
 	}
 
 	consoleLog () {
-		console.log(`${this.player.jo.fullname.padEnd(18)} ${this.overs}-${this.maidens}-${this.runs}-${this.wickets} (${this.econPretty()})`);
+		console.log(`${this.player.fn.padEnd(20)} ${this.overs}-${this.maidens}-${this.runs}-${this.wickets} (${this.econPretty()})`);
 	}
 
 	econ () {

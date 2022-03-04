@@ -47,7 +47,7 @@ export default class TeamInning {
 	consoleLog () {
 		const dashes = "=".repeat(50);
 		console.log(dashes);
-		console.log(`${this.squad.team.fullname} ${this.runs}/${this.wkts} (${this.overs}) @${this.runratePretty()}`);
+		console.log(`${this.squad.team.fn} ${this.runs}/${this.wkts} (${this.overs}) @${this.runratePretty()}`);
 		console.log(dashes);
 
 		for (let batsman of this.batsmen) {

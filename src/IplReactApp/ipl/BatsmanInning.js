@@ -13,7 +13,7 @@ export default class BatsmanInning {
 	}
 
 	consoleLog () {
-		console.log(`${this.player.jo.fullname.padEnd(18)} ${this.runsString()} (${this.balls}) [${this.fours} fours, ${this.sixes} sixes] (${this.srPretty()})`);
+		console.log(`${this.player.fn.padEnd(20)} ${this.runsString()} (${this.balls}) [${this.fours}x4, ${this.sixes}x6] (${this.srPretty()})`);
 	}
 
 	sr = () => this.balls ? (this.runs * 100 / this.balls) : 0;

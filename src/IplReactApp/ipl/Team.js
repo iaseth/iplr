@@ -5,8 +5,8 @@ export default class Team {
 		this.jo = jo;
 
 		this.id = jo.id;
-		this.fullname = jo.fullname;
-		this.shortname = jo.shortname;
+		this.fn = jo.fn;
+		this.sn = jo.sn;
 		this.name = jo.name;
 		this.abb = jo.abb;
 	}
