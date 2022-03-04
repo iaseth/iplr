@@ -9,7 +9,7 @@ export default function Footer () {
 			<RainbowBorder />
 			<div className="max-w-5xl m-auto px-4 py-24">
 				<div className="font-bold">
-					<p className="font-bold text-center">Created by <EA href="https://github.com/iaseth">Ankur Seth</EA>. Hosted on <EA href="https://github.com/iaseth/zipvu">GitHub</EA>.</p>
+					<div className="font-bold text-center">Created by <EA href="https://github.com/iaseth">Ankur Seth</EA>. Hosted on <EA href="https://github.com/iaseth/zipvu">GitHub</EA>.</div>
 				</div>
 			</div>
 			<RainbowBorder />

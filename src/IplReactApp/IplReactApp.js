@@ -12,7 +12,6 @@ const codes = require('../codes.json');
 
 export default function IplReactApp () {
 	const ipl = new IPL(codes);
-	ipl.printStatus();
 
 	React.useEffect(function () {
 		fetch("data/bundle.json")
@@ -20,6 +19,7 @@ export default function IplReactApp () {
 			.then(text => JSON.parse(text))
 			.then(json => {
 				ipl.loadBundle(json);
+				ipl.printStatus();
 			});
 	});
 
