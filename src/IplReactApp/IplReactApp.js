@@ -1,4 +1,4 @@
-import Ipl from './ipl';
+import IPL from './ipl';
 
 import Header from './Header';
 import Body from './Body';
@@ -9,7 +9,7 @@ const codes = require('../codes.json');
 
 
 export default function IplReactApp () {
-	const ipl = new Ipl(codes);
+	const ipl = new IPL(codes);
 	ipl.printStatus();
 
 	return (

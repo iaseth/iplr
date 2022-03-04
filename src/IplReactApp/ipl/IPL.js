@@ -4,7 +4,7 @@ import Team from './Team';
 
 
 
-export default class Ipl {
+export default class IPL {
 	constructor (codes) {
 		this.codes = codes;
 

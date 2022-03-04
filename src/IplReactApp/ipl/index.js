@@ -1,3 +1,3 @@
-import Ipl from './IPL';
+import IPL from './IPL';
 
-export default Ipl;
+export default IPL;
