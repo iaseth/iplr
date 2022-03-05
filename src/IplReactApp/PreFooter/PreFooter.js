@@ -22,9 +22,9 @@ export function PreFooter ({
 
 	const seasonItems = ipl.seasons.map((s, i) => {
 		return (
-			<div key={i} className="Season bg-slate-900 px-4 py-3 mb-4 mr-4 cursor-pointer"
+			<div key={i} className="Season bg-slate-900 px-5 py-3 mb-4 mr-4 rounded cursor-pointer"
 				onClick={() => goToSeason(s.year)}>
-				<div className="font-bold text-sm">IPL {s.year}</div>
+				<div className="font-bold text-base">{s.year}</div>
 			</div>
 		);
 	});
@@ -48,7 +48,7 @@ export function PreFooter ({
 	});
 
 	return (
-		<div className="PreFooter bg-slate-700 text-white">
+		<div className="PreFooter bg-slate-700 text-slate-200">
 			<RainbowBorder />
 			<div className="max-w-5xl m-auto px-4 py-24">
 				<PreFooterHeading>Seasons</PreFooterHeading>

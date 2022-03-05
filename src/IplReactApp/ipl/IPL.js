@@ -48,6 +48,8 @@ export default class IPL {
 			// break;
 		}
 
+		this.matches.forEach((m, index) => m.index = index);
+
 		this.rivalries = [];
 		for (let t1 of this.teamsArray) {
 			for (let t2 of this.teamsArray) {
