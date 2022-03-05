@@ -59,12 +59,22 @@ export default function IplReactApp () {
 	}, []);
 
 	React.useEffect(() => {
+		function handleKeyDown (e) {
+			const keyCode = e.keyCode;
+			if (keyCode === 37) {
+				goToPreviousPage();
+			} else if (keyCode === 39) {
+				goToNextPage();
+			}
+		}
+		// console.log("Redefined handleKeyDown()");
+
 		document.addEventListener('keydown', handleKeyDown, false);
 
 		return function cleanUp () {
 			document.removeEventListener('keydown', handleKeyDown, false);
 		}
-	}, [handleKeyDown]);
+	});
 
 	const goToSeason = x => {setPageType(PAGE_TYPES.SEASON); setYear(x);};
 	const goToMatch = x => {setPageType(PAGE_TYPES.MATCH); setMatchIndex(x);};
@@ -79,22 +89,12 @@ export default function IplReactApp () {
 	function jumpPage (j) {
 		if (pageType === PAGE_TYPES.MATCH) {
 			let x = matchIndex + j;
-			console.log(x);
 			if (x >= 0 && x < ipl.matches.length) setMatchIndex(x);
 		}
 	}
 
 	const goToNextPage = () => jumpPage(1);
 	const goToPreviousPage = () => jumpPage(-1);
-
-	function handleKeyDown (e) {
-		const keyCode = e.keyCode;
-		if (keyCode === 37) {
-			goToPreviousPage();
-		} else if (keyCode === 39) {
-			goToNextPage();
-		}
-	}
 
 	function getCurrentPage () {
 		const commonProps = {
