@@ -2,6 +2,7 @@ import Ground from './Ground';
 import Player from './Player';
 import Team from './Team';
 import Season from './Season';
+import Rivalry from './Rivalry';
 
 
 
@@ -46,6 +47,19 @@ export default class IPL {
 			// console.log(`IPL ${x.year} has ${x.matches.length} matches.`);
 			// break;
 		}
+
+		this.rivalries = [];
+		for (let t1 of this.teamsArray) {
+			for (let t2 of this.teamsArray) {
+				if (t1.id < t2.id) {
+					const r = new Rivalry(this, t1, t2);
+					if (r.matches.length) {
+						this.rivalries.push(r);
+					}
+				}
+			}
+		}
+		this.rivalries.sort((a, b) => (b.getLength() - a.getLength()));
 	}
 
 	getSeason (year) {
@@ -85,5 +99,11 @@ export default class IPL {
 		console.log(`\t---- ${Object.keys(this.players).length} players`);
 		console.log(`\t---- ${Object.keys(this.seasons).length} seasons`);
 		console.log(`\t---- ${Object.keys(this.matches).length} matches`);
+	}
+
+	printRivalries () {
+		for (let r of this.rivalries) {
+			console.log(`Rivalry: ${r.getFullName()} (${r.getLength()} matches)`);
+		}
 	}
 }
