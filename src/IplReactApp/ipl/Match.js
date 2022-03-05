@@ -20,13 +20,16 @@ export default class Match {
 			this.inning_a = new TeamInning(this.squad_a, jo.innings[0]);
 			this.inning_b = new TeamInning(this.squad_b, jo.innings[1]);
 		} else {
-			this.inning_a = new TeamInning(this.squad_b, jo.innings[0]);
-			this.inning_b = new TeamInning(this.squad_a, jo.innings[1]);
+			this.inning_a = new TeamInning(this.squad_a, jo.innings[1]);
+			this.inning_b = new TeamInning(this.squad_b, jo.innings[0]);
 		}
+
+		this.firstInning = (this.order[0] === 0) ? this.inning_a : this.inning_b;
+		this.secondInning = (this.order[0] === 0) ? this.inning_b : this.inning_a;
 	}
 
 	consoleLog () {
-		this.inning_a.consoleLog();
-		this.inning_b.consoleLog();
+		this.firstInning.consoleLog();
+		this.secondInning.consoleLog();
 	}
 }
