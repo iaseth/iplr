@@ -1,9 +1,9 @@
 
 export default class Squad {
-	constructor (match, jo, opposition) {
+	constructor (match, jo, team, opposition) {
 		this.match = match;
 		this.tournament = match.tournament;
-		this.team = this.tournament.teams[jo.team];
+		this.team = team;
 		this.opposition = opposition;
 		this.jo = jo;
 		this.members = [];

@@ -1,13 +1,15 @@
 
 
 
-export default function Inning ({inning}) {
+export default function Inning ({
+	inning, goToPlayer
+}) {
 
 	const batsmen = inning.batsmen.map((b, i) => {
 		return (
-			<div key={i} className="bg-slate-100 border-y lg:border-x border-slate-400 -mb-[1px] px-2 py-2 flex">
+			<div key={i} className="bg-slate-100 border-b lg:border-x border-slate-400 px-2 py-2 flex">
 				<div className="grow">
-					<span>{b.player.fn}</span>
+					<span className="cursor-pointer" style={inning.team.fgStyle} onClick={() => goToPlayer(b.player.id)}>{b.player.fn}</span>
 				</div>
 				<div>
 					<span className="text-xl">{b.runsString()}</span>
@@ -19,9 +21,9 @@ export default function Inning ({inning}) {
 
 	const bowlers = inning.bowlers.map((b, i) => {
 		return (
-			<div key={i} className="bg-slate-100 border-y lg:border-x border-slate-400 -mb-[1px] px-2 py-2 flex">
+			<div key={i} className="bg-slate-100 border-b lg:border-x border-slate-400 px-2 py-2 flex">
 				<div className="grow">
-					<span>{b.player.fn}</span>
+					<span className="cursor-pointer" style={inning.opposition.fgStyle} onClick={() => goToPlayer(b.player.id)}>{b.player.fn}</span>
 				</div>
 				<div className="text-slate-600">
 					<span>{b.overs}</span>
@@ -39,8 +41,8 @@ export default function Inning ({inning}) {
 	return (
 		<div className="Inning text-slate-800 font-bold lg:w-1/2">
 			<div className="sm:flex px-4 py-8">
-				<div className="grow">
-					<div className="text-7xl">{inning.team.abb}</div>
+				<div className="grow pl-4 sm:pl-0">
+					<div className="text-7xl" style={inning.team.fgStyle}>{inning.team.abb}</div>
 				</div>
 				<div className="px-4">
 					<div className="text-5xl pb-2">
@@ -56,13 +58,19 @@ export default function Inning ({inning}) {
 			</div>
 
 			<div className="">
-				<div>{batsmen}</div>
+				<div>
+					<div className="text-white px-4 py-2 border border-slate-400" style={inning.team.bgStyle}>Batting</div>
+					{batsmen}
+				</div>
 			</div>
 
 			<div className="h-4"></div>
 
 			<div>
-				<div>{bowlers}</div>
+				<div>
+					<div className="text-white px-4 py-2 border border-slate-400" style={inning.opposition.bgStyle}>Bowling</div>
+					{bowlers}
+				</div>
 			</div>
 		</div>
 	);

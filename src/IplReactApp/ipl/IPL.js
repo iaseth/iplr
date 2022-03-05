@@ -72,11 +72,11 @@ export default class IPL {
 	doStuff () {
 		this.printStatus();
 		// csk vs kxip
-		this.matches[1].consoleLog();
+		// this.matches[1].consoleLog();
 
 		// dhoni and oram
-		this.findPlayerByName("dhoni").print50s();
-		this.findPlayerByName("lee").print2Ws();
+		// this.findPlayerByName("dhoni").print50s();
+		// this.findPlayerByName("lee").print2Ws();
 	}
 
 	findXByName (name, obj) {
