@@ -8,7 +8,7 @@ export default class Season extends BaseClass {
 		super();
 		this.tournament = tournament;
 		this.jo = jo;
-		this.year = jo.year;
+		this.year = parseInt(jo.year);
 		for (let match of jo.matches) {
 			let m = new Match(this, match);
 			this.addMatch(m);

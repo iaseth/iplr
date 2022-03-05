@@ -34,7 +34,7 @@ export default function IplReactApp () {
 	const [doneFetching, setDoneFetching] = React.useState(false);
 
 	const [pageType, setPageType] = React.useState(PAGE_TYPES.MATCH);
-	const [year, setYear] = React.useState("2008");
+	const [year, setYear] = React.useState(2008);
 	const [matchIndex, setMatchIndex] = React.useState(58);
 	const [groundId, setGroundId] = React.useState(100);
 	const [playerId, setPlayerId] = React.useState(1000);
@@ -87,9 +87,21 @@ export default function IplReactApp () {
 	};
 
 	function jumpPage (j) {
-		if (pageType === PAGE_TYPES.MATCH) {
+		if (pageType === PAGE_TYPES.SEASON) {
+			let x = parseInt(year) + j;
+			if (ipl.getSeason(x)) setYear(x);
+		} else if (pageType === PAGE_TYPES.MATCH) {
 			let x = matchIndex + j;
 			if (x >= 0 && x < ipl.matches.length) setMatchIndex(x);
+		} else if (pageType === PAGE_TYPES.GROUND) {
+			let x = groundId + j;
+			if (ipl.grounds[x]) setGroundId(x);
+		} else if (pageType === PAGE_TYPES.PLAYER) {
+			let x = playerId + j;
+			if (ipl.players[x]) setPlayerId(x);
+		} else if (pageType === PAGE_TYPES.TEAM) {
+			let x = teamId + j;
+			if (ipl.teams[x]) setTeamId(x);
 		}
 	}
 
