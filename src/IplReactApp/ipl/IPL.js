@@ -10,21 +10,27 @@ export default class IPL {
 		this.codes = codes;
 
 		this.teams = {};
+		this.teamsArray = [];
 		for (let k in codes.teams) {
 			let x = new Team(this, codes.teams[k]);
 			this.teams[k] = x;
+			this.teamsArray.push(x);
 		}
 
 		this.grounds = {};
+		this.groundsArray = [];
 		for (let k in codes.grounds) {
 			let x = new Ground(this, codes.grounds[k]);
 			this.grounds[k] = x;
+			this.groundsArray.push(x);
 		}
 
 		this.players = {};
+		this.playersArray = [];
 		for (let k in codes.players) {
 			let x = new Player(this, codes.players[k]);
 			this.players[k] = x;
+			this.playersArray.push(x);
 		}
 	}
 
@@ -59,8 +65,7 @@ export default class IPL {
 	}
 
 	findXByName (name, obj) {
-		for (let id in obj) {
-			let x = obj[id];
+		for (let x of obj) {
 			if (x.fn.toLowerCase().search(name) !== -1) {
 				return x;
 			}
@@ -68,9 +73,9 @@ export default class IPL {
 		return null;
 	}
 
-	findGroundByName = (name) => this.findXByName(name, this.grounds);
-	findPlayerByName = (name) => this.findXByName(name, this.players);
-	findTeamByName = (name) => this.findXByName(name, this.teams);
+	findGroundByName = (name) => this.findXByName(name, this.groundsArray);
+	findPlayerByName = (name) => this.findXByName(name, this.playersArray);
+	findTeamByName = (name) => this.findXByName(name, this.teamsArray);
 
 	printStatus () {
 		console.log(`IPL object:`);
