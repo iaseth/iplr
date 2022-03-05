@@ -58,13 +58,19 @@ export default class IPL {
 		this.findPlayerByName("lee").printBowlingPerformances();
 	}
 
-	findPlayerByName (name) {
-		for (let id in this.players) {
-			let player = this.players[id];
-			if (player.fn.toLowerCase().search(name) !== -1) return player;
+	findXByName (name, obj) {
+		for (let id in obj) {
+			let x = obj[id];
+			if (x.fn.toLowerCase().search(name) !== -1) {
+				return x;
+			}
 		}
 		return null;
 	}
+
+	findGroundByName = (name) => this.findXByName(name, this.grounds);
+	findPlayerByName = (name) => this.findXByName(name, this.players);
+	findTeamByName = (name) => this.findXByName(name, this.teams);
 
 	printStatus () {
 		console.log(`IPL object:`);
