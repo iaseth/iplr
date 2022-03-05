@@ -10,7 +10,7 @@ export default function Inning ({inning}) {
 					<span>{b.player.fn}</span>
 				</div>
 				<div>
-					<span className="text-xl">{b.runs}</span>
+					<span className="text-xl">{b.runsString()}</span>
 					<span className="text-slate-600 px-2">{b.balls}</span>
 				</div>
 			</div>
@@ -23,10 +23,14 @@ export default function Inning ({inning}) {
 				<div className="grow">
 					<span>{b.player.fn}</span>
 				</div>
-				<div>
-					<span className="text-xl">{b.wickets}</span>
+				<div className="text-slate-600">
+					<span>{b.overs}</span>
 					<span className="px-2">-</span>
-					<span className="text-slate-600">{b.runs}</span>
+					<span>{b.maidens}</span>
+					<span className="px-2">-</span>
+					<span>{b.runs}</span>
+					<span className="px-2">-</span>
+					<span className="text-xl text-slate-800">{b.wickets}</span>
 				</div>
 			</div>
 		);

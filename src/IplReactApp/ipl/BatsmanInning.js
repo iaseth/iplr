@@ -22,7 +22,5 @@ export default class BatsmanInning {
 	getBoundaries = () => (this.n4 + this.n6);
 	getBoundaryRuns = () => (4 * this.n4 + 6 * this.n6);
 
-	runsString () {
-		return this.is_out ? this.runs : this.runs + "*";
-	}
+	runsString = () => this.is_out ? this.runs : this.runs + "*";
 }

@@ -58,6 +58,26 @@ export default function IplReactApp () {
 			});
 	}, []);
 
+	function jumpPage (j) {
+		if (pageType === PAGE_TYPES.MATCH) {
+			let x = matchIndex + j;
+			console.log(x);
+			if (x >= 0 && x < season.matches.length) setMatchIndex(x);
+		}
+	}
+
+	const goToNextPage = () => jumpPage(1);
+	const goToPreviousPage = () => jumpPage(-1);
+
+	function handleKeyDown (e) {
+		const keyCode = e.keyCode;
+		if (keyCode === 37) {
+			goToPreviousPage();
+		} else if (keyCode === 39) {
+			goToNextPage();
+		}
+	}
+
 	function getCurrentPage () {
 		const commonProps = {
 			PAGE_TYPES, setPageType,
@@ -105,7 +125,7 @@ export default function IplReactApp () {
 	};
 
 	return (
-		<div className="IplReactApp">
+		<div className="IplReactApp select-none" tabIndex="0" onKeyDown={handleKeyDown}>
 			<Header />
 			{!doneFetching && <Splash />}
 			{doneFetching && <div className="min-h-screen">

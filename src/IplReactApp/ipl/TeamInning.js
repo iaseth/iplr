@@ -14,6 +14,8 @@ export default class TeamInning {
 		this.tournament = squad.tournament;
 		this.team = squad.team;
 		this.opposition = squad.opposition;
+		this.batsmen = [];
+		this.bowlers = [];
 
 		if (jo === undefined) return;
 
@@ -23,14 +25,12 @@ export default class TeamInning {
 		this.balls = getBalls(jo.overs);
 		this.wkts = jo.wickets.length;
 
-		this.batsmen = [];
 		for (let bj of jo.batting) {
 			let x = new BatsmanInning(this, bj);
 			x.player.batting_performances.push(x);
 			this.batsmen.push(x);
 		}
 
-		this.bowlers = [];
 		for (let bj of jo.bowling) {
 			let x = new BowlerInning(this, bj);
 			x.player.bowling_performances.push(x);
