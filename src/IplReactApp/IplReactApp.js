@@ -28,11 +28,17 @@ export default function IplReactApp () {
 	const [doneFetching, setDoneFetching] = React.useState(false);
 
 	const [pageType, setPageType] = React.useState(PAGE_TYPES.TOURNAMENT);
-	const [season, setSeason] = React.useState(null);
-	const [match, setMatch] = React.useState(null);
-	const [ground, setGround] = React.useState(null);
-	const [player, setPlayer] = React.useState(null);
-	const [team, setTeam] = React.useState(null);
+	const [year, setYear] = React.useState("2008");
+	const [matchIndex, setMatchIndex] = React.useState(58);
+	const [groundId, setGroundId] = React.useState(100);
+	const [playerId, setPlayerId] = React.useState(1000);
+	const [teamId, setTeamId] = React.useState(10);
+
+	const season = doneFetching ? ipl.getSeason(year) : null;
+	const match = doneFetching ? season.matches[matchIndex] : null;
+	const ground = ipl.grounds[groundId];
+	const player = ipl.players[playerId];
+	const team = ipl.teams[teamId];
 
 	React.useEffect(function () {
 		// return;
@@ -42,7 +48,7 @@ export default function IplReactApp () {
 			.then(json => {
 				ipl.loadBundle(json);
 				ipl.doStuff();
-				setTimeout(() => setDoneFetching(true), 5000);
+				setTimeout(() => setDoneFetching(true), 500);
 			});
 	}, []);
 

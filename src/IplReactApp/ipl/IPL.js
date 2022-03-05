@@ -41,6 +41,13 @@ export default class IPL {
 		}
 	}
 
+	getSeason (year) {
+		for (let season of this.seasons) {
+			if (season.year === year) return season;
+		}
+		return null;
+	}
+
 	doStuff () {
 		this.printStatus();
 		// csk vs kxip
