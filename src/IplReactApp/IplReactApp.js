@@ -80,8 +80,13 @@ export default function IplReactApp () {
 		}
 	}
 
+	const debugProps = {
+		pageType, year, matchIndex,
+		groundId, playerId, teamId
+	};
+
 	const preFooterProps = {
-		ipl,
+		ipl, PAGE_TYPES,
 		pageType, setPageType,
 		year, setYear,
 		groundId, setGroundId,
@@ -97,7 +102,7 @@ export default function IplReactApp () {
 					{getCurrentPage()}
 				</div>
 			</div>}
-			<DebugInfo {...{ipl}} />
+			<DebugInfo {...debugProps} />
 			<PreFooter {...preFooterProps} />
 			<Footer />
 		</div>
