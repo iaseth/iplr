@@ -14,8 +14,8 @@ export function Match ({
 	return (
 		<div className="Match pb-12">
 			<div className="lg:flex lg:space-x-4">
-				<Inning inning={match.firstInning} goToPlayer={goToPlayer} />
-				<Inning inning={match.secondInning} goToPlayer={goToPlayer} />
+				<Inning inning={match.firstInning} {...{goToPlayer, goToTeam}} />
+				<Inning inning={match.secondInning} {...{goToPlayer, goToTeam}} />
 			</div>
 		</div>
 	);

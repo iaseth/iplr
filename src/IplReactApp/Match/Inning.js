@@ -2,12 +2,12 @@
 
 
 export default function Inning ({
-	inning, goToPlayer
+	inning, goToPlayer, goToTeam
 }) {
 
 	const batsmen = inning.batsmen.map((b, i) => {
 		return (
-			<div key={i} className="bg-slate-100 border-b lg:border-x border-slate-400 px-2 py-2 flex">
+			<div key={i} className="border-b lg:border-x border-slate-400 px-2 py-2 flex items-end">
 				<div className="grow">
 					<span className="cursor-pointer" style={inning.team.fgStyle} onClick={() => goToPlayer(b.player.id)}>{b.player.fn}</span>
 				</div>
@@ -21,7 +21,7 @@ export default function Inning ({
 
 	const bowlers = inning.bowlers.map((b, i) => {
 		return (
-			<div key={i} className="bg-slate-100 border-b lg:border-x border-slate-400 px-2 py-2 flex">
+			<div key={i} className="bg-slate-50 border-b lg:border-x border-slate-400 px-2 py-2 flex items-end">
 				<div className="grow">
 					<span className="cursor-pointer" style={inning.opposition.fgStyle} onClick={() => goToPlayer(b.player.id)}>{b.player.fn}</span>
 				</div>
@@ -43,7 +43,7 @@ export default function Inning ({
 			<div className="sm:flex px-4 py-8">
 				<div className="grow">
 					<div className="text-7xl text-white">
-						<span className="px-4 py-1 rounded" style={inning.match.playoff ? inning.team.bgStyle : inning.team.fgStyle}>{inning.team.abb}</span>
+						<span className="px-4 pb-1 rounded cursor-pointer" onClick={() => goToTeam(inning.team.id)} style={inning.match.playoff ? inning.team.bgStyle : inning.team.fgStyle}>{inning.team.abb}</span>
 					</div>
 				</div>
 				<div className="px-4">
