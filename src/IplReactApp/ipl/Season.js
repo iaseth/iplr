@@ -17,5 +17,11 @@ export default class Season extends BaseClass {
 			m.ground.addMatch(m);
 			// break;
 		}
+
+		const n = this.matches.length;
+		this.numberOfLeagueMatches = (n % 2 === 0) ? (n-4) : (n-3);
+		this.leagueMatches = this.matches.slice(0, this.numberOfLeagueMatches);
+		this.playoffMatches = this.matches.slice(this.numberOfLeagueMatches);
+		this.playoffMatches.forEach((x) => x.playoff = true);
 	}
 }

@@ -41,8 +41,10 @@ export default function Inning ({
 	return (
 		<div className="Inning text-slate-800 font-bold lg:w-1/2">
 			<div className="sm:flex px-4 py-8">
-				<div className="grow pl-4 sm:pl-0">
-					<div className="text-7xl" style={inning.team.fgStyle}>{inning.team.abb}</div>
+				<div className="grow">
+					<div className="text-7xl text-white">
+						<span className="px-4 py-1 rounded" style={inning.match.playoff ? inning.team.bgStyle : inning.team.fgStyle}>{inning.team.abb}</span>
+					</div>
 				</div>
 				<div className="px-4">
 					<div className="text-5xl pb-2">
