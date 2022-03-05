@@ -44,7 +44,7 @@ export default class IPL {
 			this.seasons.push(x);
 			this.matches = this.matches.concat(x.matches);
 			console.log(`IPL ${x.year} has ${x.matches.length} matches.`);
-			break;
+			// break;
 		}
 	}
 
@@ -61,8 +61,8 @@ export default class IPL {
 		this.matches[1].consoleLog();
 
 		// dhoni and oram
-		this.findPlayerByName("dhoni").printBattingPerformances();
-		this.findPlayerByName("lee").printBowlingPerformances();
+		this.findPlayerByName("dhoni").print50s();
+		this.findPlayerByName("lee").print2Ws();
 	}
 
 	findXByName (name, obj) {
