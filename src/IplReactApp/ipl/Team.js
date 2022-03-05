@@ -17,5 +17,6 @@ export default class Team extends BaseClass {
 		this.color = jo.bg;
 		this.fgStyle = {color: this.color};
 		this.bgStyle = {backgroundColor: this.color};
+		this.bdStyle = {borderColor: this.color};
 	}
 }

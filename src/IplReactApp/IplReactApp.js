@@ -168,7 +168,7 @@ export default function IplReactApp () {
 				</div>
 			</div>}
 			<DebugInfo {...debugProps} />
-			<PreFooter {...preFooterProps} />
+			{doneFetching && <PreFooter {...preFooterProps} />}
 			<Footer />
 		</div>
 	);

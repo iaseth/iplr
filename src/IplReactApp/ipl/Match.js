@@ -13,6 +13,14 @@ export default class Match {
 		this.team_b = this.tournament.teams[jo.teams[1].team];
 		this.ground = this.tournament.grounds[jo.meta.ground];
 
+		if (jo.meta.outcome === "A") {
+			this.winner = this.team_a;
+			this.loser = this.team_b;
+		} else if (jo.meta.outcome === "B") {
+			this.winner = this.team_b;
+			this.loser = this.team_a;
+		}
+
 		this.order = jo.meta.order;
 		this.squad_a = new Squad(this, jo.teams[0], this.team_a, this.team_b);
 		this.squad_b = new Squad(this, jo.teams[1], this.team_b, this.team_a);

@@ -19,6 +19,11 @@ export default class Season extends BaseClass {
 		}
 
 		const n = this.matches.length;
+		this.opening = this.matches[0];
+		this.final = this.matches[n-1];
+		this.winner = this.final.winner;
+		this.loser = this.final.loser;
+
 		this.numberOfLeagueMatches = (n % 2 === 0) ? (n-4) : (n-3);
 		this.leagueMatches = this.matches.slice(0, this.numberOfLeagueMatches);
 		this.playoffMatches = this.matches.slice(this.numberOfLeagueMatches);

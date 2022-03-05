@@ -22,8 +22,8 @@ export function PreFooter ({
 
 	const seasonItems = ipl.seasons.map((s, i) => {
 		return (
-			<div key={i} className="Season bg-slate-900 px-5 py-3 mb-4 mr-4 rounded cursor-pointer"
-				onClick={() => goToSeason(s.year)}>
+			<div key={i} className="Season bg-slate-900 w-24 text-center px-5 py-3 mb-4 mr-4 border-2 rounded cursor-pointer"
+				onClick={() => goToSeason(s.year)} style={s.winner.bdStyle}>
 				<div className="font-bold text-base">{s.year}</div>
 			</div>
 		);
@@ -31,8 +31,8 @@ export function PreFooter ({
 
 	const teamItems = ipl.teamsArray.map((t, i) => {
 		return (
-			<div key={i} className="Team bg-slate-900 px-4 py-3 mb-4 mr-4 cursor-pointer"
-				onClick={() => goToTeam(t.id)}>
+			<div key={i} className="Team bg-slate-900 px-4 py-3 mb-4 mr-4 border-2 rounded cursor-pointer"
+				onClick={() => goToTeam(t.id)} style={t.bdStyle}>
 				<div className="font-bold text-sm">{t.fn}</div>
 			</div>
 		);
@@ -40,8 +40,8 @@ export function PreFooter ({
 
 	const groundItems = ipl.groundsArray.map((g, i) => {
 		return (
-			<div key={i} className="Ground bg-slate-900 px-3 py-2 mb-4 mr-4 cursor-pointer"
-				onClick={() => goToGround(g.id)}>
+			<div key={i} className="Ground bg-slate-900 px-3 py-2 mb-4 mr-4 border-2 cursor-pointer"
+				onClick={() => goToGround(g.id)} style={g.hometeam.bdStyle}>
 				<div className="font-bold text-sm">{g.city}</div>
 			</div>
 		);
