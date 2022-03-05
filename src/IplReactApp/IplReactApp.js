@@ -41,7 +41,7 @@ export default function IplReactApp () {
 	const [teamId, setTeamId] = React.useState(10);
 
 	const season = doneFetching ? ipl.getSeason(year) : null;
-	const match = doneFetching ? season.matches[matchIndex] : null;
+	const match = doneFetching ? ipl.matches[matchIndex] : null;
 	const ground = ipl.grounds[groundId];
 	const player = ipl.players[playerId];
 	const team = ipl.teams[teamId];
@@ -58,6 +58,14 @@ export default function IplReactApp () {
 			});
 	}, []);
 
+	React.useEffect(() => {
+		document.addEventListener('keydown', handleKeyDown, false);
+
+		return function cleanUp () {
+			document.removeEventListener('keydown', handleKeyDown, false);
+		}
+	}, [handleKeyDown]);
+
 	const goToSeason = x => {setPageType(PAGE_TYPES.SEASON); setYear(x);};
 	const goToMatch = x => {setPageType(PAGE_TYPES.MATCH); setMatchIndex(x);};
 	const goToGround = x => {setPageType(PAGE_TYPES.GROUND); setGroundId(x);};
@@ -72,7 +80,7 @@ export default function IplReactApp () {
 		if (pageType === PAGE_TYPES.MATCH) {
 			let x = matchIndex + j;
 			console.log(x);
-			if (x >= 0 && x < season.matches.length) setMatchIndex(x);
+			if (x >= 0 && x < ipl.matches.length) setMatchIndex(x);
 		}
 	}
 
@@ -137,7 +145,7 @@ export default function IplReactApp () {
 	};
 
 	return (
-		<div className="IplReactApp select-none" tabIndex="0" onKeyDown={handleKeyDown}>
+		<div className="IplReactApp select-none">
 			<Header />
 			{!doneFetching && <Splash />}
 			{doneFetching && <div className="min-h-screen">
