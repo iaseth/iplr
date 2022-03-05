@@ -8,8 +8,9 @@ export default class Match {
 		this.season = season;
 		this.tournament = season.tournament;
 		this.jo = jo;
-		this.team_a = this.tournament.teams[jo.teams[0].id];
-		this.team_b = this.tournament.teams[jo.teams[1].id];
+		this.team_a = this.tournament.teams[jo.teams[0].team];
+		this.team_b = this.tournament.teams[jo.teams[1].team];
+		this.ground = this.tournament.grounds[jo.meta.ground];
 
 		this.order = jo.meta.order;
 		this.squad_a = new Squad(this, jo.teams[0], this.team_a, this.team_b);

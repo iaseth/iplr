@@ -1,6 +1,10 @@
+import BaseClass from './BaseClass';
 
-export default class Player {
+
+
+export default class Player extends BaseClass {
 	constructor (tournament, jo) {
+		super();
 		this.tournament = tournament;
 		this.jo = jo;
 		this.id = jo.id;
