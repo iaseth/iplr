@@ -21,7 +21,7 @@ export function PreFooter ({
 	const seasonItems = ipl.seasons.map((s, i) => {
 		return (
 			<div key={i} className="Season bg-slate-900 px-4 py-3 mb-4 mr-4 cursor-pointer"
-				onClick={() => {setPageType(PAGE_TYPES.SEASON);}}>
+				onClick={() => {setPageType(PAGE_TYPES.SEASON); setYear(s.year);}}>
 				<div className="font-bold text-sm">IPL {s.year}</div>
 			</div>
 		);
@@ -30,7 +30,7 @@ export function PreFooter ({
 	const teamItems = ipl.teamsArray.map((t, i) => {
 		return (
 			<div key={i} className="Team bg-slate-900 px-4 py-3 mb-4 mr-4 cursor-pointer"
-				onClick={() => {setPageType(PAGE_TYPES.TEAM);}}>
+				onClick={() => {setPageType(PAGE_TYPES.TEAM); setTeamId(t.id);}}>
 				<div className="font-bold text-sm">{t.fn}</div>
 			</div>
 		);
@@ -39,7 +39,7 @@ export function PreFooter ({
 	const groundItems = ipl.groundsArray.map((g, i) => {
 		return (
 			<div key={i} className="Ground bg-slate-900 px-3 py-2 mb-4 mr-4 cursor-pointer"
-				onClick={() => {setPageType(PAGE_TYPES.GROUND);}}>
+				onClick={() => {setPageType(PAGE_TYPES.GROUND); setGroundId(g.id);}}>
 				<div className="font-bold text-sm">{g.city}</div>
 			</div>
 		);
