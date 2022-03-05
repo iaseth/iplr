@@ -4,6 +4,7 @@ import IPL from './ipl';
 
 import {Header} from './Header';
 import {Splash} from './Splash';
+import {DebugInfo} from './DebugInfo';
 import {PreFooter} from './PreFooter';
 import {Footer} from './Footer';
 
@@ -60,6 +61,7 @@ export default function IplReactApp () {
 				<div className="m-auto text-white text-4xl lg:text-8xl font-bold">Cricdocs IPL R</div>
 				<Match />
 			</div>}
+			<DebugInfo {...{ipl}} />
 			<PreFooter {...{ipl}} />
 			<Footer />
 		</div>
