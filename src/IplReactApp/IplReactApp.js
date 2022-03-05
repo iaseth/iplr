@@ -58,6 +58,16 @@ export default function IplReactApp () {
 			});
 	}, []);
 
+	const goToSeason = x => {setPageType(PAGE_TYPES.SEASON); setYear(x);};
+	const goToMatch = x => {setPageType(PAGE_TYPES.MATCH); setMatchIndex(x);};
+	const goToGround = x => {setPageType(PAGE_TYPES.GROUND); setGroundId(x);};
+	const goToPlayer = x => {setPageType(PAGE_TYPES.PLAYER); setPlayerId(x);};
+	const goToTeam = x => {setPageType(PAGE_TYPES.TEAM); setTeamId(x);};
+	const goToFuncs = {
+		goToSeason, goToMatch,
+		goToGround, goToPlayer, goToTeam
+	};
+
 	function jumpPage (j) {
 		if (pageType === PAGE_TYPES.MATCH) {
 			let x = matchIndex + j;
@@ -80,6 +90,7 @@ export default function IplReactApp () {
 
 	function getCurrentPage () {
 		const commonProps = {
+			...goToFuncs,
 			PAGE_TYPES, setPageType,
 			setYear, setMatchIndex,
 			setGroundId, setPlayerId, setTeamId
@@ -121,7 +132,8 @@ export default function IplReactApp () {
 		pageType, setPageType,
 		year, setYear,
 		groundId, setGroundId,
-		teamId, setTeamId
+		teamId, setTeamId,
+		...goToFuncs
 	};
 
 	return (

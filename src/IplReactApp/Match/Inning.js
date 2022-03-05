@@ -37,7 +37,7 @@ export default function Inning ({inning}) {
 	});
 
 	return (
-		<div className="Inning text-slate-800 font-bold grow">
+		<div className="Inning text-slate-800 font-bold lg:w-1/2">
 			<div className="sm:flex px-4 py-8">
 				<div className="grow">
 					<div className="text-7xl">{inning.team.abb}</div>
