@@ -20,6 +20,7 @@ export default function IplReactApp () {
 	const [player, setPlayer] = React.useState(null);
 
 	React.useEffect(function () {
+		// return;
 		fetch("data/bundle.json")
 			.then(response => response.text())
 			.then(text => JSON.parse(text))
@@ -28,7 +29,7 @@ export default function IplReactApp () {
 				ipl.doStuff();
 				setTimeout(() => setDoneFetching(true), 5000);
 			});
-	});
+	}, []);
 
 	return (
 		<div className="IplReactApp">
