@@ -8,7 +8,12 @@ import {DebugInfo} from './DebugInfo';
 import {PreFooter} from './PreFooter';
 import {Footer} from './Footer';
 
+import {Season} from './Season';
 import {Match} from './Match';
+import {Ground} from './Ground';
+import {Player} from './Player';
+import {Rivalry} from './Rivalry';
+import {Team} from './Team';
 
 const codes = require('../codes.json');
 const ipl = new IPL(codes);
@@ -53,16 +58,47 @@ export default function IplReactApp () {
 			});
 	}, []);
 
+	function getCurrentPage () {
+		const commonProps = {};
+
+		switch (pageType) {
+			case PAGE_TYPES.TOURNAMENT:
+			case PAGE_TYPES.SEASON:
+				return <Season {...commonProps} />;
+			case PAGE_TYPES.MATCH:
+				return <Match {...commonProps} />;
+			case PAGE_TYPES.GROUND:
+				return <Ground {...commonProps} />;
+			case PAGE_TYPES.PLAYER:
+				return <Player {...commonProps} />;
+			case PAGE_TYPES.RIVALRY:
+				return <Rivalry {...commonProps} />;
+			case PAGE_TYPES.TEAM:
+				return <Team {...commonProps} />;
+			default:
+				return <Match {...commonProps} />;
+		}
+	}
+
+	const preFooterProps = {
+		ipl,
+		pageType, setPageType,
+		year, setYear,
+		groundId, setGroundId,
+		teamId, setTeamId
+	};
+
 	return (
 		<div className="IplReactApp">
 			<Header />
 			{!doneFetching && <Splash />}
-			{doneFetching && <div className="bg-red-600 min-h-screen flex flex-col">
-				<div className="m-auto text-white text-4xl lg:text-8xl font-bold">Cricdocs IPL R</div>
-				<Match />
+			{doneFetching && <div className="bg-red-600 min-h-screen">
+				<div className="max-w-5xl mx-auto px-4">
+					{getCurrentPage()}
+				</div>
 			</div>}
 			<DebugInfo {...{ipl}} />
-			<PreFooter {...{ipl}} />
+			<PreFooter {...preFooterProps} />
 			<Footer />
 		</div>
 	);

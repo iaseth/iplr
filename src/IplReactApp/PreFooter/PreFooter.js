@@ -11,7 +11,11 @@ function PreFooterHeading ({children}) {
 }
 
 export function PreFooter ({
-	ipl
+	ipl,
+	pageType, setPageType,
+	year, setYear,
+	groundId, setGroundId,
+	teamId, setTeamId
 }) {
 
 	const seasonItems = ipl.seasons.map((s, i) => {
