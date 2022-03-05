@@ -59,24 +59,35 @@ export default function IplReactApp () {
 	}, []);
 
 	function getCurrentPage () {
-		const commonProps = {};
+		const commonProps = {
+			PAGE_TYPES, setPageType,
+			setYear, setMatchIndex,
+			setGroundId, setPlayerId, setTeamId
+		};
+		let props = {...commonProps};
 
 		switch (pageType) {
 			case PAGE_TYPES.TOURNAMENT:
 			case PAGE_TYPES.SEASON:
-				return <Season {...commonProps} />;
+				props.season = season;
+				return <Season {...props} />;
 			case PAGE_TYPES.MATCH:
-				return <Match {...commonProps} />;
+				props.match = match;
+				return <Match {...props} />;
 			case PAGE_TYPES.GROUND:
-				return <Ground {...commonProps} />;
+				props.ground = ground;
+				return <Ground {...props} />;
 			case PAGE_TYPES.PLAYER:
-				return <Player {...commonProps} />;
+				props.player = player;
+				return <Player {...props} />;
 			case PAGE_TYPES.RIVALRY:
-				return <Rivalry {...commonProps} />;
+				props.season = season;
+				return <Rivalry {...props} />;
 			case PAGE_TYPES.TEAM:
-				return <Team {...commonProps} />;
+				props.team = team;
+				return <Team {...props} />;
 			default:
-				return <Match {...commonProps} />;
+				return <Match {...props} />;
 		}
 	}
 

@@ -6,7 +6,7 @@ export function DebugInfo (props) {
 	const items = [...Object.keys(props)].map((v, i) => {
 		const prop = props[v];
 		return (
-			<div className="flex font-bold text-sm mb-1 max-w-md">
+			<div key={i} className="flex font-bold text-sm mb-1 max-w-md">
 				<div className="w-32 px-3 py-2 mr-1 bg-slate-900">{v}</div>
 				<div className="px-3 py-2 bg-slate-900 grow">
 					<span className="text-orange-500">{prop}</span>
