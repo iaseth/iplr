@@ -54,8 +54,16 @@ export default class IPL {
 		this.matches[1].consoleLog();
 
 		// dhoni and oram
-		this.players["1036"].printBattingPerformances();
-		this.players["1038"].printBowlingPerformances();
+		this.findPlayerByName("dhoni").printBattingPerformances();
+		this.findPlayerByName("lee").printBowlingPerformances();
+	}
+
+	findPlayerByName (name) {
+		for (let id in this.players) {
+			let player = this.players[id];
+			if (player.fn.toLowerCase().search(name) !== -1) return player;
+		}
+		return null;
 	}
 
 	printStatus () {
