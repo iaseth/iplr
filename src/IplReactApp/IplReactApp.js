@@ -33,7 +33,7 @@ const PAGE_TYPES = {
 export default function IplReactApp () {
 	const [doneFetching, setDoneFetching] = React.useState(false);
 
-	const [pageType, setPageType] = React.useState(PAGE_TYPES.TOURNAMENT);
+	const [pageType, setPageType] = React.useState(PAGE_TYPES.MATCH);
 	const [year, setYear] = React.useState("2008");
 	const [matchIndex, setMatchIndex] = React.useState(58);
 	const [groundId, setGroundId] = React.useState(100);
@@ -108,8 +108,8 @@ export default function IplReactApp () {
 		<div className="IplReactApp">
 			<Header />
 			{!doneFetching && <Splash />}
-			{doneFetching && <div className="bg-red-600 min-h-screen">
-				<div className="max-w-5xl mx-auto px-4">
+			{doneFetching && <div className="min-h-screen">
+				<div className="max-w-5xl mx-auto">
 					{getCurrentPage()}
 				</div>
 			</div>}
