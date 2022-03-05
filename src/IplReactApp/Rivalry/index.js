@@ -1,0 +1,2 @@
+
+export {Rivalry} from './Rivalry';
