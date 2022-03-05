@@ -1,0 +1,2 @@
+
+export {Splash} from './Splash';

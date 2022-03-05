@@ -1,8 +1,8 @@
-import {RainbowBorder} from './Utils';
+import {RainbowBorder} from '../Utils';
 
 
 
-export default function PreFooter () {
+export function PreFooter () {
 
 	return (
 		<div className="PreFooter bg-slate-700 text-white">

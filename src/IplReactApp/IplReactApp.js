@@ -2,10 +2,10 @@ import React from 'react';
 
 import IPL from './ipl';
 
-import Header from './Header';
-import Splash from './Splash';
-import PreFooter from './PreFooter';
-import Footer from './Footer';
+import {Header} from './Header';
+import {Splash} from './Splash';
+import {PreFooter} from './PreFooter';
+import {Footer} from './Footer';
 
 import {Match} from './Match';
 

@@ -1,8 +1,8 @@
-import {RainbowBorder} from './Utils';
+import {RainbowBorder} from '../Utils';
 
 
 
-export default function Header () {
+export function Header () {
 
 	return (
 		<div className="Header bg-slate-800 text-white">

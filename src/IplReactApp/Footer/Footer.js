@@ -1,8 +1,8 @@
-import {EA, RainbowBorder} from './Utils';
+import {EA, RainbowBorder} from '../Utils';
 
 
 
-export default function Footer () {
+export function Footer () {
 
 	return (
 		<div className="Footer bg-slate-900 text-white">

@@ -2,7 +2,7 @@ import React from 'react';
 
 
 
-export default function Splash () {
+export function Splash () {
 	const [currentDot, setCurrentDot] = React.useState(0);
 
 	React.useEffect(function () {
