@@ -6,5 +6,6 @@ export default class Ground {
 		this.id = jo.id;
 		this.fn = jo.fn;
 		this.sn = jo.sn;
+		this.city = jo.city;
 	}
 }

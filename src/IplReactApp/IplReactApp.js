@@ -60,7 +60,7 @@ export default function IplReactApp () {
 				<div className="m-auto text-white text-4xl lg:text-8xl font-bold">Cricdocs IPL R</div>
 				<Match />
 			</div>}
-			<PreFooter />
+			<PreFooter {...{ipl}} />
 			<Footer />
 		</div>
 	);

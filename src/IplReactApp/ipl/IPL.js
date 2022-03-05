@@ -32,12 +32,13 @@ export default class IPL {
 			this.players[k] = x;
 			this.playersArray.push(x);
 		}
+
+		this.matches = [];
+		this.seasons = [];
 	}
 
 	loadBundle (json) {
 		this.bundle = json;
-		this.matches = [];
-		this.seasons = [];
 		for (let season of json.seasons) {
 			let x = new Season(this, season);
 			this.seasons.push(x);
