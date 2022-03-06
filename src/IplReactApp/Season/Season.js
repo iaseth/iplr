@@ -25,14 +25,14 @@ export function Season ({
 	};
 
 	return (
-		<div className="Season px-4 py-12">
-			<div className="flex flex-wrap">
+		<div className="Season px-4 sm:px-0 py-12">
+			<div className="sm:flex flex-wrap">
 				{playoffItems}
 			</div>
 			<div className="flex flex-wrap py-8">
 				<PointsTable {...pointsTableProps} />
 			</div>
-			<div className="flex flex-wrap py-12">
+			<div className="sm:flex flex-wrap py-12">
 				{leagueItems}
 			</div>
 		</div>

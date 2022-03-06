@@ -159,7 +159,7 @@ export default function IplReactApp () {
 	};
 
 	return (
-		<div className="IplReactApp select-none">
+		<div className="IplReactApp">
 			<Header />
 			{!doneFetching && <Splash />}
 			{doneFetching && <div className="min-h-screen bg-slate-800">

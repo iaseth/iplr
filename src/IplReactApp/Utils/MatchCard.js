@@ -5,14 +5,14 @@ function InningBox ({inning}) {
 	return (
 		<div className="grow text-center font-bold">
 			<div className="text-2xl" style={inning.team.fgStyle}>{inning.team.abb}</div>
-			<div className="text-2xl py-2">
+			<div className="text-xl py-2">
 				<span className="text-5xl">{inning.runs}</span>
 				<span className="px-1 text-slate-500">/</span>
 				<span className="text-slate-500">{inning.wkts}</span>
 			</div>
-			<div className="text-2xl">
-				<span className="text-xl text-slate-200 mr-1">{inning.overs}</span>
-				<span className="text-base text-slate-500">overs</span>
+			<div className="text-base">
+				<span className="text-slate-200 mr-1">{inning.overs}</span>
+				<span className="text-slate-500">overs</span>
 			</div>
 		</div>
 	);
@@ -26,7 +26,8 @@ export function MatchCard ({match, goToMatch}) {
 				<div className="px-3 py-1 bg-slate-900">{match.season.year}</div>
 				<div className="px-3 py-1 bg-slate-900">#{match.seasonIndex + 1}</div>
 			</div>
-			<div className="mr-4 mb-4 px-4 py-5 w-80 bg-slate-900 text-white border border-slate-600 cursor-pointer" onClick={() => goToMatch(match.index)}>
+			<div className="sm:mr-4 mb-6 px-4 py-5 sm:w-80 bg-slate-900 text-slate-100 border-2 border-slate-600 cursor-pointer"
+				onClick={() => goToMatch(match.index)} style={match.bdStyle}>
 				<div className="flex">
 					<InningBox inning={match.firstInning} />
 					<InningBox inning={match.secondInning} />
