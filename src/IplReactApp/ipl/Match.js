@@ -7,6 +7,7 @@ export default class Match {
 	constructor (season, jo) {
 		this.season = season;
 		this.tournament = season.tournament;
+		this.seasonIndex = season.matches.length;
 		this.playoff = false;
 		this.jo = jo;
 		this.team_a = this.tournament.teams[jo.teams[0].team];
