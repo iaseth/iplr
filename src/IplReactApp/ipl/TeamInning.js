@@ -10,6 +10,8 @@ import {getBalls} from './Utils';
 export default class TeamInning {
 	constructor (squad, jo) {
 		this.squad = squad;
+		this.captain = squad.captain;
+		this.wk = squad.wk;
 		this.match = squad.match;
 		this.tournament = squad.tournament;
 		this.team = squad.team;

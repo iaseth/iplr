@@ -1,60 +1,67 @@
 
 
 
+function PlayerRow ({b, goToPlayer, children}) {
+	return (
+		<div className="border-b lg:border-x border-slate-400 px-2 py-3 flex items-center">
+			<div className="grow space-x-1">
+				{b.isCaptain() && <span style={b.for.fgStyle}>c</span>}
+				<span className="py-1 cursor-pointer text-sm border-b-2" style={b.for.bdStyle} onClick={() => goToPlayer(b.player.id)}>{b.player.fn}</span>
+				{b.isWk() && <span style={b.for.fgStyle}>k</span>}
+			</div>
+			{children}
+		</div>
+	);
+}
+
 export default function Inning ({
 	inning, goToPlayer, goToTeam
 }) {
 
 	const batsmen = inning.batsmen.map((b, i) => {
 		return (
-			<div key={i} className="border-b lg:border-x border-slate-400 px-2 py-2 flex items-end">
-				<div className="grow">
-					<span className="cursor-pointer" style={inning.team.fgStyle} onClick={() => goToPlayer(b.player.id)}>{b.player.fn}</span>
-				</div>
+			<PlayerRow key={i} {...{b, goToPlayer}}>
 				<div>
 					<span className="text-xl">{b.runsString()}</span>
-					<span className="text-slate-600 px-2">{b.balls}</span>
+					<span className="text-slate-500 px-2">{b.balls}</span>
 				</div>
-			</div>
+			</PlayerRow>
 		);
 	});
 
 	const bowlers = inning.bowlers.map((b, i) => {
 		return (
-			<div key={i} className="bg-slate-50 border-b lg:border-x border-slate-400 px-2 py-2 flex items-end">
-				<div className="grow">
-					<span className="cursor-pointer" style={inning.opposition.fgStyle} onClick={() => goToPlayer(b.player.id)}>{b.player.fn}</span>
-				</div>
-				<div className="text-slate-600">
+			<PlayerRow key={i} {...{b, goToPlayer}}>
+				<div className="text-slate-500">
 					<span>{b.overs}</span>
 					<span className="px-2">-</span>
 					<span>{b.maidens}</span>
 					<span className="px-2">-</span>
 					<span>{b.runs}</span>
 					<span className="px-2">-</span>
-					<span className="text-xl text-slate-800">{b.wickets}</span>
+					<span className="text-xl text-slate-200">{b.wickets}</span>
 				</div>
-			</div>
+			</PlayerRow>
 		);
 	});
 
 	return (
-		<div className="Inning text-slate-800 font-bold lg:w-1/2">
-			<div className="sm:flex px-4 py-8">
-				<div className="grow">
+		<div className="Inning text-white font-bold lg:w-1/2">
+			<div className="sm:flex px-4 py-4">
+				<div className="grow py-4">
 					<div className="text-7xl text-white">
 						<span className="px-4 pb-1 rounded cursor-pointer" onClick={() => goToTeam(inning.team.id)} style={inning.match.playoff ? inning.team.bgStyle : inning.team.fgStyle}>{inning.team.abb}</span>
 					</div>
 				</div>
-				<div className="px-4">
+				<div className="px-4 py-4">
 					<div className="text-5xl pb-2">
 						<span className="text-7xl">{inning.runs}</span>
-						<span className="mx-3 text-slate-600">/</span>
-						<span className="text-slate-600">{inning.wkts}</span>
+						<span className="mx-3 text-slate-400">/</span>
+						<span className="text-slate-400">{inning.wkts}</span>
 					</div>
 					<div className="text-4xl">
 						<span>{inning.overs}</span>
-						<span className="text-2xl text-slate-600 ml-2">overs</span>
+						<span className="text-2xl text-slate-400 ml-2">overs</span>
 					</div>
 				</div>
 			</div>

@@ -20,8 +20,8 @@ function PreFooterHeading ({children}) {
 
 function PreFooterButton ({onClick, team, children}) {
 	return (
-		<div className="Season bg-slate-900 px-4 py-2 mb-4 mr-4 border-2 rounded cursor-pointer duration-300 hover:bg-slate-800"
-				onClick={onClick} style={team.bdStyle}>
+		<div className="Season bg-slate-900 px-4 py-2 mb-4 mr-4 border-2 rounded cursor-pointer duration-300 outline-none hover:bg-slate-700 focus:bg-slate-700"
+				onClick={onClick} style={team.bdStyle} tabIndex="0">
 			{children}
 		</div>
 	);
@@ -62,7 +62,7 @@ export function PreFooter ({
 	});
 
 	return (
-		<div className="PreFooter bg-slate-700 text-slate-200">
+		<div className="PreFooter bg-slate-800 text-slate-200">
 			<RainbowBorder />
 			<div className="max-w-5xl m-auto px-4 py-24">
 				<PreFooterSection>

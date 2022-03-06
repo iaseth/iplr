@@ -162,7 +162,7 @@ export default function IplReactApp () {
 		<div className="IplReactApp select-none">
 			<Header />
 			{!doneFetching && <Splash />}
-			{doneFetching && <div className="min-h-screen">
+			{doneFetching && <div className="min-h-screen bg-slate-800">
 				<div className="max-w-5xl mx-auto">
 					{getCurrentPage()}
 				</div>

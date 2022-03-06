@@ -24,6 +24,8 @@ export default class Match {
 		this.order = jo.meta.order;
 		this.squad_a = new Squad(this, jo.teams[0], this.team_a, this.team_b);
 		this.squad_b = new Squad(this, jo.teams[1], this.team_b, this.team_a);
+		this.squad_a.opposition_squad = this.squad_b;
+		this.squad_b.opposition_squad = this.squad_a;
 
 		if (this.order[0] === 0) {
 			this.inning_a = new TeamInning(this.squad_a, jo.innings[0]);
