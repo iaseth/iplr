@@ -2,9 +2,11 @@ import React from 'react';
 
 import IPL from './ipl';
 
+import {RainbowBorder} from './Utils';
 import {Header} from './Header';
 import {Splash} from './Splash';
 import {DebugInfo} from './DebugInfo';
+import {Settings} from './Settings';
 import {PreFooter} from './PreFooter';
 import {Footer} from './Footer';
 
@@ -149,6 +151,8 @@ export default function IplReactApp () {
 		groundId, playerId, teamId
 	};
 
+	const settingsProps = {};
+
 	const preFooterProps = {
 		ipl, PAGE_TYPES,
 		pageType, setPageType,
@@ -168,6 +172,8 @@ export default function IplReactApp () {
 				</div>
 			</div>}
 			<DebugInfo {...debugProps} />
+			<Settings {...settingsProps} />
+			<RainbowBorder />
 			{doneFetching && <PreFooter {...preFooterProps} />}
 			<Footer />
 		</div>

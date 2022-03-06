@@ -1,4 +1,3 @@
-import {RainbowBorder} from '../Utils';
 
 
 
@@ -63,7 +62,6 @@ export function PreFooter ({
 
 	return (
 		<div className="PreFooter bg-slate-800 text-slate-200 select-none">
-			<RainbowBorder />
 			<div className="max-w-5xl m-auto px-4 py-24">
 				<PreFooterSection>
 					<PreFooterHeading>Seasons</PreFooterHeading>

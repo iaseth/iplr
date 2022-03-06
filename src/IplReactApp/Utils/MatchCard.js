@@ -26,7 +26,7 @@ export function MatchCard ({match, goToMatch}) {
 				<div className="px-3 py-1 bg-slate-900">{match.season.year}</div>
 				<div className="px-3 py-1 bg-slate-900">#{match.seasonIndex + 1}</div>
 			</div>
-			<div className="sm:mr-4 mb-6 px-4 py-5 sm:w-80 bg-slate-900 text-slate-100 border-2 border-slate-600 cursor-pointer"
+			<div className="sm:mr-4 mb-12 px-4 py-5 sm:w-80 bg-slate-900 text-slate-100 border-2 border-slate-600 rounded cursor-pointer hover:bg-slate-800"
 				onClick={() => goToMatch(match.index)} style={match.bdStyle}>
 				<div className="flex">
 					<InningBox inning={match.firstInning} />

@@ -1,4 +1,3 @@
-import {RainbowBorder} from '../Utils';
 
 
 
@@ -18,7 +17,6 @@ export function DebugInfo (props) {
 
 	return (
 		<div className="DebugInfo bg-slate-900 text-white">
-			<RainbowBorder />
 			<div className="max-w-5xl m-auto px-4 py-20">
 				<div>
 					<div className="text-xl font-bold pl-2">DebugInfo</div>
