@@ -1,4 +1,5 @@
 import {MatchCard} from '../Utils';
+import PointsTable from './PointsTable';
 
 
 
@@ -19,10 +20,17 @@ export function Season ({
 		return <MatchCard key={i} {...{match, goToMatch}} />;
 	});
 
+	const pointsTableProps = {
+		season
+	};
+
 	return (
-		<div className="Season py-12">
+		<div className="Season px-4 py-12">
 			<div className="flex flex-wrap">
 				{playoffItems}
+			</div>
+			<div className="flex flex-wrap">
+				<PointsTable {...pointsTableProps} />
 			</div>
 			<div className="flex flex-wrap py-12">
 				{leagueItems}

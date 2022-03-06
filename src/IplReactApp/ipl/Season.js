@@ -1,5 +1,6 @@
 import BaseClass from './BaseClass';
 import Match from './Match';
+import PointsTable from './PointsTable';
 
 
 
@@ -28,5 +29,6 @@ export default class Season extends BaseClass {
 		this.leagueMatches = this.matches.slice(0, this.numberOfLeagueMatches);
 		this.playoffMatches = this.matches.slice(this.numberOfLeagueMatches);
 		this.playoffMatches.forEach((x) => x.playoff = true);
+		this.pointsTable = new PointsTable(this);
 	}
 }

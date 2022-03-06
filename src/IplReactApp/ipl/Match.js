@@ -14,6 +14,8 @@ export default class Match {
 		this.team_b = this.tournament.teams[jo.teams[1].team];
 		this.ground = this.tournament.grounds[jo.meta.ground];
 
+		this.winner = null;
+		this.loser = null;
 		if (jo.meta.outcome === "A") {
 			this.winner = this.team_a;
 			this.loser = this.team_b;
