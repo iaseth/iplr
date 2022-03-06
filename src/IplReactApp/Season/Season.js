@@ -29,7 +29,7 @@ export function Season ({
 			<div className="flex flex-wrap">
 				{playoffItems}
 			</div>
-			<div className="flex flex-wrap">
+			<div className="flex flex-wrap py-8">
 				<PointsTable {...pointsTableProps} />
 			</div>
 			<div className="flex flex-wrap py-12">

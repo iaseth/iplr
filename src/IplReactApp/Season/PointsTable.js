@@ -1,12 +1,13 @@
+import React from 'react';
 
 
 
 export default function PointsTable ({season}) {
 	const teamRows = season.pointsTable.teams.map((team, i) => {
 		return (
-			<>
+			<React.Fragment key={i}>
 				{(i === 2 || i === 4) && <div className="h-1"></div>}
-				<div key={i} className="Row flex items-center bg-slate-900 px-3 py-3 space-x-4">
+				<div className="Row flex items-center bg-slate-900 px-3 py-3 space-x-4">
 					<div className="w-1/2">
 						<span className="py-1 border-b-2" style={team.team.bdStyle}>{team.team.fn}</span>
 					</div>
@@ -20,7 +21,7 @@ export default function PointsTable ({season}) {
 					</div>
 					<div>{team.getNetRunRate()}</div>
 				</div>
-			</>
+			</React.Fragment>
 		);
 	});
 

@@ -72,13 +72,13 @@ export default class PointsTable {
 
 					if (forInning) {
 						team.for_runs += forInning.runs;
-						team.for_balls += forInning.balls;
+						team.for_balls += forInning.allout ? 120 : forInning.balls;
 						team.for_wickets += forInning.wkts;
 					}
 
 					if (vsInning) {
 						team.vs_runs += vsInning.runs;
-						team.vs_balls += vsInning.balls;
+						team.vs_balls += vsInning.allout ? 120 : vsInning.balls;
 						team.vs_wickets += vsInning.wkts;
 					}
 				}

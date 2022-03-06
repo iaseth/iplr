@@ -26,6 +26,7 @@ export default class TeamInning {
 		this.overs = jo.overs;
 		this.balls = getBalls(jo.overs);
 		this.wkts = jo.wickets.length;
+		this.allout = this.wkts === 10;
 
 		for (let bj of jo.batting) {
 			let x = new BatsmanInning(this, bj);
