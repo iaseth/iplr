@@ -1,3 +1,5 @@
+import React from 'react';
+
 import Inning from './Inning';
 
 
@@ -11,7 +13,9 @@ export function Match ({
 	match
 }) {
 
-	setTitleSuffix(`${match.year} | M${match.seasonIndex+1}`);
+	React.useEffect(function () {
+		setTitleSuffix(`${match.year} | M${match.seasonIndex+1}`);
+	});
 
 	return (
 		<div className="Match pb-12">
