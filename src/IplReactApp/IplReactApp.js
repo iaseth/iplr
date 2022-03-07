@@ -33,7 +33,11 @@ const PAGE_TYPES = {
 
 
 export default function IplReactApp () {
+	// doneFetching is set to true once bundle.json loads and stay true after that
 	const [doneFetching, setDoneFetching] = React.useState(false);
+
+	// document title is set to "IPLR | titleSuffix"
+	const [titleSuffix, setTitleSuffix] = React.useState("Home");
 
 	const [pageType, setPageType] = React.useState(PAGE_TYPES.MATCH);
 	const [year, setYear] = React.useState(2008);
@@ -77,6 +81,10 @@ export default function IplReactApp () {
 			document.removeEventListener('keydown', handleKeyDown, false);
 		}
 	});
+
+	React.useEffect(function () {
+		document.title = "IPLR | " + titleSuffix;
+	}, [titleSuffix]);
 
 	const scrollToTop = () => window.scrollTo({ top: 0 });
 
