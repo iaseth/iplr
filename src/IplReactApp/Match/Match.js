@@ -3,13 +3,15 @@ import Inning from './Inning';
 
 
 export function Match ({
-	goToSeason, goToMatch,
+	setTitleSuffix, goToSeason, goToMatch,
 	goToGround, goToPlayer, goToTeam,
 	PAGE_TYPES, setPageType,
 	setYear, setMatchIndex,
 	setGroundId, setPlayerId, setTeamId,
 	match
 }) {
+
+	setTitleSuffix(`${match.year} | M${match.seasonIndex+1}`);
 
 	return (
 		<div className="Match pb-12">

@@ -4,13 +4,15 @@ import PointsTable from './PointsTable';
 
 
 export function Season ({
-	goToSeason, goToMatch,
+	setTitleSuffix, goToSeason, goToMatch,
 	goToGround, goToPlayer, goToTeam,
 	PAGE_TYPES, setPageType,
 	setYear, setMatchIndex,
 	setGroundId, setPlayerId, setTeamId,
 	season
 }) {
+
+	setTitleSuffix(`${season.year}`);
 
 	const playoffItems = [...season.playoffMatches].reverse().map((match, i) => {
 		return <MatchCard key={i} {...{match, goToMatch}} />;

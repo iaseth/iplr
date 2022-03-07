@@ -6,6 +6,7 @@ import TeamInning from './TeamInning';
 export default class Match {
 	constructor (season, jo) {
 		this.season = season;
+		this.year = season.year;
 		this.tournament = season.tournament;
 		this.seasonIndex = season.matches.length;
 		this.playoff = false;

@@ -122,7 +122,7 @@ export default function IplReactApp () {
 
 	function getCurrentPage () {
 		const commonProps = {
-			...goToFuncs,
+			setTitleSuffix, ...goToFuncs,
 			PAGE_TYPES, setPageType,
 			setYear, setMatchIndex,
 			setGroundId, setPlayerId, setTeamId
