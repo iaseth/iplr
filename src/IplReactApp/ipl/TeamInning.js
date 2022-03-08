@@ -34,6 +34,18 @@ export default class TeamInning {
 			this.batsmen.push(x);
 		}
 
+		this.squad.members.forEach(member => {
+			for (let batsman of this.batsmen) {
+				if (batsman.player.id === member.id) return;
+			}
+			let x = new BatsmanInning(this, {
+				id: member.id,
+				dnb: true
+			});
+			x.player.batting_performances.push(x);
+			this.batsmen.push(x);
+		});
+
 		for (let bj of jo.bowling) {
 			let x = new BowlerInning(this, bj);
 			x.player.bowling_performances.push(x);

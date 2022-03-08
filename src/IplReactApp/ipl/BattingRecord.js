@@ -25,6 +25,7 @@ export default class BattingRecord {
 	addInnings () {
 		this.performances.filter(this.filter).forEach(performance => {
 			this.mats++;
+			if (performance.dnb) return;
 			this.inns++;
 			this.runs += performance.runs;
 			this.balls += performance.balls;

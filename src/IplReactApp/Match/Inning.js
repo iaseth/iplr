@@ -19,6 +19,8 @@ export default function Inning ({
 }) {
 
 	const batsmen = inning.batsmen.map((b, i) => {
+		if (b.dnb) return <PlayerRow key={i} {...{b, goToPlayer}}></PlayerRow>;
+
 		return (
 			<PlayerRow key={i} {...{b, goToPlayer}}>
 				<div>

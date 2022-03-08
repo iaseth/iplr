@@ -38,6 +38,8 @@ export default class Ground extends BaseClass {
 		}
 
 		this.teams.sort((a, b) => (b.count - a.count));
-		this.hometeam = this.teams[0].team;
+
+		// default value is used when only one season is initialized
+		this.hometeam = this.teams[0] ? this.teams[0].team : this.tournament.teamsArray[0];
 	}
 }
