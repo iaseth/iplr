@@ -1,3 +1,5 @@
+import React from 'react';
+
 import {MatchCard} from '../Utils';
 import PointsTable from './PointsTable';
 
@@ -12,7 +14,9 @@ export function Season ({
 	season
 }) {
 
-	setTitleSuffix(`${season.year}`);
+	React.useEffect(function () {
+		setTitleSuffix(`${season.year}`);
+	}, [setTitleSuffix, season]);
 
 	const playoffItems = [...season.playoffMatches].reverse().map((match, i) => {
 		return <MatchCard key={i} {...{match, goToMatch}} />;

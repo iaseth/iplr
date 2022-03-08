@@ -19,7 +19,8 @@ export function Player ({
 				<td>{record.mats}</td>
 				<td>{record.inns}</td>
 				<td>{record.runs}</td>
-				<td>{record.balls}</td>
+				<td>{record.getAvgF()}</td>
+				<td>{record.getSRF()}</td>
 				<td>{record.n4}</td>
 				<td>{record.n6}</td>
 				<td>{record.n50}</td>
@@ -37,6 +38,21 @@ export function Player ({
 			</div>
 			<div>
 				<table className="iplr-table">
+					<thead>
+						<tr>
+							<td>Year</td>
+							<td>M</td>
+							<td>I</td>
+							<td>Runs</td>
+							<td>Avg</td>
+							<td>SR</td>
+							<td>4s</td>
+							<td>6s</td>
+							<td>50s</td>
+							<td>100s</td>
+							<td>HS</td>
+						</tr>
+					</thead>
 					<tbody>
 						{seasonItems}
 					</tbody>

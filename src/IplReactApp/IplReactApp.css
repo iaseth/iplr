@@ -1,13 +1,21 @@
 
 table.iplr-table {
-	@apply font-bold w-full;
+	@apply font-bold w-full max-w-3xl mx-auto;
 }
 
-table.iplr-table tr:nth-child(odd) {
+table.iplr-table > thead > tr {
+	@apply bg-slate-900;
+}
+
+table.iplr-table > thead > tr > td {
+	@apply px-4 py-2 text-sm text-orange-600;
+}
+
+table.iplr-table > tbody > tr:nth-child(odd) {
 	@apply bg-slate-700;
 }
 
-table.iplr-table tr:nth-child(even) {
+table.iplr-table > tbody > tr:nth-child(even) {
 	@apply bg-slate-900;
 }
 

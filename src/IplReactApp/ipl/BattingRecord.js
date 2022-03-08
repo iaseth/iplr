@@ -32,4 +32,10 @@ export default class BattingRecord {
 			if (this.hs === null || this.hs.runs < performance.runs) this.hs = performance;
 		}
 	}
+
+	getAvgF = () => this.getAvg().toFixed(1);
+	getAvg = () => this.outs ? (this.runs / this.outs) : 0;
+
+	getSRF = () => this.getSR().toFixed(1);
+	getSR = () => this.balls ? (this.runs * 100 / this.balls) : 0;
 }

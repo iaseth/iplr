@@ -15,7 +15,7 @@ export function Match ({
 
 	React.useEffect(function () {
 		setTitleSuffix(`${match.year} | M${match.seasonIndex+1}`);
-	});
+	}, [setTitleSuffix, match]);
 
 	return (
 		<div className="Match pb-12">
