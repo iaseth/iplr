@@ -19,7 +19,11 @@ export default class TeamInning {
 		this.batsmen = [];
 		this.bowlers = [];
 
-		if (jo === undefined) return;
+		if (jo === undefined) {
+			this.dnp = true;
+			return;
+		}
+		this.dnp = false;
 
 		this.jo = jo;
 		this.runs = jo.runs;
@@ -55,6 +59,8 @@ export default class TeamInning {
 
 	runrate = () => this.balls ? (this.runs * 6 / this.balls) : 0;
 	runrateF = () => this.runrate().toFixed(1);
+
+	actuallyHappened = () => !this.dnp;
 
 	consoleLog () {
 		const dashes = "=".repeat(50);
