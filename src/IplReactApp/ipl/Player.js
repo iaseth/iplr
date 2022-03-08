@@ -12,6 +12,7 @@ export default class Player extends BaseClass {
 		this.id = jo.id;
 		this.fn = jo.fn;
 		this.sn = jo.sn;
+		this.country = jo.country;
 
 		this.bats_right = jo.batright;
 		this.bowls_right = jo.bowlright;
@@ -23,6 +24,9 @@ export default class Player extends BaseClass {
 		this.batting_performances = [];
 		this.bowling_performances = [];
 	}
+
+	isIndian = () => this.country === "Indian";
+	isOverseas = () => !this.isIndian();
 
 	addMatch (match) {
 		this.matches.push(match);

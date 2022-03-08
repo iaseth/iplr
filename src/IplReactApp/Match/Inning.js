@@ -8,6 +8,7 @@ function PlayerRow ({b, goToPlayer, children}) {
 				{b.isCaptain() && <span style={b.for.fgStyle}>c</span>}
 				<span className="py-1 cursor-pointer text-sm border-b-2" style={b.for.bdStyle} onClick={() => goToPlayer(b.player.index)}>{b.player.fn}</span>
 				{b.isWk() && <span style={b.for.fgStyle}>k</span>}
+				{b.player.isOverseas() && <span>o</span>}
 			</div>
 			{children}
 		</div>
