@@ -1,4 +1,5 @@
 import React from 'react';
+import {useParams} from 'react-router-dom';
 
 import {BattingRecordRow} from '../Utils';
 import {BowlingRecordRow} from '../Utils';
@@ -6,12 +7,18 @@ import {BowlingRecordRow} from '../Utils';
 
 
 export function Player ({
-	setTitleSuffix, PAGE_TYPES, setPageType,
+	ipl, setTitleSuffix,
+	PAGE_TYPES, setPageType,
 	goToSeason, goToMatch,
 	goToGround, goToPlayer, goToTeam,
 	ground, player, team,
 	season, match
 }) {
+
+	let params = useParams();
+	if (params.playerPath) {
+		player = ipl.getPlayerFromPath(params.playerPath);
+	}
 
 	// console.log(`Player: {id: ${player.id}, index: ${player.index}}`);
 

@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom';
 
 
 
@@ -17,12 +18,14 @@ function PreFooterHeading ({children}) {
 	);
 }
 
-function PreFooterButton ({onClick, team, children}) {
+function PreFooterButton ({to, team, children}) {
 	return (
-		<div className="Season bg-slate-900 px-4 py-2 mb-4 mr-4 border-2 rounded cursor-pointer duration-300 outline-none hover:bg-slate-700 focus:bg-slate-700"
-				onClick={onClick} style={team.bdStyle} tabIndex="0">
-			{children}
-		</div>
+		<Link to={to}>
+			<div className="Season bg-slate-900 px-4 py-2 mb-4 mr-4 border-2 rounded cursor-pointer duration-300 outline-none hover:bg-slate-700 focus:bg-slate-700"
+					style={team.bdStyle} tabIndex="0">
+				{children}
+			</div>
+		</Link>
 	);
 }
 
@@ -36,7 +39,7 @@ export function PreFooter ({
 
 	const seasonItems = ipl.seasons.map((s, i) => {
 		return (
-			<PreFooterButton key={i} onClick={() => goToSeason(s.year)} team={s.winner}>
+			<PreFooterButton key={i} to={`${s.year}`} team={s.winner}>
 				<div className="font-bold text-base w-16 p-1">{s.year}</div>
 			</PreFooterButton>
 		);
@@ -44,7 +47,7 @@ export function PreFooter ({
 
 	const teamItems = ipl.teamsArray.map((t, i) => {
 		return (
-			<PreFooterButton key={i} onClick={() => goToTeam(t.index)} team={t}>
+			<PreFooterButton key={i} to={`teams/${t.path}`} team={t}>
 				<div className="font-bold text-sm p-2">{t.fn}</div>
 			</PreFooterButton>
 		);
@@ -52,7 +55,7 @@ export function PreFooter ({
 
 	const groundItems = ipl.groundsArray.map((g, i) => {
 		return (
-			<PreFooterButton key={i} onClick={() => goToGround(g.index)} team={g.hometeam}>
+			<PreFooterButton key={i} to={`grounds/${g.path}`} team={g.hometeam}>
 				<div className="font-bold text-sm">{g.city}</div>
 			</PreFooterButton>
 		);

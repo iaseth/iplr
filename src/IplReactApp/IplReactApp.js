@@ -1,5 +1,7 @@
 import React from 'react';
 
+import {Routes, Route} from 'react-router-dom';
+
 import './IplReactApp.css';
 import IPL from './ipl';
 
@@ -55,7 +57,7 @@ export default function IplReactApp () {
 
 	React.useEffect(function () {
 		// return;
-		fetch("data/bundle.json")
+		fetch("/data/bundle.json")
 			.then(response => response.text())
 			.then(text => JSON.parse(text))
 			.then(json => {
@@ -131,13 +133,14 @@ export default function IplReactApp () {
 		setGroundId, setPlayerId, setTeamId
 	};
 
-	function getCurrentPage () {
-		const props = {
-			setTitleSuffix, PAGE_TYPES, setPageType,
-			...goToFuncs,
-			...currentItems
-		};
+	const props = {
+		ipl, setTitleSuffix,
+		PAGE_TYPES, setPageType,
+		...goToFuncs,
+		...currentItems
+	};
 
+	function getCurrentPage () {
 		switch (pageType) {
 			case PAGE_TYPES.TOURNAMENT:
 			case PAGE_TYPES.SEASON:
@@ -176,8 +179,33 @@ export default function IplReactApp () {
 			<Header />
 			{!doneFetching && <Splash />}
 			{doneFetching && <div className="min-h-screen bg-slate-800 text-slate-200">
+
 				<div className="max-w-5xl mx-auto pb-12">
-					{getCurrentPage()}
+					<Routes>
+						<Route path="">
+							<Route path="" element={<div>Home</div>} />
+							<Route path=":year">
+								<Route path="" element={<Season {...props} />} />
+								<Route path=":matchNumber" element={<Match {...props} />} />
+							</Route>
+						</Route>
+						<Route path="teams">
+							<Route path="" element={<div>Teams</div>} />
+							<Route path=":teamPath" element={<Team {...props} />} />
+						</Route>
+						<Route path="grounds">
+							<Route path="" element={<div>Grounds</div>} />
+							<Route path=":groundPath" element={<Ground {...props} />} />
+						</Route>
+						<Route path="players">
+							<Route path="" element={<div>Players</div>} />
+							<Route path=":playerPath" element={<Player {...props} />} />
+						</Route>
+						<Route path="rivalry">
+							<Route path="" element={<div>Rivalry</div>} />
+							<Route path=":rivalryPath" element={<Rivalry {...props} />} />
+						</Route>
+					</Routes>
 				</div>
 			</div>}
 			<DebugInfo {...debugProps} />

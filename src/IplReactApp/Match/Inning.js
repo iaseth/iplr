@@ -1,12 +1,15 @@
+import {Link} from 'react-router-dom';
 
 
 
-function PlayerRow ({b, goToPlayer, children}) {
+function PlayerRow ({b, children}) {
 	return (
 		<div className="border-b lg:border-x border-slate-400 px-2 py-3 flex items-center">
 			<div className="grow space-x-1 py-[2px]">
 				{b.isCaptain() && <span style={b.for.fgStyle}>c</span>}
-				<span className="py-1 cursor-pointer text-sm border-b-2" style={b.for.bdStyle} onClick={() => goToPlayer(b.player.index)}>{b.player.fn}</span>
+				<Link to={`/players/${b.player.path}`}>
+					<span className="py-1 cursor-pointer text-sm border-b-2" style={b.for.bdStyle}>{b.player.fn}</span>
+				</Link>
 				{b.isWk() && <span style={b.for.fgStyle}>k</span>}
 				{b.player.isOverseas() && <span>o</span>}
 			</div>
@@ -16,14 +19,14 @@ function PlayerRow ({b, goToPlayer, children}) {
 }
 
 export default function Inning ({
-	inning, goToPlayer, goToTeam
+	inning
 }) {
 
 	const batsmen = inning.batsmen.map((b, i) => {
-		if (b.dnb) return <PlayerRow key={i} {...{b, goToPlayer}}></PlayerRow>;
+		if (b.dnb) return <PlayerRow key={i} {...{b}}></PlayerRow>;
 
 		return (
-			<PlayerRow key={i} {...{b, goToPlayer}}>
+			<PlayerRow key={i} {...{b}}>
 				<div>
 					<span className="text-xl">{b.runsString()}</span>
 					<span className="text-slate-500 px-2">{b.balls}</span>
@@ -34,7 +37,7 @@ export default function Inning ({
 
 	const bowlers = inning.bowlers.map((b, i) => {
 		return (
-			<PlayerRow key={i} {...{b, goToPlayer}}>
+			<PlayerRow key={i} {...{b}}>
 				<div className="text-slate-500">
 					<span>{b.overs}</span>
 					<span className="px-2">-</span>
@@ -53,7 +56,7 @@ export default function Inning ({
 			<div className="flex px-4 pt-8 pb-5">
 				<div className="grow py-3">
 					<div className="text-6xl text-white">
-						<span className="px-4 pb-1 rounded cursor-pointer" onClick={() => goToTeam(inning.team.index)} style={inning.match.playoff ? inning.team.bgStyle : inning.team.fgStyle}>{inning.team.abb}</span>
+						<span className="px-4 pb-1 rounded cursor-pointer" style={inning.match.playoff ? inning.team.bgStyle : inning.team.fgStyle}>{inning.team.abb}</span>
 					</div>
 				</div>
 				<div className="px-4">

@@ -1,4 +1,5 @@
 import React from 'react';
+import {useParams} from 'react-router-dom';
 
 import {MatchCard} from '../Utils';
 import PointsTable from './PointsTable';
@@ -6,12 +7,19 @@ import PointsTable from './PointsTable';
 
 
 export function Season ({
-	setTitleSuffix, PAGE_TYPES, setPageType,
+	ipl, setTitleSuffix,
+	PAGE_TYPES, setPageType,
 	goToSeason, goToMatch,
 	goToGround, goToPlayer, goToTeam,
 	ground, player, team,
 	season, match
 }) {
+
+	let params = useParams();
+	if (params.year) {
+		let year = parseInt(params.year);
+		season = ipl.getSeason(year);
+	}
 
 	React.useEffect(function () {
 		setTitleSuffix(`${season.year}`);

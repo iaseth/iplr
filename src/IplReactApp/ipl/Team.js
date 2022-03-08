@@ -13,6 +13,7 @@ export default class Team extends BaseClass {
 		this.sn = jo.sn;
 		this.name = jo.name;
 		this.abb = jo.abb;
+		this.path = jo.abb.toLowerCase();
 
 		this.color = jo.bg;
 		this.fgStyle = {color: this.color};

@@ -13,6 +13,7 @@ export default class Player extends BaseClass {
 		this.fn = jo.fn;
 		this.sn = jo.sn;
 		this.country = jo.country;
+		this.path = jo.name;
 
 		this.bats_right = jo.batright;
 		this.bowls_right = jo.bowlright;

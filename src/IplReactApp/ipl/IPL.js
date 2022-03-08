@@ -101,6 +101,27 @@ export default class IPL {
 		// this.findPlayerByName("lee").print2Ws();
 	}
 
+	getTeamFromPath (path) {
+		for (let team of this.teamsArray) {
+			if (path === team.path) return team;
+		}
+		return null;
+	}
+
+	getGroundFromPath (path) {
+		for (let ground of this.groundsArray) {
+			if (path === ground.path) return ground;
+		}
+		return null;
+	}
+
+	getPlayerFromPath (path) {
+		for (let player of this.playersArray) {
+			if (path === player.path) return player;
+		}
+		return null;
+	}
+
 	findXByName (name, obj) {
 		for (let x of obj) {
 			if (x.fn.toLowerCase().search(name) !== -1) {
