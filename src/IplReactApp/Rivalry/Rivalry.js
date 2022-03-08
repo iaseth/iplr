@@ -1,7 +1,15 @@
 
 
 
-export function Rivalry () {
+export function Rivalry ({
+	setTitleSuffix, PAGE_TYPES, setPageType,
+	goToSeason, goToMatch,
+	goToGround, goToPlayer, goToTeam,
+	setYear, setMatchIndex,
+	setGroundId, setPlayerId, setTeamId,
+	ground, player, team,
+	season, match
+}) {
 
 	return (
 		<div className="Rivalry">

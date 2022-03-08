@@ -121,34 +121,37 @@ export default function IplReactApp () {
 	const goToNextPage = () => jumpPage(1);
 	const goToPreviousPage = () => jumpPage(-1);
 
+	const currentItems = {
+		team, ground, player,
+		season, match
+	};
+
+	const idSetters = {
+		setYear, setMatchIndex,
+		setGroundId, setPlayerId, setTeamId
+	};
+
 	function getCurrentPage () {
-		const commonProps = {
-			setTitleSuffix, ...goToFuncs,
-			PAGE_TYPES, setPageType,
-			setYear, setMatchIndex,
-			setGroundId, setPlayerId, setTeamId
+		const props = {
+			setTitleSuffix, PAGE_TYPES, setPageType,
+			...goToFuncs,
+			...idSetters,
+			...currentItems
 		};
-		let props = {...commonProps};
 
 		switch (pageType) {
 			case PAGE_TYPES.TOURNAMENT:
 			case PAGE_TYPES.SEASON:
-				props.season = season;
 				return <Season {...props} />;
 			case PAGE_TYPES.MATCH:
-				props.match = match;
 				return <Match {...props} />;
 			case PAGE_TYPES.GROUND:
-				props.ground = ground;
 				return <Ground {...props} />;
 			case PAGE_TYPES.PLAYER:
-				props.player = player;
 				return <Player {...props} />;
 			case PAGE_TYPES.RIVALRY:
-				props.season = season;
 				return <Rivalry {...props} />;
 			case PAGE_TYPES.TEAM:
-				props.team = team;
 				return <Team {...props} />;
 			default:
 				return <Match {...props} />;

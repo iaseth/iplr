@@ -3,12 +3,13 @@ import React from 'react';
 
 
 export function Player ({
-	setTitleSuffix, goToSeason, goToMatch,
+	setTitleSuffix, PAGE_TYPES, setPageType,
+	goToSeason, goToMatch,
 	goToGround, goToPlayer, goToTeam,
-	PAGE_TYPES, setPageType,
 	setYear, setMatchIndex,
 	setGroundId, setPlayerId, setTeamId,
-	player
+	ground, player, team,
+	season, match
 }) {
 
 	// console.log(`Player: {id: ${player.id}, index: ${player.index}}`);

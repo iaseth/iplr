@@ -5,12 +5,13 @@ import Inning from './Inning';
 
 
 export function Match ({
-	setTitleSuffix, goToSeason, goToMatch,
+	setTitleSuffix, PAGE_TYPES, setPageType,
+	goToSeason, goToMatch,
 	goToGround, goToPlayer, goToTeam,
-	PAGE_TYPES, setPageType,
 	setYear, setMatchIndex,
 	setGroundId, setPlayerId, setTeamId,
-	match
+	ground, player, team,
+	season, match
 }) {
 
 	React.useEffect(function () {

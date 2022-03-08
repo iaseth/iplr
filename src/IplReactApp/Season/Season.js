@@ -6,12 +6,13 @@ import PointsTable from './PointsTable';
 
 
 export function Season ({
-	setTitleSuffix, goToSeason, goToMatch,
+	setTitleSuffix, PAGE_TYPES, setPageType,
+	goToSeason, goToMatch,
 	goToGround, goToPlayer, goToTeam,
-	PAGE_TYPES, setPageType,
 	setYear, setMatchIndex,
 	setGroundId, setPlayerId, setTeamId,
-	season
+	ground, player, team,
+	season, match
 }) {
 
 	React.useEffect(function () {
