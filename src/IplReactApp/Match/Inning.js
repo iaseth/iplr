@@ -6,7 +6,7 @@ function PlayerRow ({b, goToPlayer, children}) {
 		<div className="border-b lg:border-x border-slate-400 px-2 py-3 flex items-center">
 			<div className="grow space-x-1">
 				{b.isCaptain() && <span style={b.for.fgStyle}>c</span>}
-				<span className="py-1 cursor-pointer text-sm border-b-2" style={b.for.bdStyle} onClick={() => goToPlayer(b.player.id)}>{b.player.fn}</span>
+				<span className="py-1 cursor-pointer text-sm border-b-2" style={b.for.bdStyle} onClick={() => goToPlayer(b.player.index)}>{b.player.fn}</span>
 				{b.isWk() && <span style={b.for.fgStyle}>k</span>}
 			</div>
 			{children}
@@ -52,7 +52,7 @@ export default function Inning ({
 			<div className="flex px-4 pt-8 pb-5">
 				<div className="grow py-3">
 					<div className="text-6xl text-white">
-						<span className="px-4 pb-1 rounded cursor-pointer" onClick={() => goToTeam(inning.team.id)} style={inning.match.playoff ? inning.team.bgStyle : inning.team.fgStyle}>{inning.team.abb}</span>
+						<span className="px-4 pb-1 rounded cursor-pointer" onClick={() => goToTeam(inning.team.index)} style={inning.match.playoff ? inning.team.bgStyle : inning.team.fgStyle}>{inning.team.abb}</span>
 					</div>
 				</div>
 				<div className="px-4">

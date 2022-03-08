@@ -43,15 +43,15 @@ export default function IplReactApp () {
 	const [pageType, setPageType] = React.useState(PAGE_TYPES.MATCH);
 	const [year, setYear] = React.useState(2008);
 	const [matchIndex, setMatchIndex] = React.useState(58);
-	const [groundId, setGroundId] = React.useState(100);
-	const [playerId, setPlayerId] = React.useState(1000);
-	const [teamId, setTeamId] = React.useState(10);
+	const [groundId, setGroundId] = React.useState(0);
+	const [playerId, setPlayerId] = React.useState(0);
+	const [teamId, setTeamId] = React.useState(0);
 
 	const season = doneFetching ? ipl.getSeason(year) : null;
 	const match = doneFetching ? ipl.matches[matchIndex] : null;
-	const ground = ipl.grounds[groundId];
-	const player = ipl.players[playerId];
-	const team = ipl.teams[teamId];
+	const ground = ipl.groundsArray[groundId];
+	const player = ipl.playersArray[playerId];
+	const team = ipl.teamsArray[teamId];
 
 	React.useEffect(function () {
 		// return;
@@ -108,13 +108,13 @@ export default function IplReactApp () {
 			if (x >= 0 && x < ipl.matches.length) setMatchIndex(x);
 		} else if (pageType === PAGE_TYPES.GROUND) {
 			let x = groundId + j;
-			if (ipl.grounds[x]) setGroundId(x);
+			if (ipl.groundsArray[x]) setGroundId(x);
 		} else if (pageType === PAGE_TYPES.PLAYER) {
 			let x = playerId + j;
-			if (ipl.players[x]) setPlayerId(x);
+			if (ipl.playersArray[x]) setPlayerId(x);
 		} else if (pageType === PAGE_TYPES.TEAM) {
 			let x = teamId + j;
-			if (ipl.teams[x]) setTeamId(x);
+			if (ipl.teamsArray[x]) setTeamId(x);
 		}
 	}
 

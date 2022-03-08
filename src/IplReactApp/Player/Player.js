@@ -10,6 +10,8 @@ export function Player ({
 	player
 }) {
 
+	// console.log(`Player: {id: ${player.id}, index: ${player.index}}`);
+
 	const seasonWiseBattingRecord = player.getSeasonWiseBattingRecord();
 	const battingRecord = seasonWiseBattingRecord.map((r, i) => {
 		const {year, record} = r;

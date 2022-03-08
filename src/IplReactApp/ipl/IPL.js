@@ -28,6 +28,8 @@ export default class IPL {
 			this.teams[k] = x;
 			this.teamsArray.push(x);
 		}
+
+		this.teamsArray.forEach((x, index) => x.index = index);
 	}
 
 	loadGrounds () {
@@ -38,6 +40,8 @@ export default class IPL {
 			this.grounds[k] = x;
 			this.groundsArray.push(x);
 		}
+
+		this.groundsArray.forEach((x, index) => x.index = index);
 	}
 
 	loadPlayers () {
@@ -48,6 +52,8 @@ export default class IPL {
 			this.players[k] = x;
 			this.playersArray.push(x);
 		}
+
+		this.playersArray.forEach((x, index) => x.index = index);
 	}
 
 	loadBundle (json) {

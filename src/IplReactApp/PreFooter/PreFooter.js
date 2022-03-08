@@ -46,7 +46,7 @@ export function PreFooter ({
 
 	const teamItems = ipl.teamsArray.map((t, i) => {
 		return (
-			<PreFooterButton key={i} onClick={() => goToTeam(t.id)} team={t}>
+			<PreFooterButton key={i} onClick={() => goToTeam(t.index)} team={t}>
 				<div className="font-bold text-sm p-2">{t.fn}</div>
 			</PreFooterButton>
 		);
@@ -54,7 +54,7 @@ export function PreFooter ({
 
 	const groundItems = ipl.groundsArray.map((g, i) => {
 		return (
-			<PreFooterButton key={i} onClick={() => goToGround(g.id)} team={g.hometeam}>
+			<PreFooterButton key={i} onClick={() => goToGround(g.index)} team={g.hometeam}>
 				<div className="font-bold text-sm">{g.city}</div>
 			</PreFooterButton>
 		);
