@@ -1,3 +1,4 @@
+import React from 'react';
 
 
 
@@ -11,6 +12,10 @@ export function Team ({
 }) {
 
 	// console.log(`Team: {id: ${team.id}, index: ${team.index}}`);
+
+	React.useEffect(function () {
+		setTitleSuffix(team.abb);
+	}, [setTitleSuffix, team]);
 
 	return (
 		<div className="Team">

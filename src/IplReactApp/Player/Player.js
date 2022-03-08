@@ -1,3 +1,4 @@
+import React from 'react';
 
 
 
@@ -11,6 +12,10 @@ export function Player ({
 }) {
 
 	// console.log(`Player: {id: ${player.id}, index: ${player.index}}`);
+
+	React.useEffect(function () {
+		setTitleSuffix(player.fn);
+	}, [setTitleSuffix, player]);
 
 	const seasonWiseBattingRecord = player.getSeasonWiseBattingRecord();
 	const battingRecord = seasonWiseBattingRecord.map((r, i) => {

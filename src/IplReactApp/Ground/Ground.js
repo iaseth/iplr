@@ -1,3 +1,4 @@
+import React from 'react';
 
 
 
@@ -11,6 +12,10 @@ export function Ground ({
 }) {
 
 	// console.log(`Ground: {id: ${ground.id}, index: ${ground.index}}`);
+
+	React.useEffect(function () {
+		setTitleSuffix(ground.fn);
+	}, [setTitleSuffix, ground]);
 
 	return (
 		<div className="Ground">
