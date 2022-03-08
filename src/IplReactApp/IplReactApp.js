@@ -56,6 +56,16 @@ export default function IplReactApp () {
 			});
 	}, []);
 
+	const scrollToTop = () => window.scrollTo({ top: 0 });
+
+	React.useEffect(() => {
+		const {hostname, href} = window.location;
+		if (hostname === "iplr.netlify.app") {
+			console.log(`URL: ${href}`);
+		}
+		scrollToTop();
+	});
+
 	React.useEffect(() => {
 		function handleKeyDown (e) {
 			const keyCode = e.keyCode;
@@ -77,8 +87,6 @@ export default function IplReactApp () {
 	React.useEffect(function () {
 		document.title = "IPLR | " + titleSuffix;
 	}, [titleSuffix]);
-
-	const scrollToTop = () => window.scrollTo({ top: 0 });
 
 	const goToNextPage = () => {
 		console.log("next");
