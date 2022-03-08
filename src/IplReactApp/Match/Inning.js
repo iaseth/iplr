@@ -4,7 +4,7 @@
 function PlayerRow ({b, goToPlayer, children}) {
 	return (
 		<div className="border-b lg:border-x border-slate-400 px-2 py-3 flex items-center">
-			<div className="grow space-x-1">
+			<div className="grow space-x-1 py-[2px]">
 				{b.isCaptain() && <span style={b.for.fgStyle}>c</span>}
 				<span className="py-1 cursor-pointer text-sm border-b-2" style={b.for.bdStyle} onClick={() => goToPlayer(b.player.index)}>{b.player.fn}</span>
 				{b.isWk() && <span style={b.for.fgStyle}>k</span>}

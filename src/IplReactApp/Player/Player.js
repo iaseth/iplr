@@ -1,5 +1,8 @@
 import React from 'react';
 
+import {BattingRecordRow} from '../Utils';
+import {BowlingRecordRow} from '../Utils';
+
 
 
 export function Player ({
@@ -19,43 +22,25 @@ export function Player ({
 	const seasonWiseBattingRecord = player.getSeasonWiseBattingRecord();
 	const battingRecord = seasonWiseBattingRecord.map((r, i) => {
 		const {year, record} = r;
-		let hsSpan = <span>{record.getHsString()}</span>;
-		if (record.hs) {
-			hsSpan = <span className="cursor-pointer" onClick={() => goToMatch(record.hs.teamInning.match.index)}>{record.getHsString()}</span>;
-		}
+		const props = {
+			year,
+			record,
+			goToMatch
+		};
 
-		return (
-			<tr key={i}>
-				<td>{year}</td>
-				<td>{record.mats}</td>
-				<td>{record.inns}</td>
-				<td>{record.runs}</td>
-				<td>{record.getAvgF()}</td>
-				<td>{record.getSRF()}</td>
-				<td>{record.n4} | {record.n6}</td>
-				<td>{record.n50} | {record.n100}</td>
-				<td>{hsSpan}</td>
-			</tr>
-		);
+		return <BattingRecordRow {...props} key={i} />;
 	});
 
 	const seasonWiseBowlingRecord = player.getSeasonWiseBowlingRecord();
 	const bowlingRecord = seasonWiseBowlingRecord.map((r, i) => {
 		const {year, record} = r;
-		return (
-			<tr key={i}>
-				<td>{year}</td>
-				<td>{record.mats}</td>
-				<td>{record.inns}</td>
-				<td>{record.balls}</td>
-				<td>{record.runs}</td>
-				<td>{record.wickets}</td>
-				<td>{record.getAvgF()}</td>
-				<td>{record.getSRF()}</td>
-				<td>{record.getEconF()}</td>
-				<td>{record.getBestString()}</td>
-			</tr>
-		);
+		const props = {
+			year,
+			record,
+			goToMatch
+		};
+
+		return <BowlingRecordRow {...props} key={i} />;
 	});
 
 	return (
