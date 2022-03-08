@@ -11,12 +11,14 @@ export default class Ground extends BaseClass {
 		this.fn = jo.fn;
 		this.sn = jo.sn;
 		this.city = jo.city;
-		this.path = jo.name;
+		this.path = jo.path;
 	}
 
 	postmatchSetup () {
 		this.setHometeam();
 	}
+
+	getLink = () => `/grounds/${this.path}`;
 
 	setHometeam () {
 		let teamIds = [];

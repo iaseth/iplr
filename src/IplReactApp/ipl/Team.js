@@ -20,4 +20,6 @@ export default class Team extends BaseClass {
 		this.bgStyle = {backgroundColor: this.color};
 		this.bdStyle = {borderColor: this.color};
 	}
+
+	getLink = () => `/teams/${this.path}`;
 }

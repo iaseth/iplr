@@ -7,7 +7,7 @@ function PlayerRow ({b, children}) {
 		<div className="border-b lg:border-x border-slate-400 px-2 py-3 flex items-center">
 			<div className="grow space-x-1 py-[2px]">
 				{b.isCaptain() && <span style={b.for.fgStyle}>c</span>}
-				<Link to={`/players/${b.player.path}`}>
+				<Link to={b.player.getLink()}>
 					<span className="py-1 cursor-pointer text-sm border-b-2" style={b.for.bdStyle}>{b.player.fn}</span>
 				</Link>
 				{b.isWk() && <span style={b.for.fgStyle}>k</span>}

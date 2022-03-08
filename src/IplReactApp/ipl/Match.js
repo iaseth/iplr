@@ -50,6 +50,8 @@ export default class Match {
 		this.secondInning = (this.order[0] === 0) ? this.inning_b : this.inning_a;
 	}
 
+	getLink = () => `/${this.year}/${this.seasonIndex+1}`;
+
 	consoleLog () {
 		this.firstInning.consoleLog();
 		this.secondInning.consoleLog();

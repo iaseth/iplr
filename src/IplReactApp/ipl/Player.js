@@ -13,7 +13,7 @@ export default class Player extends BaseClass {
 		this.fn = jo.fn;
 		this.sn = jo.sn;
 		this.country = jo.country;
-		this.path = jo.name;
+		this.path = jo.path;
 
 		this.bats_right = jo.batright;
 		this.bowls_right = jo.bowlright;
@@ -32,6 +32,8 @@ export default class Player extends BaseClass {
 			if (!bp.dnb) this.batting_positions[bp.position] = true;
 		});
 	}
+
+	getLink = () => `/players/${this.path}`;
 
 	isIndian = () => this.country === "India";
 	isOverseas = () => !this.isIndian();
