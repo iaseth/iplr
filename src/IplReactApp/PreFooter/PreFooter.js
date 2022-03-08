@@ -31,8 +31,7 @@ function PreFooterButton ({to, team, children}) {
 
 export function PreFooter ({
 	ipl, PAGE_TYPES,
-	pageType, setPageType,
-	year, setYear
+	pageType, setPageType
 }) {
 
 	const seasonItems = ipl.seasons.map((s, i) => {
