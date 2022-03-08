@@ -49,15 +49,15 @@ export default function Inning ({
 
 	return (
 		<div className="Inning text-white font-bold lg:w-1/2">
-			<div className="sm:flex px-4 py-4">
-				<div className="grow py-4">
-					<div className="text-7xl text-white">
+			<div className="flex px-4 pt-8 pb-5">
+				<div className="grow py-3">
+					<div className="text-6xl text-white">
 						<span className="px-4 pb-1 rounded cursor-pointer" onClick={() => goToTeam(inning.team.id)} style={inning.match.playoff ? inning.team.bgStyle : inning.team.fgStyle}>{inning.team.abb}</span>
 					</div>
 				</div>
-				<div className="px-4 py-4">
-					<div className="text-5xl pb-2">
-						<span className="text-7xl">{inning.runs}</span>
+				<div className="px-4">
+					<div className="text-4xl pb-2">
+						<span className="text-6xl">{inning.runs}</span>
 						<span className="mx-3 text-slate-400">/</span>
 						<span className="text-slate-400">{inning.wkts}</span>
 					</div>
