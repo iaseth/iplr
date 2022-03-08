@@ -128,37 +128,12 @@ export default function IplReactApp () {
 		season, match
 	};
 
-	const idSetters = {
-		setYear, setMatchIndex,
-		setGroundId, setPlayerId, setTeamId
-	};
-
 	const props = {
 		ipl, setTitleSuffix,
 		PAGE_TYPES, setPageType,
 		...goToFuncs,
 		...currentItems
 	};
-
-	function getCurrentPage () {
-		switch (pageType) {
-			case PAGE_TYPES.TOURNAMENT:
-			case PAGE_TYPES.SEASON:
-				return <Season {...props} />;
-			case PAGE_TYPES.MATCH:
-				return <Match {...props} />;
-			case PAGE_TYPES.GROUND:
-				return <Ground {...props} />;
-			case PAGE_TYPES.PLAYER:
-				return <Player {...props} />;
-			case PAGE_TYPES.RIVALRY:
-				return <Rivalry {...props} />;
-			case PAGE_TYPES.TEAM:
-				return <Team {...props} />;
-			default:
-				return <Match {...props} />;
-		}
-	}
 
 	const debugProps = {
 		pageType, year, matchIndex,
