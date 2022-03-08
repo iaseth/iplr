@@ -13,6 +13,11 @@ export function Player ({
 	const seasonWiseBattingRecord = player.getSeasonWiseBattingRecord();
 	const battingRecord = seasonWiseBattingRecord.map((r, i) => {
 		const {year, record} = r;
+		let hsSpan = <span>{record.getHsString()}</span>;
+		if (record.hs) {
+			hsSpan = <span className="cursor-pointer" onClick={() => goToMatch(record.hs.teamInning.match.index)}>{record.getHsString()}</span>;
+		}
+
 		return (
 			<tr key={i}>
 				<td>{year}</td>
@@ -23,7 +28,7 @@ export function Player ({
 				<td>{record.getSRF()}</td>
 				<td>{record.n4} | {record.n6}</td>
 				<td>{record.n50} | {record.n100}</td>
-				<td>{record.getHsString()}</td>
+				<td>{hsSpan}</td>
 			</tr>
 		);
 	});
