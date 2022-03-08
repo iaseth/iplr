@@ -68,6 +68,7 @@ export default class IPL {
 
 		this.matches.forEach((m, index) => m.index = index);
 		this.groundsArray.forEach(g => g.postmatchSetup());
+		this.playersArray.forEach(x => x.postmatchSetup());
 
 		this.rivalries = [];
 		for (let t1 of this.teamsArray) {

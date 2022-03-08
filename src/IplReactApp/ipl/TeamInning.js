@@ -33,7 +33,8 @@ export default class TeamInning {
 		this.allout = this.wkts === 10;
 
 		for (let bj of jo.batting) {
-			let x = new BatsmanInning(this, bj);
+			let position = this.batsmen.length + 1;
+			let x = new BatsmanInning(this, bj, position);
 			x.player.batting_performances.push(x);
 			this.batsmen.push(x);
 		}

@@ -2,7 +2,8 @@
 
 
 export function BattingRecordRow ({
-	year, record, goToMatch
+	year, position,
+	record, goToMatch
 }) {
 
 	let hsSpan = <span>{record.getHsString()}</span>;
@@ -13,6 +14,7 @@ export function BattingRecordRow ({
 	return (
 		<tr className="BattingRecordRow">
 			{year && <td>{year}</td>}
+			{position && <td>at #{position}</td>}
 			<td>{record.mats}</td>
 			<td>{record.inns}</td>
 			<td>{record.runs}</td>

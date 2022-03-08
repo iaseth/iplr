@@ -25,6 +25,13 @@ export default class Player extends BaseClass {
 		this.bowling_performances = [];
 	}
 
+	postmatchSetup () {
+		this.batting_positions = [];
+		this.batting_performances.forEach(bp => {
+			if (!bp.dnb) this.batting_positions[bp.position] = true;
+		});
+	}
+
 	isIndian = () => this.country === "India";
 	isOverseas = () => !this.isIndian();
 
@@ -33,6 +40,17 @@ export default class Player extends BaseClass {
 		if (this.first_match === null) this.first_match = match;
 		this.last_match = match;
 		this.seasons[match.year] = true;
+	}
+
+	getPositionWiseBattingRecord () {
+		const records = [];
+		this.batting_positions.forEach((x, position) => {
+			records.push({
+				position: position,
+				record: new BattingRecord(this, this.batting_performances, x => x.position === position)
+			});
+		});
+		return records;
 	}
 
 	getSeasonWiseBattingRecord () {

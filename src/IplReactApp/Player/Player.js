@@ -23,9 +23,16 @@ export function Player ({
 	const battingRecord = seasonWiseBattingRecord.map((r, i) => {
 		const {year, record} = r;
 		const props = {
-			year,
-			record,
-			goToMatch
+			year, record, goToMatch
+		};
+
+		return <BattingRecordRow {...props} key={i} />;
+	});
+
+	const positionWiseBattingRecord = player.getPositionWiseBattingRecord().map((r, i) => {
+		const {position, record} = r;
+		const props = {
+			position, record, goToMatch
 		};
 
 		return <BattingRecordRow {...props} key={i} />;
@@ -68,6 +75,14 @@ export function Player ({
 					</thead>
 					<tbody>
 						{battingRecord}
+					</tbody>
+				</table>
+			</div>
+
+			<div className="iplr-table">
+				<table>
+					<tbody>
+						{positionWiseBattingRecord}
 					</tbody>
 				</table>
 			</div>

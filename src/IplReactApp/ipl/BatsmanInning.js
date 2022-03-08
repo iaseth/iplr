@@ -3,9 +3,10 @@ import PlayerInning from './PlayerInning';
 
 
 export default class BatsmanInning extends PlayerInning {
-	constructor (teamInning, jo) {
+	constructor (teamInning, jo, position=0) {
 		super();
 		this.teamInning = teamInning;
+		this.position = position;
 		this.for = teamInning.team;
 		this.against = teamInning.opposition;
 		this.jo = jo;
