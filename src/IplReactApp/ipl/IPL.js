@@ -102,6 +102,7 @@ export default class IPL {
 	}
 
 	getTeamFromPath (path) {
+		path = path.toLowerCase();
 		for (let team of this.teamsArray) {
 			if (path === team.path) return team;
 		}
@@ -109,6 +110,7 @@ export default class IPL {
 	}
 
 	getGroundFromPath (path) {
+		path = path.toLowerCase();
 		for (let ground of this.groundsArray) {
 			if (path === ground.path) return ground;
 		}
@@ -116,8 +118,16 @@ export default class IPL {
 	}
 
 	getPlayerFromPath (path) {
+		path = path.toLowerCase();
 		for (let player of this.playersArray) {
 			if (path === player.path) return player;
+		}
+
+		for (let player of this.playersArray) {
+			// russell goes to andre-russell
+			if (player.path.search(path) !== -1) return player;
+			// andre-russell-batsman goes to andre-russell
+			if (path.search(player.path) !== -1) return player;
 		}
 		return null;
 	}
