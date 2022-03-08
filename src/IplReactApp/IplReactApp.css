@@ -1,10 +1,11 @@
 
 div.iplr-table {
-	@apply py-12;
+	@apply py-12 overflow-x-hidden text-sm;
 }
 
 div.iplr-table > table {
 	@apply font-bold w-full max-w-3xl mx-auto;
+	@apply border-2 border-slate-900;
 }
 
 div.iplr-table > table > thead > tr {
@@ -13,6 +14,10 @@ div.iplr-table > table > thead > tr {
 
 div.iplr-table > table > thead > tr > td {
 	@apply px-4 py-2 text-sm text-orange-600;
+}
+
+div.iplr-table > table tr > td:first-child {
+	@apply pl-12;
 }
 
 div.iplr-table > table > tbody > tr:nth-child(odd) {
@@ -24,5 +29,5 @@ div.iplr-table > table > tbody > tr:nth-child(even) {
 }
 
 div.iplr-table > table td {
-	@apply px-4 py-2 mb-1;
+	@apply px-4 py-3 mb-1;
 }

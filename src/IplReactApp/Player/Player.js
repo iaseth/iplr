@@ -21,10 +21,8 @@ export function Player ({
 				<td>{record.runs}</td>
 				<td>{record.getAvgF()}</td>
 				<td>{record.getSRF()}</td>
-				<td>{record.n4}</td>
-				<td>{record.n6}</td>
-				<td>{record.n50}</td>
-				<td>{record.n100}</td>
+				<td>{record.n4} | {record.n6}</td>
+				<td>{record.n50} | {record.n100}</td>
 				<td>{record.hs.runs}</td>
 			</tr>
 		);
@@ -66,10 +64,8 @@ export function Player ({
 							<td>Runs</td>
 							<td>Avg</td>
 							<td>SR</td>
-							<td>4s</td>
-							<td>6s</td>
-							<td>50s</td>
-							<td>100s</td>
+							<td>4s/6s</td>
+							<td>50/100</td>
 							<td>HS</td>
 						</tr>
 					</thead>
