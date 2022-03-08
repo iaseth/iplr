@@ -46,4 +46,6 @@ export default class BattingRecord {
 
 	getSRF = () => this.getSR().toFixed(1);
 	getSR = () => this.balls ? (this.runs * 100 / this.balls) : 0;
+
+	getHsString = () => this.hs ? this.hs.runs : "-";
 }

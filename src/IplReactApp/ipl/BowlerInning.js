@@ -26,13 +26,12 @@ export default class BowlerInning extends PlayerInning {
 	isCaptain = () => (this.player.id === this.teamInning.squad.opposition_squad.captain.id);
 	isWk = () => (this.player.id === this.teamInning.squad.opposition_squad.wk.id);
 
+	getString = () => `${this.wickets}-${this.runs}`;
+
+	econ = () => this.balls ? (this.runs * 6 / this.balls) : 0;
+	econF = () => this.econ().toFixed(1);
+
 	consoleLog () {
-		console.log(`${this.player.bowls_right ? " " : "@"} ${this.player.fn.padEnd(25)} ${this.overs}-${this.maidens}-${this.runs}-${this.wickets} (${this.econPretty()})`);
+		console.log(`${this.player.bowls_right ? " " : "@"} ${this.player.fn.padEnd(25)} ${this.overs}-${this.maidens}-${this.runs}-${this.wickets} (${this.econF()})`);
 	}
-
-	econ () {
-		return (this.runs * 6 / this.balls);
-	}
-
-	econPretty = () => this.econ().toFixed(1);
 }

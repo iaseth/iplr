@@ -23,7 +23,7 @@ export function Player ({
 				<td>{record.getSRF()}</td>
 				<td>{record.n4} | {record.n6}</td>
 				<td>{record.n50} | {record.n100}</td>
-				<td>{record.hs.runs}</td>
+				<td>{record.getHsString()}</td>
 			</tr>
 		);
 	});
@@ -42,6 +42,7 @@ export function Player ({
 				<td>{record.getAvgF()}</td>
 				<td>{record.getSRF()}</td>
 				<td>{record.getEconF()}</td>
+				<td>{record.getBestString()}</td>
 			</tr>
 		);
 	});
@@ -88,6 +89,7 @@ export function Player ({
 							<td>Avg</td>
 							<td>SR</td>
 							<td>Econ</td>
+							<td>Best</td>
 						</tr>
 					</thead>
 					<tbody>

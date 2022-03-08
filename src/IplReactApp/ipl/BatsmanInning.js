@@ -21,15 +21,15 @@ export default class BatsmanInning extends PlayerInning {
 	isCaptain = () => (this.player.id === this.teamInning.captain.id);
 	isWk = () => (this.player.id === this.teamInning.wk.id);
 
-	consoleLog () {
-		console.log(`${this.player.bats_right ? " " : "@"} ${this.player.fn.padEnd(25)} ${this.runsString()} (${this.balls}) (${this.n4}x4, ${this.n6}x6, ${this.srPretty()})`);
-	}
-
 	sr = () => this.balls ? (this.runs * 100 / this.balls) : 0;
-	srPretty = () => this.sr().toFixed(1);
+	srF = () => this.sr().toFixed(1);
 
 	getBoundaries = () => (this.n4 + this.n6);
 	getBoundaryRuns = () => (4 * this.n4 + 6 * this.n6);
 
 	runsString = () => this.is_out ? this.runs : this.runs + "*";
+
+	consoleLog () {
+		console.log(`${this.player.bats_right ? " " : "@"} ${this.player.fn.padEnd(25)} ${this.runsString()} (${this.balls}) (${this.n4}x4, ${this.n6}x6, ${this.srF()})`);
+	}
 }

@@ -41,16 +41,13 @@ export default class TeamInning {
 		}
 	}
 
-	runrate () {
-		return (this.runs * 6 / this.balls);
-	}
-
-	runratePretty = () => this.runrate().toFixed(1);
+	runrate = () => this.balls ? (this.runs * 6 / this.balls) : 0;
+	runrateF = () => this.runrate().toFixed(1);
 
 	consoleLog () {
 		const dashes = "=".repeat(50);
 		console.log(dashes);
-		console.log(`${this.squad.team.fn} ${this.runs}/${this.wkts} (${this.overs}) @${this.runratePretty()}`);
+		console.log(`${this.squad.team.fn} ${this.runs}/${this.wkts} (${this.overs}) @${this.runrateF()}`);
 		console.log(dashes);
 
 		for (let batsman of this.batsmen) {

@@ -38,6 +38,9 @@ export default class BowlingRecord {
 			this.dots += performance.dots;
 			this.wd += performance.wd;
 			this.nb += performance.nb;
+			if (this.best === null || this.best.wickets < performance.wickets) {
+				this.best = performance;
+			}
 		});
 	}
 
@@ -49,4 +52,6 @@ export default class BowlingRecord {
 
 	getEconF = () => this.getEcon().toFixed(1);
 	getEcon = () => this.balls ? (this.runs * 6 / this.balls) : 0;
+
+	getBestString = () => this.best ? this.best.getString() : "-";
 }

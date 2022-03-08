@@ -28,6 +28,6 @@ div.iplr-table > table > tbody > tr:nth-child(even) {
 	@apply bg-slate-900;
 }
 
-div.iplr-table > table td {
-	@apply px-4 py-3 mb-1;
+div.iplr-table > table > tbody td {
+	@apply px-4 py-3;
 }
