@@ -135,7 +135,6 @@ export default function IplReactApp () {
 		const props = {
 			setTitleSuffix, PAGE_TYPES, setPageType,
 			...goToFuncs,
-			...idSetters,
 			...currentItems
 		};
 
@@ -169,8 +168,6 @@ export default function IplReactApp () {
 		ipl, PAGE_TYPES,
 		pageType, setPageType,
 		year, setYear,
-		groundId, setGroundId,
-		teamId, setTeamId,
 		...goToFuncs
 	};
 

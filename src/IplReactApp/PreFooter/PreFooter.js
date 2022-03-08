@@ -30,8 +30,6 @@ export function PreFooter ({
 	ipl, PAGE_TYPES,
 	pageType, setPageType,
 	year, setYear,
-	groundId, setGroundId,
-	teamId, setTeamId,
 	goToSeason, goToMatch,
 	goToGround, goToPlayer, goToTeam
 }) {
