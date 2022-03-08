@@ -11,7 +11,7 @@ export function Player ({
 }) {
 
 	const seasonWiseBattingRecord = player.getSeasonWiseBattingRecord();
-	const seasonItems = seasonWiseBattingRecord.map((r, i) => {
+	const battingRecord = seasonWiseBattingRecord.map((r, i) => {
 		const {year, record} = r;
 		return (
 			<tr key={i}>
@@ -30,14 +30,34 @@ export function Player ({
 		);
 	});
 
+	const seasonWiseBowlingRecord = player.getSeasonWiseBowlingRecord();
+	const bowlingRecord = seasonWiseBowlingRecord.map((r, i) => {
+		const {year, record} = r;
+		return (
+			<tr key={i}>
+				<td>{year}</td>
+				<td>{record.mats}</td>
+				<td>{record.inns}</td>
+				<td>{record.balls}</td>
+				<td>{record.runs}</td>
+				<td>{record.wickets}</td>
+				<td>{record.getAvgF()}</td>
+				<td>{record.getSRF()}</td>
+				<td>{record.getEconF()}</td>
+			</tr>
+		);
+	});
+
 	return (
 		<div className="Player">
+
 			<div className="px-2 py-8">
 				<h2 className="text-5xl py-4">{player.fn}</h2>
 				<h3 className="text-xl">{player.first_match.year} to {player.last_match.year}</h3>
 			</div>
-			<div>
-				<table className="iplr-table">
+
+			<div className="iplr-table">
+				<table>
 					<thead>
 						<tr>
 							<td>Year</td>
@@ -54,10 +74,32 @@ export function Player ({
 						</tr>
 					</thead>
 					<tbody>
-						{seasonItems}
+						{battingRecord}
 					</tbody>
 				</table>
 			</div>
+
+			<div className="iplr-table">
+				<table>
+					<thead>
+						<tr>
+							<td>Year</td>
+							<td>M</td>
+							<td>I</td>
+							<td>Balls</td>
+							<td>Runs</td>
+							<td>Wkts</td>
+							<td>Avg</td>
+							<td>SR</td>
+							<td>Econ</td>
+						</tr>
+					</thead>
+					<tbody>
+						{bowlingRecord}
+					</tbody>
+				</table>
+			</div>
+
 		</div>
 	);
 }

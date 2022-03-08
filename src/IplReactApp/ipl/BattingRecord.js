@@ -3,7 +3,13 @@ export default class BattingRecord {
 	constructor (player, performances, filter) {
 		this.player = player;
 		this.performances = performances;
+		this.filter = filter ? filter : () => true;
 
+		this.zeroInit();
+		this.addInnings();
+	}
+
+	zeroInit () {
 		this.mats = 0;
 		this.inns = 0;
 		this.runs = 0;
@@ -14,8 +20,10 @@ export default class BattingRecord {
 		this.n50 = 0;
 		this.n100 = 0;
 		this.hs = null;
-		for (let performance of performances) {
-			if (!filter(performance)) continue;
+	}
+
+	addInnings () {
+		this.performances.filter(this.filter).forEach(performance => {
 			this.mats++;
 			this.inns++;
 			this.runs += performance.runs;
@@ -30,7 +38,7 @@ export default class BattingRecord {
 				this.n50++;
 			}
 			if (this.hs === null || this.hs.runs < performance.runs) this.hs = performance;
-		}
+		});
 	}
 
 	getAvgF = () => this.getAvg().toFixed(1);

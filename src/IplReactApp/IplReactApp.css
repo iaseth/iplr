@@ -1,24 +1,28 @@
 
-table.iplr-table {
+div.iplr-table {
+	@apply py-12;
+}
+
+div.iplr-table > table {
 	@apply font-bold w-full max-w-3xl mx-auto;
 }
 
-table.iplr-table > thead > tr {
+div.iplr-table > table > thead > tr {
 	@apply bg-slate-900;
 }
 
-table.iplr-table > thead > tr > td {
+div.iplr-table > table > thead > tr > td {
 	@apply px-4 py-2 text-sm text-orange-600;
 }
 
-table.iplr-table > tbody > tr:nth-child(odd) {
+div.iplr-table > table > tbody > tr:nth-child(odd) {
 	@apply bg-slate-700;
 }
 
-table.iplr-table > tbody > tr:nth-child(even) {
+div.iplr-table > table > tbody > tr:nth-child(even) {
 	@apply bg-slate-900;
 }
 
-table.iplr-table td {
+div.iplr-table > table td {
 	@apply px-4 py-2 mb-1;
 }

@@ -1,5 +1,6 @@
 import BaseClass from './BaseClass';
 import BattingRecord from './BattingRecord';
+import BowlingRecord from './BowlingRecord';
 
 
 
@@ -39,6 +40,17 @@ export default class Player extends BaseClass {
 			});
 		});
 		return seasonWiseBattingRecord;
+	}
+
+	getSeasonWiseBowlingRecord () {
+		const seasonWiseBowlingRecord = [];
+		Object.keys(this.seasons).reverse().forEach(year => {
+			seasonWiseBowlingRecord.push({
+				year: year,
+				record: new BowlingRecord(this, this.bowling_performances, x => x.teamInning.match.year === parseInt(year))
+			});
+		});
+		return seasonWiseBowlingRecord;
 	}
 
 	printBattingPerformances () {
