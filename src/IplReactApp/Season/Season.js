@@ -35,7 +35,7 @@ export function Season ({
 			<div className="sm:flex flex-wrap">
 				{playoffItems}
 			</div>
-			<div className="flex flex-wrap py-8">
+			<div className="py-8">
 				<PointsTable {...pointsTableProps} />
 			</div>
 			<div className="sm:flex flex-wrap py-12">

@@ -1,0 +1,14 @@
+
+
+.PointsTableRow > td {
+	@apply px-3 py-3;
+}
+
+.PointsTableRow {
+	@apply border-b-2 border-slate-800;
+}
+
+.PointsTableRow:nth-child(2), .PointsTableRow:nth-child(4) {
+	@apply border-b-8 border-slate-800;
+}
+
