@@ -36,6 +36,7 @@ export default class Match {
 		this.squad_b.opposition_squad = this.squad_a;
 
 		this.players = this.squad_a.members.concat(this.squad_b.members);
+		this.players.forEach(player => player.addMatch(this));
 
 		if (this.order[0] === 0) {
 			this.inning_a = new TeamInning(this.squad_a, jo.innings[0]);

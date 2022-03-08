@@ -1,4 +1,5 @@
 import BaseClass from './BaseClass';
+import BattingRecord from './BattingRecord';
 
 
 
@@ -14,8 +15,30 @@ export default class Player extends BaseClass {
 		this.bats_right = jo.batright;
 		this.bowls_right = jo.bowlright;
 
+		this.first_match = null;
+		this.last_match = null;
+		this.seasons = {};
+
 		this.batting_performances = [];
 		this.bowling_performances = [];
+	}
+
+	addMatch (match) {
+		this.matches.push(match);
+		if (this.first_match === null) this.first_match = match;
+		this.last_match = match;
+		this.seasons[match.year] = true;
+	}
+
+	getSeasonWiseBattingRecord () {
+		const seasonWiseBattingRecord = [];
+		Object.keys(this.seasons).reverse().forEach(year => {
+			seasonWiseBattingRecord.push({
+				year: year,
+				record: new BattingRecord(this, this.batting_performances, x => x.teamInning.match.year === parseInt(year))
+			});
+		});
+		return seasonWiseBattingRecord;
 	}
 
 	printBattingPerformances () {
