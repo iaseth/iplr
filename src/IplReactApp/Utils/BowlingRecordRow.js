@@ -2,12 +2,12 @@
 
 
 export function BowlingRecordRow ({
-	year, record, goToMatch
+	year, record
 }) {
 
 	let bestSpan = <span>{record.getBestString()}</span>;
-	if (record.best && goToMatch) {
-		bestSpan = <span className="cursor-pointer" onClick={() => goToMatch(record.best.teamInning.match.index)}>{record.getBestString()}</span>;
+	if (record.best) {
+		bestSpan = <span className="cursor-pointer">{record.getBestString()}</span>;
 	}
 
 	return (

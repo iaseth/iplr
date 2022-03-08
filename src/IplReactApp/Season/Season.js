@@ -8,14 +8,11 @@ import PointsTable from './PointsTable';
 
 export function Season ({
 	ipl, setTitleSuffix,
-	PAGE_TYPES, setPageType,
-	goToSeason, goToMatch,
-	goToGround, goToPlayer, goToTeam,
-	ground, player, team,
-	season, match
+	PAGE_TYPES, setPageType
 }) {
 
 	let params = useParams();
+	let season = null;
 	if (params.year) {
 		let year = parseInt(params.year);
 		season = ipl.getSeason(year);
@@ -26,11 +23,11 @@ export function Season ({
 	}, [setTitleSuffix, season]);
 
 	const playoffItems = [...season.playoffMatches].reverse().map((match, i) => {
-		return <MatchCard key={i} {...{match, goToMatch}} />;
+		return <MatchCard key={i} {...{match}} />;
 	});
 
 	const leagueItems = [...season.leagueMatches].reverse().map((match, i) => {
-		return <MatchCard key={i} {...{match, goToMatch}} />;
+		return <MatchCard key={i} {...{match}} />;
 	});
 
 	const pointsTableProps = {

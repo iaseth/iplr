@@ -5,9 +5,7 @@ import {useParams} from 'react-router-dom';
 
 export function Team ({
 	ipl, setTitleSuffix,
-	PAGE_TYPES, setPageType,
-	goToSeason, goToMatch,
-	goToGround, goToPlayer, goToTeam
+	PAGE_TYPES, setPageType
 }) {
 
 	// console.log(`Team: {id: ${team.id}, index: ${team.index}}`);

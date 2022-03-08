@@ -2,11 +2,8 @@
 
 
 export function Rivalry ({
-	setTitleSuffix, PAGE_TYPES, setPageType,
-	goToSeason, goToMatch,
-	goToGround, goToPlayer, goToTeam,
-	ground, player, team,
-	season, match
+	ipl, setTitleSuffix,
+	PAGE_TYPES, setPageType
 }) {
 
 	return (

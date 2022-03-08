@@ -91,16 +91,6 @@ export default function IplReactApp () {
 
 	const scrollToTop = () => window.scrollTo({ top: 0 });
 
-	const goToSeason = x => {setPageType(PAGE_TYPES.SEASON); setYear(x); scrollToTop();};
-	const goToMatch = x => {setPageType(PAGE_TYPES.MATCH); setMatchIndex(x); scrollToTop();};
-	const goToGround = x => {setPageType(PAGE_TYPES.GROUND); setGroundId(x); scrollToTop();};
-	const goToPlayer = x => {setPageType(PAGE_TYPES.PLAYER); setPlayerId(x); scrollToTop();};
-	const goToTeam = x => {setPageType(PAGE_TYPES.TEAM); setTeamId(x); scrollToTop();};
-	const goToFuncs = {
-		goToSeason, goToMatch,
-		goToGround, goToPlayer, goToTeam
-	};
-
 	function jumpPage (j) {
 		if (pageType === PAGE_TYPES.SEASON) {
 			let x = parseInt(year) + j;
@@ -120,8 +110,12 @@ export default function IplReactApp () {
 		}
 	}
 
-	const goToNextPage = () => jumpPage(1);
-	const goToPreviousPage = () => jumpPage(-1);
+	const goToNextPage = () => {
+		console.log("next");
+	};
+	const goToPreviousPage = () => {
+		console.log("prev");
+	};
 
 	const currentItems = {
 		team, ground, player,
@@ -131,8 +125,7 @@ export default function IplReactApp () {
 	const props = {
 		ipl, setTitleSuffix,
 		PAGE_TYPES, setPageType,
-		...goToFuncs,
-		...currentItems
+		// ...currentItems
 	};
 
 	const debugProps = {
@@ -145,8 +138,7 @@ export default function IplReactApp () {
 	const preFooterProps = {
 		ipl, PAGE_TYPES,
 		pageType, setPageType,
-		year, setYear,
-		...goToFuncs
+		year, setYear
 	};
 
 	return (

@@ -8,14 +8,11 @@ import {BowlingRecordRow} from '../Utils';
 
 export function Player ({
 	ipl, setTitleSuffix,
-	PAGE_TYPES, setPageType,
-	goToSeason, goToMatch,
-	goToGround, goToPlayer, goToTeam,
-	ground, player, team,
-	season, match
+	PAGE_TYPES, setPageType
 }) {
 
 	let params = useParams();
+	let player = null;
 	if (params.playerPath) {
 		player = ipl.getPlayerFromPath(params.playerPath);
 	}
@@ -30,7 +27,7 @@ export function Player ({
 	const battingRecord = seasonWiseBattingRecord.map((r, i) => {
 		const {year, record} = r;
 		const props = {
-			year, record, goToMatch
+			year, record
 		};
 
 		return <BattingRecordRow {...props} key={i} />;
@@ -39,7 +36,7 @@ export function Player ({
 	const positionWiseBattingRecord = player.getPositionWiseBattingRecord().map((r, i) => {
 		const {position, record} = r;
 		const props = {
-			position, record, goToMatch
+			position, record
 		};
 
 		return <BattingRecordRow {...props} key={i} />;
@@ -49,9 +46,7 @@ export function Player ({
 	const bowlingRecord = seasonWiseBowlingRecord.map((r, i) => {
 		const {year, record} = r;
 		const props = {
-			year,
-			record,
-			goToMatch
+			year, record
 		};
 
 		return <BowlingRecordRow {...props} key={i} />;

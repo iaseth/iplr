@@ -19,7 +19,7 @@ function InningBox ({inning}) {
 	);
 }
 
-export function MatchCard ({match, goToMatch}) {
+export function MatchCard ({match}) {
 
 	return (
 		<div className="MatchCard">

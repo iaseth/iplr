@@ -3,12 +3,12 @@
 
 export function BattingRecordRow ({
 	year, position,
-	record, goToMatch
+	record
 }) {
 
 	let hsSpan = <span>{record.getHsString()}</span>;
-	if (record.hs && goToMatch) {
-		hsSpan = <span className="cursor-pointer" onClick={() => goToMatch(record.hs.teamInning.match.index)}>{record.getHsString()}</span>;
+	if (record.hs) {
+		hsSpan = <span className="cursor-pointer">{record.getHsString()}</span>;
 	}
 
 	return (

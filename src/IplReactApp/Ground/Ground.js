@@ -5,9 +5,7 @@ import {useParams} from 'react-router-dom';
 
 export function Ground ({
 	ipl, setTitleSuffix,
-	PAGE_TYPES, setPageType,
-	goToSeason, goToMatch,
-	goToGround, goToPlayer, goToTeam
+	PAGE_TYPES, setPageType
 }) {
 
 	// console.log(`Ground: {id: ${ground.id}, index: ${ground.index}}`);

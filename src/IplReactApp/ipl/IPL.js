@@ -4,6 +4,8 @@ import Team from './Team';
 import Season from './Season';
 import Rivalry from './Rivalry';
 
+import {setNextPrev} from './Utils';
+
 
 
 export default class IPL {
@@ -30,6 +32,7 @@ export default class IPL {
 		}
 
 		this.teamsArray.forEach((x, index) => x.index = index);
+		setNextPrev(this.teamsArray);
 	}
 
 	loadGrounds () {
@@ -42,6 +45,7 @@ export default class IPL {
 		}
 
 		this.groundsArray.forEach((x, index) => x.index = index);
+		setNextPrev(this.groundsArray);
 	}
 
 	loadPlayers () {
@@ -54,6 +58,7 @@ export default class IPL {
 		}
 
 		this.playersArray.forEach((x, index) => x.index = index);
+		setNextPrev(this.playersArray);
 	}
 
 	loadBundle (json) {
@@ -67,6 +72,9 @@ export default class IPL {
 		}
 
 		this.matches.forEach((m, index) => m.index = index);
+		setNextPrev(this.seasons);
+		setNextPrev(this.matches);
+
 		this.groundsArray.forEach(g => g.postmatchSetup());
 		this.playersArray.forEach(x => x.postmatchSetup());
 

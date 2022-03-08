@@ -7,14 +7,12 @@ import Inning from './Inning';
 
 export function Match ({
 	ipl, setTitleSuffix,
-	PAGE_TYPES, setPageType,
-	goToSeason, goToMatch,
-	goToGround, goToPlayer, goToTeam,
-	ground, player, team,
-	season, match
+	PAGE_TYPES, setPageType
 }) {
 
 	let params = useParams();
+	let season = null;
+	let match = null;
 	if (params.year && params.matchNumber) {
 		let year = parseInt(params.year);
 		let matchNumber = parseInt(params.matchNumber);
@@ -29,8 +27,8 @@ export function Match ({
 	return (
 		<div className="Match pb-12">
 			<div className="lg:flex lg:space-x-4">
-				<Inning inning={match.firstInning} {...{goToPlayer, goToTeam}} />
-				<Inning inning={match.secondInning} {...{goToPlayer, goToTeam}} />
+				<Inning inning={match.firstInning} />
+				<Inning inning={match.secondInning} />
 			</div>
 		</div>
 	);
