@@ -9,33 +9,45 @@ import Rivalry from './Rivalry';
 export default class IPL {
 	constructor (codes) {
 		this.codes = codes;
+		this.loadCodes();
+		this.matches = [];
+		this.seasons = [];
+	}
 
+	loadCodes () {
+		this.loadTeams();
+		this.loadGrounds();
+		this.loadPlayers();
+	}
+
+	loadTeams () {
 		this.teams = {};
 		this.teamsArray = [];
-		for (let k in codes.teams) {
-			let x = new Team(this, codes.teams[k]);
+		for (let k in this.codes.teams) {
+			let x = new Team(this, this.codes.teams[k]);
 			this.teams[k] = x;
 			this.teamsArray.push(x);
 		}
+	}
 
+	loadGrounds () {
 		this.grounds = {};
 		this.groundsArray = [];
-		for (let k in codes.grounds) {
-			let x = new Ground(this, codes.grounds[k]);
+		for (let k in this.codes.grounds) {
+			let x = new Ground(this, this.codes.grounds[k]);
 			this.grounds[k] = x;
 			this.groundsArray.push(x);
 		}
+	}
 
+	loadPlayers () {
 		this.players = {};
 		this.playersArray = [];
-		for (let k in codes.players) {
-			let x = new Player(this, codes.players[k]);
+		for (let k in this.codes.players) {
+			let x = new Player(this, this.codes.players[k]);
 			this.players[k] = x;
 			this.playersArray.push(x);
 		}
-
-		this.matches = [];
-		this.seasons = [];
 	}
 
 	loadBundle (json) {
