@@ -2,7 +2,7 @@
 
 
 export function Rivalry ({
-	ipl, setTitleSuffix,
+	ipl, setTitleSuffix, setCurrentPage,
 	PAGE_TYPES, setPageType
 }) {
 

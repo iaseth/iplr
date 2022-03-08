@@ -6,7 +6,7 @@ import Inning from './Inning';
 
 
 export function Match ({
-	ipl, setTitleSuffix,
+	ipl, setTitleSuffix, setCurrentPage,
 	PAGE_TYPES, setPageType
 }) {
 

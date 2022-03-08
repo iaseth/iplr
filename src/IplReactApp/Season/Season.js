@@ -7,7 +7,7 @@ import PointsTable from './PointsTable';
 
 
 export function Season ({
-	ipl, setTitleSuffix,
+	ipl, setTitleSuffix, setCurrentPage,
 	PAGE_TYPES, setPageType
 }) {
 

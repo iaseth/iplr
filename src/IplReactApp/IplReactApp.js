@@ -39,6 +39,9 @@ export default function IplReactApp () {
 	// doneFetching is set to true once bundle.json loads and stay true after that
 	const [doneFetching, setDoneFetching] = React.useState(false);
 
+	// used for navigating to next and prev page
+	const [currentPage, setCurrentPage] = React.useState(false);
+
 	// document title is set to "IPLR | titleSuffix"
 	const [titleSuffix, setTitleSuffix] = React.useState("Home");
 
@@ -89,14 +92,27 @@ export default function IplReactApp () {
 	}, [titleSuffix]);
 
 	const goToNextPage = () => {
-		console.log("next");
+		if (!currentPage) {
+			console.log("currentPage is not set!");
+		} else if (!currentPage.next) {
+			console.log("currentPage.next is not set!");
+		} else {
+			console.log("Setting currentPage to " + currentPage.next.getLink());
+		}
 	};
+
 	const goToPreviousPage = () => {
-		console.log("prev");
+		if (!currentPage) {
+			console.log("currentPage is not set!");
+		} else if (!currentPage.prev) {
+			console.log("currentPage.prev is not set!");
+		} else {
+			console.log("Setting currentPage to " + currentPage.prev.getLink());
+		}
 	};
 
 	const props = {
-		ipl, setTitleSuffix,
+		ipl, setTitleSuffix, setCurrentPage,
 		PAGE_TYPES, setPageType
 	};
 

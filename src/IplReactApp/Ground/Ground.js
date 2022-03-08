@@ -4,7 +4,7 @@ import {useParams} from 'react-router-dom';
 
 
 export function Ground ({
-	ipl, setTitleSuffix,
+	ipl, setTitleSuffix, setCurrentPage,
 	PAGE_TYPES, setPageType
 }) {
 

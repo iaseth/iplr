@@ -7,7 +7,7 @@ import {BowlingRecordRow} from '../Utils';
 
 
 export function Player ({
-	ipl, setTitleSuffix,
+	ipl, setTitleSuffix, setCurrentPage,
 	PAGE_TYPES, setPageType
 }) {
 
@@ -20,6 +20,12 @@ export function Player ({
 	// console.log(`Player: {id: ${player.id}, index: ${player.index}}`);
 
 	React.useEffect(function () {
+		// console.log(`Set current page to '${player.getLink()}'`);
+		setCurrentPage(player);
+	}, [setCurrentPage, player]);
+
+	React.useEffect(function () {
+		// console.log(`Set current title-suffix to '${player.fn}'`);
 		setTitleSuffix(player.fn);
 	}, [setTitleSuffix, player]);
 
