@@ -14,7 +14,7 @@ export function Player ({
 	const seasonItems = seasonWiseBattingRecord.map((r, i) => {
 		const {year, record} = r;
 		return (
-			<tr key={i} className="bg-slate-600">
+			<tr key={i}>
 				<td>{year}</td>
 				<td>{record.mats}</td>
 				<td>{record.inns}</td>
@@ -36,7 +36,7 @@ export function Player ({
 				<h3 className="text-xl">{player.first_match.year} to {player.last_match.year}</h3>
 			</div>
 			<div>
-				<table>
+				<table className="iplr-table">
 					<tbody>
 						{seasonItems}
 					</tbody>

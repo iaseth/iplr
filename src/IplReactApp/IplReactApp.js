@@ -1,5 +1,6 @@
 import React from 'react';
 
+import './IplReactApp.css';
 import IPL from './ipl';
 
 import {RainbowBorder} from './Utils';
@@ -175,7 +176,7 @@ export default function IplReactApp () {
 			<Header />
 			{!doneFetching && <Splash />}
 			{doneFetching && <div className="min-h-screen bg-slate-800 text-slate-200">
-				<div className="max-w-5xl mx-auto">
+				<div className="max-w-5xl mx-auto pb-12">
 					{getCurrentPage()}
 				</div>
 			</div>}

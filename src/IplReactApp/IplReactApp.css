@@ -1,0 +1,16 @@
+
+table.iplr-table {
+	@apply font-bold w-full;
+}
+
+table.iplr-table tr:nth-child(odd) {
+	@apply bg-slate-700;
+}
+
+table.iplr-table tr:nth-child(even) {
+	@apply bg-slate-900;
+}
+
+table.iplr-table td {
+	@apply px-4 py-2 mb-1;
+}
