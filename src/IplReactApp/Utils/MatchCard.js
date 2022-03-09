@@ -22,7 +22,7 @@ function InningBox ({inning}) {
 export function MatchCard ({match, naked=false}) {
 
 	return (
-		<div className="MatchCard">
+		<div className="MatchCard select-none">
 			{!naked && <div className="px-2 py-3 text-slate-200 text-sm font-bold flex space-x-2">
 				<div className="px-4 py-2 bg-slate-900">{match.season.year}</div>
 				<div className="px-4 py-2 bg-slate-900"># {match.seasonIndex + 1}</div>

@@ -93,6 +93,8 @@ export default function IplReactApp () {
 		document.title = "IPLR | " + titleSuffix;
 	}, [titleSuffix]);
 
+	const goToHome = () => navigate("");
+
 	const goToNextPage = () => {
 		if (!currentPage) {
 			console.log("currentPage is not set!");
@@ -135,7 +137,7 @@ export default function IplReactApp () {
 
 	return (
 		<div className="IplReactApp">
-			<Header />
+			<Header {...{currentPage, goToPreviousPage, goToHome, goToNextPage}} />
 			{!doneFetching && <Splash />}
 			{doneFetching && <div className="min-h-screen bg-slate-800 text-slate-200">
 
