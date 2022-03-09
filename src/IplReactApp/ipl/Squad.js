@@ -8,7 +8,10 @@ export default class Squad {
 		this.jo = jo;
 		this.members = [];
 		for (let id of jo.players) {
-			this.members.push(this.tournament.players[id]);
+			let player = this.tournament.players[id];
+			this.members.push(player);
+			player.forTeamIndexes[this.team.index] = true;
+			player.vsTeamIndexes[this.opposition.index] = true;
 		}
 		this.captain = this.tournament.players[jo.captain];
 		this.wk = this.tournament.players[jo.wk];

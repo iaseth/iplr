@@ -49,6 +49,14 @@ export function Player ({
 		return <BattingRecordRow {...props} key={i} />;
 	});
 
+	const forTeamBattingItems = player.getForTeamWiseBattingRecord().map((r, i) => {
+		return <BattingRecordRow key={i} forTeam={r.team} record={r.record} />;
+	});
+
+	const vsTeamBattingItems = player.getVsTeamWiseBattingRecord().map((r, i) => {
+		return <BattingRecordRow key={i} vsTeam={r.team} record={r.record} />;
+	});
+
 	const seasonWiseBowlingRecord = player.getSeasonWiseBowlingRecord();
 	const bowlingRecord = seasonWiseBowlingRecord.map((r, i) => {
 		const {year, record} = r;
@@ -69,9 +77,9 @@ export function Player ({
 	return (
 		<div className="Player">
 
-			<div className="px-2 py-8">
-				<h2 className="text-5xl py-4">{player.fn}</h2>
-				<h3 className="text-xl">{player.first_match.year} to {player.last_match.year}</h3>
+			<div className="px-4 pt-8">
+				<h2 className="text-4xl py-4 font-bold">{player.fn}</h2>
+				<h3 className="text-xl font-bold">{player.first_match.year} to {player.last_match.year}</h3>
 			</div>
 
 			<div className="iplr-table">
@@ -93,6 +101,24 @@ export function Player ({
 					<tbody>
 						{positionWiseBattingRecord}
 					</tbody>
+				</table>
+			</div>}
+
+			{player.hasEverBatted() && <div className="iplr-table">
+				<table>
+					<thead>
+						<BattingRecordRow forTeam={true} />
+					</thead>
+					<tbody>{forTeamBattingItems}</tbody>
+				</table>
+			</div>}
+
+			{player.hasEverBatted() && <div className="iplr-table">
+				<table>
+					<thead>
+						<BattingRecordRow vsTeam={true} />
+					</thead>
+					<tbody>{vsTeamBattingItems}</tbody>
 				</table>
 			</div>}
 

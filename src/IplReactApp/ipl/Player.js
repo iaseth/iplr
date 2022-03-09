@@ -21,6 +21,8 @@ export default class Player extends BaseClass {
 		this.first_match = null;
 		this.last_match = null;
 		this.seasons = {};
+		this.forTeamIndexes = [];
+		this.vsTeamIndexes = [];
 
 		this.batting_performances = [];
 		this.bowling_performances = [];
@@ -59,6 +61,30 @@ export default class Player extends BaseClass {
 		if (this.first_match === null) this.first_match = match;
 		this.last_match = match;
 		this.seasons[match.year] = true;
+	}
+
+	getForTeamWiseBattingRecord () {
+		const records = [];
+		[...this.forTeamIndexes.keys()].forEach(teamIndex => {
+			if (!this.forTeamIndexes[teamIndex]) return; // player has not played for this team
+			records.push({
+				team: this.tournament.teamsArray[teamIndex],
+				record: new BattingRecord(this, this.batting_performances, x => x.for.index === teamIndex)
+			});
+		});
+		return records;
+	}
+
+	getVsTeamWiseBattingRecord () {
+		const records = [];
+		[...this.vsTeamIndexes.keys()].forEach(teamIndex => {
+			if (!this.vsTeamIndexes[teamIndex]) return; // player has not played vs this team
+			records.push({
+				team: this.tournament.teamsArray[teamIndex],
+				record: new BattingRecord(this, this.batting_performances, x => x.vs.index === teamIndex)
+			});
+		});
+		return records;
 	}
 
 	getPositionWiseBattingRecord () {

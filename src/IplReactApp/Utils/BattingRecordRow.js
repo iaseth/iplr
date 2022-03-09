@@ -2,7 +2,7 @@
 
 
 export function BattingRecordRow ({
-	year, position,
+	year, position, forTeam, vsTeam,
 	record
 }) {
 
@@ -11,6 +11,8 @@ export function BattingRecordRow ({
 			<tr>
 				{year && <td>Year</td>}
 				{position && <td>Pos</td>}
+				{forTeam && <td>For</td>}
+				{vsTeam && <td>Vs</td>}
 				<td>M</td>
 				<td>I</td>
 				<td>Runs</td>
@@ -32,6 +34,8 @@ export function BattingRecordRow ({
 		<tr className="BattingRecordRow">
 			{year && <td>{year}</td>}
 			{position && <td># {position}</td>}
+			{forTeam && <td>{forTeam.abb}</td>}
+			{vsTeam && <td>{vsTeam.abb}</td>}
 			<td>{record.mats}</td>
 			<td>{record.inns}</td>
 			<td>{record.runs}</td>

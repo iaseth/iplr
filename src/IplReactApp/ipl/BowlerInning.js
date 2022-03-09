@@ -9,7 +9,7 @@ export default class BowlerInning extends PlayerInning {
 		this.teamInning = teamInning;
 		this.position = position;
 		this.for = teamInning.opposition;
-		this.against = teamInning.team;
+		this.vs = teamInning.team;
 		this.jo = jo;
 		this.player = teamInning.tournament.players[jo.id];
 

@@ -8,7 +8,7 @@ export default class BatsmanInning extends PlayerInning {
 		this.teamInning = teamInning;
 		this.position = position;
 		this.for = teamInning.team;
-		this.against = teamInning.opposition;
+		this.vs = teamInning.opposition;
 		this.jo = jo;
 		this.player = teamInning.tournament.players[jo.id];
 		this.dnb = jo.dnb ? true : false;
