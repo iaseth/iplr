@@ -43,6 +43,9 @@ export default class Player extends BaseClass {
 	isIndian = () => this.country === "India";
 	isOverseas = () => !this.isIndian();
 
+	hasNeverBowled = () => this.bowling_performances.length === 0;
+	hasEverBowled = () => !this.hasNeverBowled();
+
 	addMatch (match) {
 		this.matches.push(match);
 		if (this.first_match === null) this.first_match = match;

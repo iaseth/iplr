@@ -93,7 +93,7 @@ export function Player ({
 				</table>
 			</div>
 
-			<div className="iplr-table">
+			{player.hasEverBowled() && <div className="iplr-table">
 				<table>
 					<thead>
 						<BowlingRecordRow year={true} />
@@ -102,9 +102,9 @@ export function Player ({
 						{bowlingRecord}
 					</tbody>
 				</table>
-			</div>
+			</div>}
 
-			<div className="iplr-table">
+			{player.hasEverBowled() && <div className="iplr-table">
 				<table>
 					<thead>
 						<BowlingRecordRow position={true} />
@@ -113,7 +113,7 @@ export function Player ({
 						{positionWiseBowlingRecord}
 					</tbody>
 				</table>
-			</div>
+			</div>}
 
 		</div>
 	);
