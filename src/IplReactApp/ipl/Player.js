@@ -43,6 +43,14 @@ export default class Player extends BaseClass {
 	isIndian = () => this.country === "India";
 	isOverseas = () => !this.isIndian();
 
+	hasNeverBatted = () => !this.hasEverBatted();
+	hasEverBatted () {
+		for (let batting_performance of this.batting_performances) {
+			if (!batting_performance.dnb) return true;
+		}
+		return false;
+	}
+
 	hasNeverBowled = () => this.bowling_performances.length === 0;
 	hasEverBowled = () => !this.hasNeverBowled();
 
