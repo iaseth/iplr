@@ -1,5 +1,5 @@
 import PlayerInning from './PlayerInning';
-import {getBalls} from './Utils';
+import {getBalls} from '../Utils';
 
 
 

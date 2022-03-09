@@ -1,4 +1,4 @@
-import BaseClass from './BaseClass';
+import BaseClass from '../BaseClass';
 import BattingRecord from './BattingRecord';
 import BowlingRecord from './BowlingRecord';
 

@@ -3,7 +3,7 @@ import BowlerInning from './BowlerInning';
 import Wicket from './Wicket';
 import OverHistory from './OverHistory';
 
-import {getBalls} from './Utils';
+import {getBalls} from '../Utils';
 
 
 
