@@ -1,6 +1,7 @@
 import React from 'react';
 import {useParams} from 'react-router-dom';
 
+import {Four04} from '../Four04';
 import {BattingRecordRow} from '../Utils';
 import {BowlingRecordRow} from '../Utils';
 
@@ -21,13 +22,15 @@ export function Player ({
 
 	React.useEffect(function () {
 		// console.log(`Set current page to '${player.getLink()}'`);
-		setCurrentPage(player);
+		if (player) setCurrentPage(player);
 	}, [setCurrentPage, player]);
 
 	React.useEffect(function () {
 		// console.log(`Set current title-suffix to '${player.fn}'`);
-		setTitleSuffix(player.fn);
+		if (player) setTitleSuffix(player.fn);
 	}, [setTitleSuffix, player]);
+
+	if (player === null) return <Four04 {...{setTitleSuffix}} />;
 
 	const seasonWiseBattingRecord = player.getSeasonWiseBattingRecord();
 	const battingRecord = seasonWiseBattingRecord.map((r, i) => {

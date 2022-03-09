@@ -1,6 +1,8 @@
 import React from 'react';
 import {useParams} from 'react-router-dom';
 
+import {Four04} from '../Four04';
+
 import {MatchCard} from '../Utils';
 import PointsTable from './PointsTable';
 
@@ -19,8 +21,10 @@ export function Season ({
 	}
 
 	React.useEffect(function () {
-		setTitleSuffix(`${season.year}`);
+		if (season) setTitleSuffix(`${season.year}`);
 	}, [setTitleSuffix, season]);
+
+	if (season === null) return <Four04 {...{setTitleSuffix}} />;
 
 	const playoffItems = [...season.playoffMatches].reverse().map((match, i) => {
 		return <MatchCard key={i} {...{match}} />;

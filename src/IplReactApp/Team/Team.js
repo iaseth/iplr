@@ -1,6 +1,8 @@
 import React from 'react';
 import {useParams} from 'react-router-dom';
 
+import {Four04} from '../Four04';
+
 
 
 export function Team ({
@@ -16,8 +18,10 @@ export function Team ({
 	}
 
 	React.useEffect(function () {
-		setTitleSuffix(team.abb);
+		if (team) setTitleSuffix(team.abb);
 	}, [setTitleSuffix, team]);
+
+	if (team === null) return <Four04 {...{setTitleSuffix}} />;
 
 	return (
 		<div className="Team">

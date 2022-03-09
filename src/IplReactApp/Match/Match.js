@@ -1,6 +1,8 @@
 import React from 'react';
 import {useParams} from 'react-router-dom';
 
+import {Four04} from '../Four04';
+
 import Inning from './Inning';
 
 
@@ -17,12 +19,16 @@ export function Match ({
 		let year = parseInt(params.year);
 		let matchNumber = parseInt(params.matchNumber);
 		season = ipl.getSeason(year);
-		match = season.matches[matchNumber-1]
+		if (season && matchNumber <= season.matches.length) {
+			match = season.matches[matchNumber-1];
+		}
 	}
 
 	React.useEffect(function () {
-		setTitleSuffix(`${match.year} | M${match.seasonIndex+1}`);
+		if (match) setTitleSuffix(`${match.year} | M${match.seasonIndex+1}`);
 	}, [setTitleSuffix, match]);
+
+	if (match === null) return <Four04 {...{setTitleSuffix}} />;
 
 	return (
 		<div className="Match pb-12">
