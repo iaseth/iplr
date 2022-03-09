@@ -31,6 +31,11 @@ export default class Player extends BaseClass {
 		this.batting_performances.forEach(bp => {
 			if (!bp.dnb) this.batting_positions[bp.position] = true;
 		});
+
+		this.bowling_positions = [];
+		this.bowling_performances.forEach(bp => {
+			if (!bp.dnb) this.bowling_positions[bp.position] = true;
+		});
 	}
 
 	getLink = () => `/players/${this.path}`;
@@ -51,6 +56,17 @@ export default class Player extends BaseClass {
 			records.push({
 				position: position,
 				record: new BattingRecord(this, this.batting_performances, x => x.position === position)
+			});
+		});
+		return records;
+	}
+
+	getPositionWiseBowlingRecord () {
+		const records = [];
+		this.bowling_positions.forEach((x, position) => {
+			records.push({
+				position: position,
+				record: new BowlingRecord(this, this.bowling_performances, x => x.position === position)
 			});
 		});
 		return records;

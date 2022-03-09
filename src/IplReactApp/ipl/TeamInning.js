@@ -52,7 +52,8 @@ export default class TeamInning {
 		});
 
 		for (let bj of jo.bowling) {
-			let x = new BowlerInning(this, bj);
+			let position = this.bowlers.length + 1;
+			let x = new BowlerInning(this, bj, position);
 			x.player.bowling_performances.push(x);
 			this.bowlers.push(x);
 		}

@@ -4,9 +4,10 @@ import {getBalls} from './Utils';
 
 
 export default class BowlerInning extends PlayerInning {
-	constructor (teamInning, jo) {
+	constructor (teamInning, jo, position=0) {
 		super();
 		this.teamInning = teamInning;
+		this.position = position;
 		this.for = teamInning.opposition;
 		this.against = teamInning.team;
 		this.jo = jo;

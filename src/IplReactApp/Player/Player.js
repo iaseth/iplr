@@ -35,7 +35,6 @@ export function Player ({
 		const props = {
 			year, record
 		};
-
 		return <BattingRecordRow {...props} key={i} />;
 	});
 
@@ -44,7 +43,6 @@ export function Player ({
 		const props = {
 			position, record
 		};
-
 		return <BattingRecordRow {...props} key={i} />;
 	});
 
@@ -54,7 +52,14 @@ export function Player ({
 		const props = {
 			year, record
 		};
+		return <BowlingRecordRow {...props} key={i} />;
+	});
 
+	const positionWiseBowlingRecord = player.getPositionWiseBowlingRecord().map((r, i) => {
+		const {position, record} = r;
+		const props = {
+			position, record
+		};
 		return <BowlingRecordRow {...props} key={i} />;
 	});
 
@@ -95,6 +100,17 @@ export function Player ({
 					</thead>
 					<tbody>
 						{bowlingRecord}
+					</tbody>
+				</table>
+			</div>
+
+			<div className="iplr-table">
+				<table>
+					<thead>
+						<BowlingRecordRow position={true} />
+					</thead>
+					<tbody>
+						{positionWiseBowlingRecord}
 					</tbody>
 				</table>
 			</div>

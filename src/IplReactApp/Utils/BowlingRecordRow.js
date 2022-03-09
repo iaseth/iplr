@@ -32,6 +32,7 @@ export function BowlingRecordRow ({
 	return (
 		<tr className="BowlingRecordRow">
 			{year && <td>{year}</td>}
+			{position && <td># {position}</td>}
 			<td>{record.mats}</td>
 			<td>{record.inns}</td>
 			<td>{record.balls}</td>
