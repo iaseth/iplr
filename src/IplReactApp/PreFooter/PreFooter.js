@@ -20,11 +20,8 @@ function PreFooterHeading ({children}) {
 
 function PreFooterButton ({to, team, children}) {
 	return (
-		<Link to={to}>
-			<div className="Season bg-slate-900 px-4 py-2 mb-4 mr-4 border-2 rounded cursor-pointer duration-300 outline-none hover:bg-slate-700 focus:bg-slate-700"
-					style={team.bdStyle} tabIndex="0">
-				{children}
-			</div>
+		<Link to={to} style={team.bdStyle} className="Season bg-slate-900 px-4 py-2 mb-4 mr-4 border-2 rounded cursor-pointer duration-300 outline-none hover:bg-slate-700 focus:bg-slate-700">
+			{children}
 		</Link>
 	);
 }
@@ -53,7 +50,7 @@ export function PreFooter ({
 	const groundItems = ipl.groundsArray.map((g, i) => {
 		return (
 			<PreFooterButton key={i} to={g.getLink()} team={g.hometeam}>
-				<div className="font-bold text-sm">{g.city}</div>
+				<div className="font-bold text-sm p-1">{g.city}</div>
 			</PreFooterButton>
 		);
 	});

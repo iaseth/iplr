@@ -56,7 +56,7 @@ export default function Inning ({
 			<div className="flex px-4 pt-8 pb-5">
 				<div className="grow py-3">
 					<div className="text-6xl text-white">
-						<span className="px-4 pb-1 rounded cursor-pointer" style={inning.match.playoff ? inning.team.bgStyle : inning.team.fgStyle}>{inning.team.abb}</span>
+						<Link to={inning.team.getLink()} className="px-4 pb-1 rounded cursor-pointer" style={inning.match.playoff ? inning.team.bgStyle : inning.team.fgStyle}>{inning.team.abb}</Link>
 					</div>
 				</div>
 				<div className="px-4">

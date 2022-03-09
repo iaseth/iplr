@@ -1,3 +1,5 @@
+import {Link} from 'react-router-dom';
+
 import {RainbowBorder} from '../Utils';
 
 
@@ -9,7 +11,7 @@ export function Header () {
 			<RainbowBorder />
 			<div className="max-w-5xl m-auto px-4 py-4">
 				<div className="font-bold">
-					<a href="/">Cricdocs IPL R</a>
+					<Link to="/">Cricdocs IPL R</Link>
 				</div>
 			</div>
 			<RainbowBorder />
