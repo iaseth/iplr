@@ -9,7 +9,9 @@ function CompactPointsTableRow ({row}) {
 			<td style={row.team.fgStyle}>{row.team.abb}</td>
 			<td>{row.matches.length}</td>
 			<td>{row.wins} | {row.losses}</td>
-			<td>{row.points}</td>
+			<td>
+				<span className="border-b-2 pb-[1px]" style={row.team.bdStyle}>{row.points}</span>
+			</td>
 			<td>{row.getNetRunRate()}</td>
 		</tr>
 	);
