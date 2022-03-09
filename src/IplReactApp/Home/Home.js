@@ -1,5 +1,6 @@
-import {MatchCard} from '../Utils';
+import {Link} from 'react-router-dom';
 
+import {MatchCard} from '../Utils';
 import CompactPointsTable from './CompactPointsTable';
 
 
@@ -13,10 +14,10 @@ export function Home ({
 		return (
 			<div key={i} className="px-4 pt-4 pb-12 md:flex">
 				<div>
-					<div>
-						<h1 className="text-6xl px-4 pt-8 pb-4 text-center" style={season.winner.fgStyle}>{season.year}</h1>
+					<div className="px-4 py-4">
+						<Link to={season.getLink()} className="block text-8xl px-2 py-6 text-center rounded duration-300 hover:bg-slate-900" style={season.winner.fgStyle}>{season.year}</Link>
 					</div>
-					<MatchCard match={season.final} />
+					<MatchCard match={season.final} naked={true} />
 				</div>
 				<div className="grow md:px-4 md:py-4">
 					<CompactPointsTable pointsTable={season.pointsTable} />
