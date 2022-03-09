@@ -153,6 +153,16 @@ export default class IPL {
 	findPlayerByName = (name) => this.findXByName(name, this.playersArray);
 	findTeamByName = (name) => this.findXByName(name, this.teamsArray);
 
+	getAllFinals () {
+		if (!this.finals) {
+			this.finals = [];
+			for (let season of this.seasons) {
+				this.finals.push(season.final);
+			}
+		}
+		return this.finals;
+	}
+
 	printStatus () {
 		console.log(`IPL object:`);
 		console.log(`\t---- ${Object.keys(this.teams).length} teams`);

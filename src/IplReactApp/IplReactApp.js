@@ -13,6 +13,7 @@ import {Settings} from './Settings';
 import {PreFooter} from './PreFooter';
 import {Footer} from './Footer';
 
+import {Home} from './Home';
 import {Season} from './Season';
 import {Match} from './Match';
 import {Ground} from './Ground';
@@ -141,7 +142,7 @@ export default function IplReactApp () {
 				<div className="max-w-5xl mx-auto pb-12">
 					<Routes>
 						<Route path="">
-							<Route path="" element={<div>Home</div>} />
+							<Route path="" element={<Home {...props} />} />
 							<Route path=":year">
 								<Route path="" element={<Season {...props} />} />
 								<Route path=":matchNumber" element={<Match {...props} />} />
