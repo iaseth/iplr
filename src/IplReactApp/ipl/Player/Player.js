@@ -24,19 +24,19 @@ export default class Player extends BaseClass {
 		this.forTeamIndexes = [];
 		this.vsTeamIndexes = [];
 
-		this.batting_performances = [];
-		this.bowling_performances = [];
+		this.battingPerformances = [];
+		this.bowlingPerformances = [];
 	}
 
 	postmatchSetup () {
-		this.batting_positions = [];
-		this.batting_performances.forEach(bp => {
-			if (!bp.dnb) this.batting_positions[bp.position] = true;
+		this.battingPositions = [];
+		this.battingPerformances.forEach(bp => {
+			if (!bp.dnb) this.battingPositions[bp.position] = true;
 		});
 
-		this.bowling_positions = [];
-		this.bowling_performances.forEach(bp => {
-			if (!bp.dnb) this.bowling_positions[bp.position] = true;
+		this.bowlingPositions = [];
+		this.bowlingPerformances.forEach(bp => {
+			if (!bp.dnb) this.bowlingPositions[bp.position] = true;
 		});
 	}
 
@@ -47,13 +47,13 @@ export default class Player extends BaseClass {
 
 	hasNeverBatted = () => !this.hasEverBatted();
 	hasEverBatted () {
-		for (let batting_performance of this.batting_performances) {
-			if (!batting_performance.dnb) return true;
+		for (let battingPerformance of this.battingPerformances) {
+			if (!battingPerformance.dnb) return true;
 		}
 		return false;
 	}
 
-	hasNeverBowled = () => this.bowling_performances.length === 0;
+	hasNeverBowled = () => this.bowlingPerformances.length === 0;
 	hasEverBowled = () => !this.hasNeverBowled();
 
 	addMatch (match) {
@@ -70,7 +70,7 @@ export default class Player extends BaseClass {
 			if (!this.forTeamIndexes[teamIndex]) return; // player has not played for this team
 			records.push({
 				team: this.tournament.teamsArray[teamIndex],
-				record: new BattingRecord(this, this.batting_performances, x => x.for.index === teamIndex)
+				record: new BattingRecord(this, this.battingPerformances, x => x.for.index === teamIndex)
 			});
 		});
 		return records;
@@ -82,7 +82,7 @@ export default class Player extends BaseClass {
 			if (!this.vsTeamIndexes[teamIndex]) return; // player has not played vs this team
 			records.push({
 				team: this.tournament.teamsArray[teamIndex],
-				record: new BattingRecord(this, this.batting_performances, x => x.vs.index === teamIndex)
+				record: new BattingRecord(this, this.battingPerformances, x => x.vs.index === teamIndex)
 			});
 		});
 		return records;
@@ -95,7 +95,7 @@ export default class Player extends BaseClass {
 			if (!this.forTeamIndexes[teamIndex]) return; // player has not played for this team
 			records.push({
 				team: this.tournament.teamsArray[teamIndex],
-				record: new BowlingRecord(this, this.bowling_performances, x => x.for.index === teamIndex)
+				record: new BowlingRecord(this, this.bowlingPerformances, x => x.for.index === teamIndex)
 			});
 		});
 		return records;
@@ -107,7 +107,7 @@ export default class Player extends BaseClass {
 			if (!this.vsTeamIndexes[teamIndex]) return; // player has not played vs this team
 			records.push({
 				team: this.tournament.teamsArray[teamIndex],
-				record: new BowlingRecord(this, this.bowling_performances, x => x.vs.index === teamIndex)
+				record: new BowlingRecord(this, this.bowlingPerformances, x => x.vs.index === teamIndex)
 			});
 		});
 		return records;
@@ -116,10 +116,10 @@ export default class Player extends BaseClass {
 
 	getPositionWiseBattingRecord () {
 		const records = [];
-		this.batting_positions.forEach((x, position) => {
+		this.battingPositions.forEach((x, position) => {
 			records.push({
 				position: position,
-				record: new BattingRecord(this, this.batting_performances, x => x.position === position)
+				record: new BattingRecord(this, this.battingPerformances, x => x.position === position)
 			});
 		});
 		return records;
@@ -127,10 +127,10 @@ export default class Player extends BaseClass {
 
 	getPositionWiseBowlingRecord () {
 		const records = [];
-		this.bowling_positions.forEach((x, position) => {
+		this.bowlingPositions.forEach((x, position) => {
 			records.push({
 				position: position,
-				record: new BowlingRecord(this, this.bowling_performances, x => x.position === position)
+				record: new BowlingRecord(this, this.bowlingPerformances, x => x.position === position)
 			});
 		});
 		return records;
@@ -141,7 +141,7 @@ export default class Player extends BaseClass {
 		Object.keys(this.seasons).reverse().forEach(year => {
 			seasonWiseBattingRecord.push({
 				year: year,
-				record: new BattingRecord(this, this.batting_performances, x => x.teamInning.match.year === parseInt(year))
+				record: new BattingRecord(this, this.battingPerformances, x => x.teamInning.match.year === parseInt(year))
 			});
 		});
 		return seasonWiseBattingRecord;
@@ -152,7 +152,7 @@ export default class Player extends BaseClass {
 		Object.keys(this.seasons).reverse().forEach(year => {
 			seasonWiseBowlingRecord.push({
 				year: year,
-				record: new BowlingRecord(this, this.bowling_performances, x => x.teamInning.match.year === parseInt(year))
+				record: new BowlingRecord(this, this.bowlingPerformances, x => x.teamInning.match.year === parseInt(year))
 			});
 		});
 		return seasonWiseBowlingRecord;
@@ -160,28 +160,28 @@ export default class Player extends BaseClass {
 
 	printBattingPerformances () {
 		console.log(`${this.fn} (${this.bats_right ? "Right" : "Left"} handed)`);
-		for (let x of this.batting_performances) {
+		for (let x of this.battingPerformances) {
 			x.consoleLog();
 		}
 	}
 
 	print50s () {
 		console.log(`${this.fn} (${this.bats_right ? "Right" : "Left"} handed)`);
-		for (let x of this.batting_performances) {
+		for (let x of this.battingPerformances) {
 			if (x.runs >= 50) x.consoleLog();
 		}
 	}
 
 	printBowlingPerformances () {
 		console.log(`${this.fn} (${this.bowls_right ? "Right" : "Left"} arm)`);
-		for (let x of this.bowling_performances) {
+		for (let x of this.bowlingPerformances) {
 			x.consoleLog();
 		}
 	}
 
 	print2Ws () {
 		console.log(`${this.fn} (${this.bats_right ? "Right" : "Left"} handed)`);
-		for (let x of this.bowling_performances) {
+		for (let x of this.bowlingPerformances) {
 			if (x.wickets >= 2) x.consoleLog();
 		}
 	}

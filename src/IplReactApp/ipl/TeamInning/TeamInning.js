@@ -35,7 +35,7 @@ export default class TeamInning {
 		for (let bj of jo.batting) {
 			let position = this.batsmen.length + 1;
 			let x = new BatsmanInning(this, bj, position);
-			x.player.batting_performances.push(x);
+			x.player.battingPerformances.push(x);
 			this.batsmen.push(x);
 		}
 
@@ -47,14 +47,14 @@ export default class TeamInning {
 				id: member.id,
 				dnb: true
 			});
-			x.player.batting_performances.push(x);
+			x.player.battingPerformances.push(x);
 			this.batsmen.push(x);
 		});
 
 		for (let bj of jo.bowling) {
 			let position = this.bowlers.length + 1;
 			let x = new BowlerInning(this, bj, position);
-			x.player.bowling_performances.push(x);
+			x.player.bowlingPerformances.push(x);
 			this.bowlers.push(x);
 		}
 	}

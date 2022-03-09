@@ -9,24 +9,24 @@ class PointsTableTeam {
 		this.points = 0;
 		this.wins = 0;
 		this.losses = 0;
-		this.no_results = 0;
+		this.noResults = 0;
 
-		this.for_runs = 0;
-		this.for_balls = 0;
-		this.for_wickets = 0;
-		this.for_runrate = 0;
+		this.forRuns = 0;
+		this.forBalls = 0;
+		this.forWickets = 0;
+		this.forRunrate = 0;
 
-		this.vs_runs = 0;
-		this.vs_balls = 0;
-		this.vs_wickets = 0;
-		this.vs_runrate = 0;
+		this.vsRuns = 0;
+		this.vsBalls = 0;
+		this.vsWickets = 0;
+		this.vsRunrate = 0;
 
-		this.net_runrate = 0;
+		this.netNunrate = 0;
 	}
 
-	getForRunRate = () => this.for_runrate.toFixed(2);
-	getVsRunRate = () => this.vs_runrate.toFixed(2);
-	getNetRunRate = () => this.net_runrate.toFixed(2);
+	getForRunRate = () => this.forRunrate.toFixed(2);
+	getVsRunRate = () => this.vsRunrate.toFixed(2);
+	getNetRunRate = () => this.netRunrate.toFixed(2);
 }
 
 export default class PointsTable {
@@ -52,7 +52,7 @@ export default class PointsTable {
 					// adding points
 					if (match.winner === null) {
 						team.points += 1;
-						team.no_results += 1;
+						team.noResults += 1;
 					} else if (match.winner === team.team) {
 						team.points += 2;
 						team.wins += 1;
@@ -71,28 +71,28 @@ export default class PointsTable {
 					}
 
 					if (forInning && forInning.actuallyHappened()) {
-						team.for_runs += forInning.runs;
-						team.for_balls += forInning.allout ? 120 : forInning.balls;
-						team.for_wickets += forInning.wkts;
+						team.forRuns += forInning.runs;
+						team.forBalls += forInning.allout ? 120 : forInning.balls;
+						team.forWickets += forInning.wkts;
 					}
 
 					if (vsInning && vsInning.actuallyHappened()) {
-						team.vs_runs += vsInning.runs;
-						team.vs_balls += vsInning.allout ? 120 : vsInning.balls;
-						team.vs_wickets += vsInning.wkts;
+						team.vsRuns += vsInning.runs;
+						team.vsBalls += vsInning.allout ? 120 : vsInning.balls;
+						team.vsWickets += vsInning.wkts;
 					}
 				}
 			});
 		});
 
 		this.teams.forEach(row => {
-			row.for_runrate = row.for_runs * 6 / row.for_balls;
-			row.vs_runrate = row.vs_runs * 6 / row.vs_balls;
-			row.net_runrate = row.for_runrate - row.vs_runrate;
+			row.forRunrate = row.forRuns * 6 / row.forBalls;
+			row.vsRunrate = row.vsRuns * 6 / row.vsBalls;
+			row.netRunrate = row.forRunrate - row.vsRunrate;
 		});
 
 		this.teams.sort((a, b) => {
-			if (a.points === b.points) return (b.net_runrate - a.net_runrate);
+			if (a.points === b.points) return (b.netRunrate - a.netRunrate);
 			return (b.points - a.points);
 		});
 
