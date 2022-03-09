@@ -57,6 +57,14 @@ export function Player ({
 		return <BowlingRecordRow key={i} position={r.position} record={r.record} />;
 	});
 
+	const forTeamBowlingItems = player.getForTeamWiseBowlingRecord().map((r, i) => {
+		return <BowlingRecordRow key={i} forTeam={r.team} record={r.record} />;
+	});
+
+	const vsTeamBowlingItems = player.getVsTeamWiseBowlingRecord().map((r, i) => {
+		return <BowlingRecordRow key={i} vsTeam={r.team} record={r.record} />;
+	});
+
 
 	return (
 		<div className="Player">
@@ -125,6 +133,24 @@ export function Player ({
 					<tbody>
 						{positionWiseBowlingRecord}
 					</tbody>
+				</table>
+			</div>}
+
+			{player.hasEverBowled() && <div className="iplr-table">
+				<table>
+					<thead>
+						<BowlingRecordRow forTeam={true} />
+					</thead>
+					<tbody>{forTeamBowlingItems}</tbody>
+				</table>
+			</div>}
+
+			{player.hasEverBowled() && <div className="iplr-table">
+				<table>
+					<thead>
+						<BowlingRecordRow vsTeam={true} />
+					</thead>
+					<tbody>{vsTeamBowlingItems}</tbody>
 				</table>
 			</div>}
 

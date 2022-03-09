@@ -63,6 +63,7 @@ export default class Player extends BaseClass {
 		this.seasons[match.year] = true;
 	}
 
+
 	getForTeamWiseBattingRecord () {
 		const records = [];
 		[...this.forTeamIndexes.keys()].forEach(teamIndex => {
@@ -86,6 +87,32 @@ export default class Player extends BaseClass {
 		});
 		return records;
 	}
+
+
+	getForTeamWiseBowlingRecord () {
+		const records = [];
+		[...this.forTeamIndexes.keys()].forEach(teamIndex => {
+			if (!this.forTeamIndexes[teamIndex]) return; // player has not played for this team
+			records.push({
+				team: this.tournament.teamsArray[teamIndex],
+				record: new BowlingRecord(this, this.bowling_performances, x => x.for.index === teamIndex)
+			});
+		});
+		return records;
+	}
+
+	getVsTeamWiseBowlingRecord () {
+		const records = [];
+		[...this.vsTeamIndexes.keys()].forEach(teamIndex => {
+			if (!this.vsTeamIndexes[teamIndex]) return; // player has not played vs this team
+			records.push({
+				team: this.tournament.teamsArray[teamIndex],
+				record: new BowlingRecord(this, this.bowling_performances, x => x.vs.index === teamIndex)
+			});
+		});
+		return records;
+	}
+
 
 	getPositionWiseBattingRecord () {
 		const records = [];
