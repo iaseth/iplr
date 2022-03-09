@@ -2,8 +2,27 @@
 
 
 export function BowlingRecordRow ({
-	year, record
+	year, position,
+	record
 }) {
+
+	if (!record) {
+		return (
+			<tr>
+				{year && <td>Year</td>}
+				{position && <td>Pos</td>}
+				<td>M</td>
+				<td>I</td>
+				<td>Balls</td>
+				<td>Runs</td>
+				<td>Wkts</td>
+				<td>Avg</td>
+				<td>SR</td>
+				<td>Econ</td>
+				<td>Best</td>
+			</tr>
+		);
+	}
 
 	let bestSpan = <span>{record.getBestString()}</span>;
 	if (record.best) {

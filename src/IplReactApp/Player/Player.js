@@ -69,17 +69,7 @@ export function Player ({
 			<div className="iplr-table">
 				<table>
 					<thead>
-						<tr>
-							<td>Year</td>
-							<td>M</td>
-							<td>I</td>
-							<td>Runs</td>
-							<td>Avg</td>
-							<td>SR</td>
-							<td>4s/6s</td>
-							<td>50/100</td>
-							<td>HS</td>
-						</tr>
+						<BattingRecordRow year={true} />
 					</thead>
 					<tbody>
 						{battingRecord}
@@ -89,6 +79,9 @@ export function Player ({
 
 			<div className="iplr-table">
 				<table>
+					<thead>
+						<BattingRecordRow position={true} />
+					</thead>
 					<tbody>
 						{positionWiseBattingRecord}
 					</tbody>
@@ -98,18 +91,7 @@ export function Player ({
 			<div className="iplr-table">
 				<table>
 					<thead>
-						<tr>
-							<td>Year</td>
-							<td>M</td>
-							<td>I</td>
-							<td>Balls</td>
-							<td>Runs</td>
-							<td>Wkts</td>
-							<td>Avg</td>
-							<td>SR</td>
-							<td>Econ</td>
-							<td>Best</td>
-						</tr>
+						<BowlingRecordRow year={true} />
 					</thead>
 					<tbody>
 						{bowlingRecord}
