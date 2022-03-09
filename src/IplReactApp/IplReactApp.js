@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Routes, Route} from 'react-router-dom';
+import {useNavigate, Routes, Route} from 'react-router-dom';
 
 import './IplReactApp.css';
 import IPL from './ipl';
@@ -40,6 +40,7 @@ export default function IplReactApp () {
 	const [doneFetching, setDoneFetching] = React.useState(false);
 
 	// used for navigating to next and prev page
+	const navigate = useNavigate();
 	const [currentPage, setCurrentPage] = React.useState(false);
 
 	// document title is set to "IPLR | titleSuffix"
@@ -97,7 +98,9 @@ export default function IplReactApp () {
 		} else if (!currentPage.next) {
 			console.log("currentPage.next is not set!");
 		} else {
-			console.log("Setting currentPage to " + currentPage.next.getLink());
+			const link = currentPage.next.getLink();
+			navigate(link);
+			console.log("Setting currentPage to " + link);
 		}
 	};
 
@@ -107,7 +110,9 @@ export default function IplReactApp () {
 		} else if (!currentPage.prev) {
 			console.log("currentPage.prev is not set!");
 		} else {
-			console.log("Setting currentPage to " + currentPage.prev.getLink());
+			const link = currentPage.prev.getLink();
+			navigate(link);
+			console.log("Setting currentPage to " + link);
 		}
 	};
 
