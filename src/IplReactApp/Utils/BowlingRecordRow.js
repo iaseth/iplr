@@ -35,8 +35,8 @@ export function BowlingRecordRow ({
 		<tr className="BowlingRecordRow">
 			{year && <td>{year}</td>}
 			{position && <td># {position}</td>}
-			{forTeam && <td>{forTeam.abb}</td>}
-			{vsTeam && <td>{vsTeam.abb}</td>}
+			{forTeam && <td style={forTeam.fgStyle}>{forTeam.abb}</td>}
+			{vsTeam && <td style={vsTeam.fgStyle}>{vsTeam.abb}</td>}
 			<td>{record.mats}</td>
 			<td>{record.inns}</td>
 			<td>{record.balls}</td>

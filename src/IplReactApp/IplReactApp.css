@@ -1,6 +1,6 @@
 
 div.iplr-table {
-	@apply py-12 overflow-x-hidden text-sm;
+	@apply py-6 overflow-x-hidden text-sm select-none;
 }
 
 div.iplr-table > table {

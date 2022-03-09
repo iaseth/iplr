@@ -7,6 +7,11 @@ import {BowlingRecordRow} from '../Utils';
 
 
 
+function PSTHeading ({children}) {
+	// player stat table heading
+	return <h1 className="text-base font-bold px-3 py-2 max-w-3xl mx-auto">{children}</h1>
+}
+
 export function Player ({
 	ipl, setTitleSuffix, setCurrentPage,
 	PAGE_TYPES, setPageType
@@ -75,6 +80,7 @@ export function Player ({
 			</div>
 
 			<div className="iplr-table">
+				<PSTHeading>Batting record</PSTHeading>
 				<table>
 					<thead>
 						<BattingRecordRow year={true} />
@@ -115,6 +121,7 @@ export function Player ({
 			</div>}
 
 			<div className="iplr-table">
+				<PSTHeading>Bowling record</PSTHeading>
 				<table>
 					<thead>
 						<BowlingRecordRow year={true} />
