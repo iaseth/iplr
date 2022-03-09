@@ -25,6 +25,10 @@ export function Match ({
 	}
 
 	React.useEffect(function () {
+		if (match) setCurrentPage(match);
+	}, [setCurrentPage, match]);
+
+	React.useEffect(function () {
 		if (match) setTitleSuffix(`${match.year} | M${match.seasonIndex+1}`);
 	}, [setTitleSuffix, match]);
 

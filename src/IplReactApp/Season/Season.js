@@ -21,6 +21,10 @@ export function Season ({
 	}
 
 	React.useEffect(function () {
+		if (season) setCurrentPage(season);
+	}, [setCurrentPage, season]);
+
+	React.useEffect(function () {
 		if (season) setTitleSuffix(`${season.year}`);
 	}, [setTitleSuffix, season]);
 

@@ -18,6 +18,10 @@ export function Team ({
 	}
 
 	React.useEffect(function () {
+		if (team) setCurrentPage(team);
+	}, [setCurrentPage, team]);
+
+	React.useEffect(function () {
 		if (team) setTitleSuffix(team.abb);
 	}, [setTitleSuffix, team]);
 

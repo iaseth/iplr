@@ -18,6 +18,10 @@ export function Ground ({
 	}
 
 	React.useEffect(function () {
+		if (ground) setCurrentPage(ground);
+	}, [setCurrentPage, ground]);
+
+	React.useEffect(function () {
 		if (ground) setTitleSuffix(ground.fn);
 	}, [setTitleSuffix, ground]);
 
