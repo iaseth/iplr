@@ -2,15 +2,11 @@ import React from 'react';
 import {useParams} from 'react-router-dom';
 
 import {Four04} from '../Four04';
-import {BattingRecordRow} from '../Utils';
-import {BowlingRecordRow} from '../Utils';
+
+import PlayerBattingRecord from './PlayerBattingRecord';
+import PlayerBowlingRecord from './PlayerBowlingRecord';
 
 
-
-function PSTHeading ({children}) {
-	// player stat table heading
-	return <h1 className="text-base font-bold px-3 py-2 max-w-3xl mx-auto">{children}</h1>
-}
 
 export function Player ({
 	ipl, setTitleSuffix, setCurrentPage,
@@ -37,40 +33,6 @@ export function Player ({
 
 	if (player === null) return <Four04 {...{setTitleSuffix}} />;
 
-	const battingRecord = player.getSeasonWiseBattingRecord().map((r, i) => {
-		return <BattingRecordRow key={i} year={r.year} record={r.record} />;
-	});
-
-	const positionWiseBattingRecord = player.getPositionWiseBattingRecord().map((r, i) => {
-		return <BattingRecordRow key={i} position={r.position} record={r.record} />;
-	});
-
-	const forTeamBattingItems = player.getForTeamWiseBattingRecord().map((r, i) => {
-		return <BattingRecordRow key={i} forTeam={r.team} record={r.record} />;
-	});
-
-	const vsTeamBattingItems = player.getVsTeamWiseBattingRecord().map((r, i) => {
-		return <BattingRecordRow key={i} vsTeam={r.team} record={r.record} />;
-	});
-
-
-	const bowlingRecord = player.getSeasonWiseBowlingRecord().map((r, i) => {
-		return <BowlingRecordRow key={i} year={r.year} record={r.record} />;
-	});
-
-	const positionWiseBowlingRecord = player.getPositionWiseBowlingRecord().map((r, i) => {
-		return <BowlingRecordRow key={i} position={r.position} record={r.record} />;
-	});
-
-	const forTeamBowlingItems = player.getForTeamWiseBowlingRecord().map((r, i) => {
-		return <BowlingRecordRow key={i} forTeam={r.team} record={r.record} />;
-	});
-
-	const vsTeamBowlingItems = player.getVsTeamWiseBowlingRecord().map((r, i) => {
-		return <BowlingRecordRow key={i} vsTeam={r.team} record={r.record} />;
-	});
-
-
 	return (
 		<div className="Player">
 
@@ -79,87 +41,8 @@ export function Player ({
 				<h3 className="text-xl font-bold">{player.first_match.year} to {player.last_match.year}</h3>
 			</div>
 
-			<div className="iplr-table">
-				<PSTHeading>Batting record</PSTHeading>
-				<table>
-					<thead>
-						<BattingRecordRow year={true} />
-					</thead>
-					<tbody>
-						{battingRecord}
-					</tbody>
-				</table>
-			</div>
-
-			{player.hasEverBatted() && <div className="iplr-table">
-				<table>
-					<thead>
-						<BattingRecordRow position={true} />
-					</thead>
-					<tbody>
-						{positionWiseBattingRecord}
-					</tbody>
-				</table>
-			</div>}
-
-			{player.hasEverBatted() && <div className="iplr-table">
-				<table>
-					<thead>
-						<BattingRecordRow forTeam={true} />
-					</thead>
-					<tbody>{forTeamBattingItems}</tbody>
-				</table>
-			</div>}
-
-			{player.hasEverBatted() && <div className="iplr-table">
-				<table>
-					<thead>
-						<BattingRecordRow vsTeam={true} />
-					</thead>
-					<tbody>{vsTeamBattingItems}</tbody>
-				</table>
-			</div>}
-
-			<div className="iplr-table">
-				<PSTHeading>Bowling record</PSTHeading>
-				<table>
-					<thead>
-						<BowlingRecordRow year={true} />
-					</thead>
-					<tbody>
-						{bowlingRecord}
-					</tbody>
-				</table>
-			</div>
-
-			{player.hasEverBowled() && <div className="iplr-table">
-				<table>
-					<thead>
-						<BowlingRecordRow position={true} />
-					</thead>
-					<tbody>
-						{positionWiseBowlingRecord}
-					</tbody>
-				</table>
-			</div>}
-
-			{player.hasEverBowled() && <div className="iplr-table">
-				<table>
-					<thead>
-						<BowlingRecordRow forTeam={true} />
-					</thead>
-					<tbody>{forTeamBowlingItems}</tbody>
-				</table>
-			</div>}
-
-			{player.hasEverBowled() && <div className="iplr-table">
-				<table>
-					<thead>
-						<BowlingRecordRow vsTeam={true} />
-					</thead>
-					<tbody>{vsTeamBowlingItems}</tbody>
-				</table>
-			</div>}
+			<PlayerBattingRecord player={player} />
+			<PlayerBowlingRecord player={player} />
 
 		</div>
 	);
