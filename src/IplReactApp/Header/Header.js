@@ -11,7 +11,7 @@ export function Header () {
 			<RainbowBorder />
 			<div className="max-w-5xl m-auto px-4 py-4">
 				<div className="font-bold">
-					<Link to="/">Cricdocs IPL R</Link>
+					<Link to="/">Home</Link>
 				</div>
 			</div>
 			<RainbowBorder />

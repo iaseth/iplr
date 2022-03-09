@@ -161,7 +161,7 @@ export default function IplReactApp () {
 							<Route path=":playerPath" element={<Player {...props} />} />
 						</Route>
 						<Route path="rivalry">
-							<Route path="" element={<div>Rivalry</div>} />
+							<Route path="" element={<Rivalry {...props} />} />
 							<Route path=":rivalryPath" element={<Rivalry {...props} />} />
 						</Route>
 					</Routes>

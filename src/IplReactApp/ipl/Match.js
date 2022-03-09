@@ -10,6 +10,7 @@ export default class Match {
 		this.tournament = season.tournament;
 		this.seasonIndex = season.matches.length;
 		this.playoff = false;
+		this.final = false;
 		this.jo = jo;
 		this.team_a = this.tournament.teams[jo.teams[0].team];
 		this.team_b = this.tournament.teams[jo.teams[1].team];

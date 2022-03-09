@@ -22,6 +22,7 @@ export default class Season extends BaseClass {
 		const n = this.matches.length;
 		this.opening = this.matches[0];
 		this.final = this.matches[n-1];
+		this.matches[n-1].final = true;
 		this.winner = this.final.winner;
 		this.loser = this.final.loser;
 
