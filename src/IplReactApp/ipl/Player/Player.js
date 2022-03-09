@@ -15,11 +15,11 @@ export default class Player extends BaseClass {
 		this.country = jo.country;
 		this.path = jo.path;
 
-		this.bats_right = jo.batright;
-		this.bowls_right = jo.bowlright;
+		this.batsRight = jo.batright;
+		this.bowlsRight = jo.bowlright;
 
-		this.first_match = null;
-		this.last_match = null;
+		this.firstMatch = null;
+		this.lastMatch = null;
 		this.seasons = {};
 		this.forTeamIndexes = [];
 		this.vsTeamIndexes = [];
@@ -58,8 +58,8 @@ export default class Player extends BaseClass {
 
 	addMatch (match) {
 		this.matches.push(match);
-		if (this.first_match === null) this.first_match = match;
-		this.last_match = match;
+		if (this.firstMatch === null) this.firstMatch = match;
+		this.lastMatch = match;
 		this.seasons[match.year] = true;
 	}
 
@@ -159,28 +159,28 @@ export default class Player extends BaseClass {
 	}
 
 	printBattingPerformances () {
-		console.log(`${this.fn} (${this.bats_right ? "Right" : "Left"} handed)`);
+		console.log(`${this.fn} (${this.batsRight ? "Right" : "Left"} handed)`);
 		for (let x of this.battingPerformances) {
 			x.consoleLog();
 		}
 	}
 
 	print50s () {
-		console.log(`${this.fn} (${this.bats_right ? "Right" : "Left"} handed)`);
+		console.log(`${this.fn} (${this.batsRight ? "Right" : "Left"} handed)`);
 		for (let x of this.battingPerformances) {
 			if (x.runs >= 50) x.consoleLog();
 		}
 	}
 
 	printBowlingPerformances () {
-		console.log(`${this.fn} (${this.bowls_right ? "Right" : "Left"} arm)`);
+		console.log(`${this.fn} (${this.bowlsRight ? "Right" : "Left"} arm)`);
 		for (let x of this.bowlingPerformances) {
 			x.consoleLog();
 		}
 	}
 
 	print2Ws () {
-		console.log(`${this.fn} (${this.bats_right ? "Right" : "Left"} handed)`);
+		console.log(`${this.fn} (${this.batsRight ? "Right" : "Left"} handed)`);
 		for (let x of this.bowlingPerformances) {
 			if (x.wickets >= 2) x.consoleLog();
 		}

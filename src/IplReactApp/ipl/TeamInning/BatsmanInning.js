@@ -17,7 +17,7 @@ export default class BatsmanInning extends PlayerInning {
 		this.balls = jo.b;
 		this.n4 = jo.n4;
 		this.n6 = jo.n6;
-		this.is_out = jo.out ? true : false;
+		this.isOut = jo.out ? true : false;
 	}
 
 	isCaptain = () => (this.player.id === this.teamInning.captain.id);
@@ -29,9 +29,9 @@ export default class BatsmanInning extends PlayerInning {
 	getBoundaries = () => (this.n4 + this.n6);
 	getBoundaryRuns = () => (4 * this.n4 + 6 * this.n6);
 
-	runsString = () => this.is_out ? this.runs : this.runs + "*";
+	runsString = () => this.isOut ? this.runs : this.runs + "*";
 
 	consoleLog () {
-		console.log(`${this.player.bats_right ? " " : "@"} ${this.player.fn.padEnd(25)} ${this.runsString()} (${this.balls}) (${this.n4}x4, ${this.n6}x6, ${this.srF()})`);
+		console.log(`${this.player.batsRight ? " " : "@"} ${this.player.fn.padEnd(25)} ${this.runsString()} (${this.balls}) (${this.n4}x4, ${this.n6}x6, ${this.srF()})`);
 	}
 }

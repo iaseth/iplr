@@ -32,8 +32,8 @@ export default class Match {
 		this.order = jo.meta.order;
 		this.squad_a = new Squad(this, jo.teams[0], this.team_a, this.team_b);
 		this.squad_b = new Squad(this, jo.teams[1], this.team_b, this.team_a);
-		this.squad_a.opposition_squad = this.squad_b;
-		this.squad_b.opposition_squad = this.squad_a;
+		this.squad_a.oppositionSquad = this.squad_b;
+		this.squad_b.oppositionSquad = this.squad_a;
 
 		this.players = this.squad_a.members.concat(this.squad_b.members);
 		this.players.forEach(player => player.addMatch(this));

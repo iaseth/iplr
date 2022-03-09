@@ -18,7 +18,7 @@ export default class Squad {
 	}
 
 	consoleLog () {
-		let member_names = this.members.map(m => m.jo.fullname);
-		console.log(member_names);
+		let memberNames = this.members.map(m => m.jo.fullname);
+		console.log(memberNames);
 	}
 }

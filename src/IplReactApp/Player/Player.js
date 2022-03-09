@@ -36,9 +36,13 @@ export function Player ({
 	return (
 		<div className="Player">
 
-			<div className="px-4 pt-8">
+			<div className="px-4 pt-8 max-w-4xl mx-auto">
 				<h2 className="text-4xl py-4 font-bold">{player.fn}</h2>
-				<h3 className="text-xl font-bold">{player.first_match.year} to {player.last_match.year}</h3>
+				<h3 className="text-base font-bold py-6">
+					<span className="bg-slate-900 px-4 py-3 rounded border-2" style={player.firstMatch.season.winner.bdStyle}>{player.firstMatch.year}</span>
+					<span className="px-3">to</span>
+					<span className="bg-slate-900 px-4 py-3 rounded border-2" style={player.lastMatch.season.winner.bdStyle}>{player.lastMatch.year}</span>
+				</h3>
 			</div>
 
 			<PlayerBattingRecord player={player} />

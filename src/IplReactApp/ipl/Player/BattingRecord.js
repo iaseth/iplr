@@ -29,7 +29,7 @@ export default class BattingRecord {
 			this.inns++;
 			this.runs += performance.runs;
 			this.balls += performance.balls;
-			if (performance.is_out) this.outs++;
+			if (performance.isOut) this.outs++;
 
 			this.n4 += performance.n4;
 			this.n6 += performance.n6;
