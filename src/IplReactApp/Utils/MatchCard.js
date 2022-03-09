@@ -25,7 +25,7 @@ export function MatchCard ({match}) {
 		<div className="MatchCard">
 			<div className="py-2 text-slate-200 text-sm font-bold flex space-x-2">
 				<div className="px-3 py-1 bg-slate-900">{match.season.year}</div>
-				<div className="px-3 py-1 bg-slate-900">#{match.seasonIndex + 1}</div>
+				<div className="px-3 py-1 bg-slate-900"># {match.seasonIndex + 1}</div>
 			</div>
 			<Link to={match.getLink()}>
 				<div className="sm:mr-4 mb-12 px-4 py-5 sm:w-80 bg-slate-900 text-slate-100 border-2 border-slate-600 rounded cursor-pointer hover:bg-slate-800"

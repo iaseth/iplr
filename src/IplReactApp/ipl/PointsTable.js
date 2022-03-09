@@ -94,6 +94,8 @@ export default class PointsTable {
 		this.teams.sort((a, b) => {
 			if (a.points === b.points) return (b.net_runrate - a.net_runrate);
 			return (b.points - a.points);
-		})
+		});
+
+		this.teams.forEach((team, index) => team.position = (index+1));
 	}
 }

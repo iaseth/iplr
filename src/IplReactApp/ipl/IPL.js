@@ -155,12 +155,16 @@ export default class IPL {
 
 	getAllFinals () {
 		if (!this.finals) {
-			this.finals = [];
-			for (let season of this.seasons) {
-				this.finals.push(season.final);
-			}
+			this.finals = this.seasons.map(season => season.final);
 		}
 		return this.finals;
+	}
+
+	getAllPointsTables () {
+		if (!this.pointsTables) {
+			this.pointsTables = this.seasons.map(season => season.pointsTables);
+		}
+		return this.pointsTables;
 	}
 
 	printStatus () {

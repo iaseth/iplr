@@ -1,0 +1,18 @@
+
+
+table.CompactPointsTable {
+	@apply border-2 border-slate-900 text-sm font-bold;
+}
+
+table.CompactPointsTable tr > td {
+	@apply px-3 py-3;
+}
+
+table.CompactPointsTable tr {
+	@apply border-b-2 border-slate-800;
+}
+
+table.CompactPointsTable tr:nth-child(2), .CompactPointsTable tr:nth-child(4) {
+	@apply border-b-8;
+}
+

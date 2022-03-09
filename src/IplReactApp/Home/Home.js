@@ -1,5 +1,7 @@
 import {MatchCard} from '../Utils';
 
+import CompactPointsTable from './CompactPointsTable';
+
 
 
 export function Home ({
@@ -7,11 +9,11 @@ export function Home ({
 	PAGE_TYPES, setPageType
 }) {
 
-	const finals = ipl.getAllFinals();
-	const finalItems = [...finals].reverse().map((match, i) => {
+	const finalItems = [...ipl.seasons].reverse().map((season, i) => {
 		return (
-			<div key={i} className="px-4 py-4">
-				<MatchCard {...{match}} />
+			<div key={i} className="px-4 py-4 flex">
+				<MatchCard match={season.final} />
+				<CompactPointsTable pointsTable={season.pointsTable} />
 			</div>
 		);
 	});
