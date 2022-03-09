@@ -49,6 +49,9 @@ export default function IplReactApp () {
 
 	const [pageType, setPageType] = React.useState(PAGE_TYPES.MATCH);
 
+	let showDebugInfo = false;
+	let showSettings = false;
+
 	React.useEffect(function () {
 		// return;
 		fetch("/data/bundle.json")
@@ -170,10 +173,10 @@ export default function IplReactApp () {
 				</div>
 			</div>}
 			<RainbowBorder />
-			<DebugInfo {...debugProps} />
-			<RainbowBorder />
-			<Settings {...settingsProps} />
-			<RainbowBorder />
+			{showDebugInfo && <DebugInfo {...debugProps} />}
+			{showDebugInfo && <RainbowBorder />}
+			{showSettings && <Settings {...settingsProps} />}
+			{showSettings && <RainbowBorder />}
 			{doneFetching && <PreFooter {...preFooterProps} />}
 			<Footer />
 		</div>
