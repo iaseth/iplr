@@ -32,21 +32,12 @@ export function Player ({
 
 	if (player === null) return <Four04 {...{setTitleSuffix}} />;
 
-	const seasonWiseBattingRecord = player.getSeasonWiseBattingRecord();
-	const battingRecord = seasonWiseBattingRecord.map((r, i) => {
-		const {year, record} = r;
-		const props = {
-			year, record
-		};
-		return <BattingRecordRow {...props} key={i} />;
+	const battingRecord = player.getSeasonWiseBattingRecord().map((r, i) => {
+		return <BattingRecordRow key={i} year={r.year} record={r.record} />;
 	});
 
 	const positionWiseBattingRecord = player.getPositionWiseBattingRecord().map((r, i) => {
-		const {position, record} = r;
-		const props = {
-			position, record
-		};
-		return <BattingRecordRow {...props} key={i} />;
+		return <BattingRecordRow key={i} position={r.position} record={r.record} />;
 	});
 
 	const forTeamBattingItems = player.getForTeamWiseBattingRecord().map((r, i) => {
@@ -57,22 +48,15 @@ export function Player ({
 		return <BattingRecordRow key={i} vsTeam={r.team} record={r.record} />;
 	});
 
-	const seasonWiseBowlingRecord = player.getSeasonWiseBowlingRecord();
-	const bowlingRecord = seasonWiseBowlingRecord.map((r, i) => {
-		const {year, record} = r;
-		const props = {
-			year, record
-		};
-		return <BowlingRecordRow {...props} key={i} />;
+
+	const bowlingRecord = player.getSeasonWiseBowlingRecord().map((r, i) => {
+		return <BowlingRecordRow key={i} year={r.year} record={r.record} />;
 	});
 
 	const positionWiseBowlingRecord = player.getPositionWiseBowlingRecord().map((r, i) => {
-		const {position, record} = r;
-		const props = {
-			position, record
-		};
-		return <BowlingRecordRow {...props} key={i} />;
+		return <BowlingRecordRow key={i} position={r.position} record={r.record} />;
 	});
+
 
 	return (
 		<div className="Player">
