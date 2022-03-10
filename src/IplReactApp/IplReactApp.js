@@ -96,7 +96,8 @@ export default function IplReactApp () {
 		document.title = "IPLR | " + titleSuffix;
 	}, [titleSuffix]);
 
-	const goToHome = () => navigate("");
+	const goSomewhere = path => setTimeout(() => navigate(path), 500);
+	const goToHome = () => goSomewhere("");
 
 	const goToNextPage = () => {
 		if (!currentPage) {
@@ -105,7 +106,7 @@ export default function IplReactApp () {
 			console.log("currentPage.next is not set!");
 		} else {
 			const link = currentPage.next.getLink();
-			navigate(link);
+			goSomewhere(link);
 			console.log("Setting currentPage to " + link);
 		}
 	};
@@ -117,7 +118,7 @@ export default function IplReactApp () {
 			console.log("currentPage.prev is not set!");
 		} else {
 			const link = currentPage.prev.getLink();
-			navigate(link);
+			goSomewhere(link);
 			console.log("Setting currentPage to " + link);
 		}
 	};

@@ -8,6 +8,7 @@ export default function PointsTable ({season}) {
 	const teamRows = season.pointsTable.teams.map((team, i) => {
 		return (
 			<tr key={i} className="PointsTableRow items-center bg-slate-900">
+				<td># {team.position}</td>
 				<td className="w-1/2">
 					<span className="py-1 border-b-2" style={team.team.bdStyle}>{team.team.fn}</span>
 				</td>
