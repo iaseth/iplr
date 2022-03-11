@@ -5,11 +5,15 @@ table.NSPointsTable {
 }
 
 table.NSPointsTable thead > tr > td {
-	@apply px-3 py-1 text-orange-500;
+	@apply px-2 py-1 text-orange-500;
+}
+
+table.NSPointsTable tr > td:first-child {
+	@apply text-right;
 }
 
 table.NSPointsTable tr > td {
-	@apply px-3 py-3;
+	@apply px-2 py-3;
 }
 
 table.NSPointsTable tr {

@@ -13,8 +13,8 @@ function NSPointsTableRow ({row}) {
 				<td>M</td>
 				<td>W</td>
 				<td>L</td>
-				<td>Win %</td>
-				<td>Points</td>
+				<td>%</td>
+				<td className="hidden md:block">Points</td>
 				<td>NRR</td>
 			</tr>
 		);
@@ -30,7 +30,7 @@ function NSPointsTableRow ({row}) {
 			<td>{row.wins}</td>
 			<td>{row.losses}</td>
 			<td>{row.getWinPercentF()}</td>
-			<td>
+			<td className="hidden md:block">
 				<span className="border-b-2 pb-[1px]" style={row.team.bdStyle}>{row.points}</span>
 			</td>
 			<td>{row.getNetRunRate()}</td>

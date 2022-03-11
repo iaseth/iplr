@@ -1,3 +1,5 @@
+import {Link} from 'react-router-dom';
+
 import './CompactPointsTable.css';
 
 
@@ -6,7 +8,9 @@ function CompactPointsTableRow ({row}) {
 	return (
 		<tr className="CompactPointsTableRow">
 			<td># {row.position}</td>
-			<td style={row.team.fgStyle}>{row.team.abb}</td>
+			<td>
+				<Link to={row.team.getLink()} style={row.team.fgStyle}>{row.team.abb}</Link>
+			</td>
 			<td>{row.matches.length}</td>
 			<td>{row.wins} | {row.losses}</td>
 			<td>
