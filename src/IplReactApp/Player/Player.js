@@ -1,7 +1,8 @@
 import React from 'react';
 import {useParams} from 'react-router-dom';
 
-import {Four04} from '../Four04';
+import FrontMatter from '../FrontMatter';
+import Four04 from '../Four04';
 
 import PlayerBattingRecord from './PlayerBattingRecord';
 import PlayerBowlingRecord from './PlayerBowlingRecord';
@@ -36,14 +37,13 @@ export function Player ({
 	return (
 		<div className="Player">
 
-			<div className="px-4 pt-8 max-w-4xl mx-auto">
-				<h2 className="text-4xl py-4 font-bold">{player.fn}</h2>
+			<FrontMatter title={player.fn}>
 				<h3 className="text-base font-bold py-6">
 					<span className="bg-slate-900 px-4 py-3 rounded border-2" style={player.firstMatch.season.winner.bdStyle}>{player.firstMatch.year}</span>
 					<span className="px-3">to</span>
 					<span className="bg-slate-900 px-4 py-3 rounded border-2" style={player.lastMatch.season.winner.bdStyle}>{player.lastMatch.year}</span>
 				</h3>
-			</div>
+			</FrontMatter>
 
 			<PlayerBattingRecord player={player} />
 			<PlayerBowlingRecord player={player} />

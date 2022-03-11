@@ -3,7 +3,7 @@ import {useParams} from 'react-router-dom';
 import RivalryHome from './RivalryHome';
 import RivalryTeam from './RivalryTeam';
 import RivalryPage from './RivalryPage';
-import {Four04} from '../Four04';
+import Four04 from '../Four04';
 
 
 

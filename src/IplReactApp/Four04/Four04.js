@@ -2,7 +2,7 @@ import React from 'react';
 
 
 
-export function Four04 ({
+export default function Four04 ({
 	setTitleSuffix
 }) {
 

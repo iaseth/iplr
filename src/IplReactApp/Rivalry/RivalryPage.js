@@ -1,6 +1,8 @@
 import {MatchCard} from '../Utils/MatchCard';
 import CompactPointsTable from '../Home/CompactPointsTable';
 
+import FrontMatter from '../FrontMatter';
+
 
 
 export default function RivalryPage ({
@@ -11,6 +13,7 @@ export default function RivalryPage ({
 
 	return (
 		<div className="RivalryPage">
+			<FrontMatter title={rivalry.getFullName()}></FrontMatter>
 			<div className="px-4 py-8 flex">
 				<div className="grow mx-auto">
 					<CompactPointsTable pointsTable={rivalry.pointsTable} />

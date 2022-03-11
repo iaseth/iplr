@@ -1,7 +1,7 @@
 import React from 'react';
 import {useParams} from 'react-router-dom';
 
-import {Four04} from '../Four04';
+import Four04 from '../Four04';
 
 import {MatchCard} from '../Utils';
 import PointsTable from './PointsTable';
