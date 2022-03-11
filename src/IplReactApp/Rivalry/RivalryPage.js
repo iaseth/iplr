@@ -1,4 +1,5 @@
 import {MatchCard} from '../Utils/MatchCard';
+import CompactPointsTable from '../Home/CompactPointsTable';
 
 
 
@@ -10,7 +11,12 @@ export default function RivalryPage ({
 
 	return (
 		<div className="RivalryPage">
-			<div className="flex flex-wrap py-12">
+			<div className="px-4 py-8 flex">
+				<div className="grow mx-auto">
+					<CompactPointsTable pointsTable={rivalry.pointsTable} />
+				</div>
+			</div>
+			<div className="md:flex flex-wrap px-4 md:px-2 py-12">
 				{matchItems}
 			</div>
 		</div>
