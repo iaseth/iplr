@@ -7,7 +7,7 @@ export function RivalryCard ({rivalry}) {
 	const RivalryTeamName = ({team}) => <div className="text-xl font-bold" style={team.fgStyle}>{team.abb}</div>;
 
 	return (
-		<div className="RivalryCard px-2 py-2">
+		<div className="RivalryCard px-4 py-4">
 			<Link to={rivalry.getLink()} className="block md:w-64 px-4 py-6 rounded bg-slate-900 border-2 border-slate-600 duration-300 hover:bg-slate-800">
 				<div className="flex px-4">
 					<div className="grow">

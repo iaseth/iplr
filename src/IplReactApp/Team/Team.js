@@ -3,7 +3,7 @@ import {useParams} from 'react-router-dom';
 
 import FrontMatter from '../FrontMatter';
 import Four04 from '../Four04';
-import {NSPointsTable} from '../Utils';
+import {NSPointsTable, RivalryCard} from '../Utils';
 
 
 
@@ -29,14 +29,26 @@ export function Team ({
 
 	if (team === null) return <Four04 {...{setTitleSuffix}} />;
 
+	const rivalryItems = team.rivalries.map((r, i) => {
+		if (r.getLength() < 10) return null;
+		return <RivalryCard key={i} rivalry={r} />;
+	});
+
 	return (
 		<div className="Team">
+
 			<FrontMatter title={team.fn}></FrontMatter>
+
 			<div className="px-4 py-8 flex">
 				<div className="grow mx-auto">
 					<NSPointsTable pointsTable={team.pointsTable} />
 				</div>
 			</div>
+
+			<div className="md:flex flex-wrap justify-center px-4 py-4 select-none text-center font-bold">
+				{rivalryItems}
+			</div>
+
 		</div>
 	);
 }

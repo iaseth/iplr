@@ -1,5 +1,3 @@
-import {Link} from 'react-router-dom';
-
 import {RivalryCard} from '../Utils';
 
 
@@ -8,7 +6,10 @@ export default function RivalryTeam ({
 	ipl, team
 }) {
 
-	const rivalryItems = team.rivalries.map((r, i) => <RivalryCard key={i} rivalry={r} />);
+	const rivalryItems = team.rivalries.map((r, i) => {
+		if (r.getLength() < 10) return null;
+		return <RivalryCard key={i} rivalry={r} />;
+	});
 
 	return (
 		<div className="Rivalry">
