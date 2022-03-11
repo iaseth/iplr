@@ -2,6 +2,7 @@ import React from 'react';
 import {useParams} from 'react-router-dom';
 
 import {Four04} from '../Four04';
+import CompactPointsTable from '../Home/CompactPointsTable';
 
 
 
@@ -29,7 +30,11 @@ export function Ground ({
 
 	return (
 		<div className="Ground">
-			<h2>Ground</h2>
+			<div className="px-4 py-8 flex">
+				<div className="grow mx-auto">
+					<CompactPointsTable pointsTable={ground.pointsTable} />
+				</div>
+			</div>
 		</div>
 	);
 }

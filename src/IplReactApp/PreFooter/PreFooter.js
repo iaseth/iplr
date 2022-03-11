@@ -22,7 +22,7 @@ function PreFooterButton ({to, team, children, n}) {
 	return (
 		<Link to={to} style={team.bdStyle} className="font-bold bg-slate-900 px-2 py-2 my-2 mx-2 border-2 rounded cursor-pointer duration-300 outline-none hover:bg-slate-700 focus:bg-slate-700">
 			{children}
-			{n && <div className="inline-block text-sm w-8 bg-slate-800 px-2 py-1 rounded">{n}</div>}
+			{n && <div className="inline-block text-sm bg-slate-800 px-2 py-1 rounded">{n}</div>}
 		</Link>
 	);
 }
