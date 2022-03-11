@@ -3,6 +3,21 @@ import './NSPointsTable.css';
 
 
 function NSPointsTableRow ({row}) {
+	if (!row) {
+		return (
+			<tr>
+				<td></td>
+				<td>Team</td>
+				<td>M</td>
+				<td>W</td>
+				<td>L</td>
+				<td>Win %</td>
+				<td>Points</td>
+				<td>NRR</td>
+			</tr>
+		);
+	}
+
 	return (
 		<tr>
 			<td># {row.position}</td>
@@ -10,6 +25,7 @@ function NSPointsTableRow ({row}) {
 			<td>{row.matches.length}</td>
 			<td>{row.wins}</td>
 			<td>{row.losses}</td>
+			<td>{row.getWinPercentF()}</td>
 			<td>
 				<span className="border-b-2 pb-[1px]" style={row.team.bdStyle}>{row.points}</span>
 			</td>
@@ -30,6 +46,9 @@ export function NSPointsTable ({
 	return (
 		<div className="NSPointsTable">
 			<table className="NSPointsTable w-full max-w-lg bg-slate-900">
+				<thead>
+					<NSPointsTableRow />
+				</thead>
 				<tbody>
 					{pointsTableRows}
 				</tbody>

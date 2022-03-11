@@ -4,6 +4,10 @@ table.NSPointsTable {
 	@apply border-2 border-slate-900 text-sm font-bold;
 }
 
+table.NSPointsTable thead > tr > td {
+	@apply px-3 py-2 text-orange-500;
+}
+
 table.NSPointsTable tr > td {
 	@apply px-3 py-3;
 }
