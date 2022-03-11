@@ -1,3 +1,5 @@
+import {Link} from 'react-router-dom';
+
 import './NSPointsTable.css';
 
 
@@ -21,7 +23,9 @@ function NSPointsTableRow ({row}) {
 	return (
 		<tr>
 			<td># {row.position}</td>
-			<td style={row.team.fgStyle}>{row.team.abb}</td>
+			<td>
+				<Link to={row.team.getLink()} style={row.team.fgStyle}>{row.team.abb}</Link>
+			</td>
 			<td>{row.matches.length}</td>
 			<td>{row.wins}</td>
 			<td>{row.losses}</td>
@@ -42,10 +46,10 @@ export function NSPointsTable ({
 	// started out as just a CompactPointsTable but without separators
 	// to be used on Home, Team and Ground pages
 
-	const pointsTableRows = pointsTable.teams.map((team, i) => <NSPointsTableRow key={i} row={team} />);
+	const pointsTableRows = pointsTable.rows.map((row, i) => <NSPointsTableRow key={i} row={row} />);
 	return (
 		<div className="NSPointsTable">
-			<table className="NSPointsTable w-full max-w-lg bg-slate-900">
+			<table className="NSPointsTable w-full max-w-2xl bg-slate-900 mx-auto">
 				<thead>
 					<NSPointsTableRow />
 				</thead>

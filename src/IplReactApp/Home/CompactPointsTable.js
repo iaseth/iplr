@@ -18,7 +18,7 @@ function CompactPointsTableRow ({row}) {
 }
 
 export default function CompactPointsTable ({pointsTable, separator=true}) {
-	const pointsTableRows = pointsTable.teams.map((team, i) => <CompactPointsTableRow key={i} row={team} />);
+	const pointsTableRows = pointsTable.rows.map((row, i) => <CompactPointsTableRow key={i} row={row} />);
 	return (
 		<div className="CompactPointsTable">
 			<table className="CompactPointsTable w-full max-w-lg bg-slate-900">

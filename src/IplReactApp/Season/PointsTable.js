@@ -1,24 +1,25 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 import './PointsTable.css';
 
 
 
 export default function PointsTable ({season}) {
-	const teamRows = season.pointsTable.teams.map((team, i) => {
+	const teamRows = season.pointsTable.rows.map((row, i) => {
 		return (
 			<tr key={i} className="PointsTableRow items-center bg-slate-900">
-				<td># {team.position}</td>
+				<td># {row.position}</td>
 				<td className="w-1/2">
-					<span className="py-1 border-b-2" style={team.team.bdStyle}>{team.team.fn}</span>
+					<Link to={row.team.getLink()} className="py-1 border-b-2" style={row.team.bdStyle}>{row.team.fn}</Link>
 				</td>
-				<td>{team.matches.length}</td>
-				<td>{team.wins}</td>
-				<td>{team.losses}</td>
-				<td className="text-base text-slate-100">{team.points}</td>
-				<td>{team.getForRunRate()}</td>
-				<td>{team.getVsRunRate()}</td>
-				<td>{team.getNetRunRate()}</td>
+				<td>{row.matches.length}</td>
+				<td>{row.wins}</td>
+				<td>{row.losses}</td>
+				<td className="text-base text-slate-100">{row.points}</td>
+				<td>{row.getForRunRate()}</td>
+				<td>{row.getVsRunRate()}</td>
+				<td>{row.getNetRunRate()}</td>
 			</tr>
 		);
 	});

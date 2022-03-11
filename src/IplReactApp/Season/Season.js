@@ -44,13 +44,13 @@ export function Season ({
 
 	return (
 		<div className="Season px-4 sm:px-0 py-12">
-			<div className="sm:flex flex-wrap">
+			<div className="sm:flex flex-wrap justify-center">
 				{playoffItems}
 			</div>
 			<div className="py-8">
 				<PointsTable {...pointsTableProps} />
 			</div>
-			<div className="sm:flex flex-wrap py-12">
+			<div className="sm:flex flex-wrap justify-center py-12">
 				{leagueItems}
 			</div>
 		</div>
