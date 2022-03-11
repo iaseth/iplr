@@ -17,7 +17,7 @@ function CompactPointsTableRow ({row}) {
 	);
 }
 
-export default function CompactPointsTable ({pointsTable}) {
+export default function CompactPointsTable ({pointsTable, separator=true}) {
 	const pointsTableRows = pointsTable.teams.map((team, i) => <CompactPointsTableRow key={i} row={team} />);
 	return (
 		<div className="CompactPointsTable">

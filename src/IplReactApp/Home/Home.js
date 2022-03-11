@@ -28,6 +28,9 @@ export function Home ({
 
 	return (
 		<div className="Home">
+			<div className="px-4 py-12">
+				<CompactPointsTable pointsTable={ipl.pointsTable} separator={false} />
+			</div>
 			<div>
 				{finalItems}
 			</div>
