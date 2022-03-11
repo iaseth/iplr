@@ -145,7 +145,7 @@ export default function IplReactApp () {
 			{!doneFetching && <Splash />}
 			{doneFetching && <div className="min-h-screen bg-slate-800 text-slate-200">
 
-				<div className="max-w-5xl mx-auto pb-12">
+				<div className="max-w-5xl mx-auto pb-12 overflow-x-hidden">
 					<Routes>
 						<Route path="">
 							<Route path="" element={<Home {...props} />} />
