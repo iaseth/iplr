@@ -5,8 +5,21 @@ import './CompactPointsTable.css';
 
 
 function CompactPointsTableRow ({row}) {
+	if (!row) {
+		return (
+			<tr>
+				<td>Pos</td>
+				<td>Team</td>
+				<td>M</td>
+				<td>W | L</td>
+				<td>Pts</td>
+				<td>NRR</td>
+			</tr>
+		);
+	}
+
 	return (
-		<tr className="CompactPointsTableRow">
+		<tr>
 			<td># {row.position}</td>
 			<td>
 				<Link to={row.team.getLink()} style={row.team.fgStyle}>{row.team.abb}</Link>
@@ -26,6 +39,9 @@ export default function CompactPointsTable ({pointsTable, separator=true}) {
 	return (
 		<div className="CompactPointsTable">
 			<table className="CompactPointsTable w-full max-w-lg bg-slate-900">
+				<thead>
+					<CompactPointsTableRow />
+				</thead>
 				<tbody>
 					{pointsTableRows}
 				</tbody>

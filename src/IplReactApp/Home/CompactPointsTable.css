@@ -4,6 +4,10 @@ table.CompactPointsTable {
 	@apply border-2 border-slate-900 text-sm font-bold;
 }
 
+table.CompactPointsTable thead > tr > td {
+	@apply py-2 text-orange-500;
+}
+
 table.CompactPointsTable tr > td {
 	@apply px-3 py-3;
 }
