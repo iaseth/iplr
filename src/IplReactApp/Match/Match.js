@@ -29,7 +29,7 @@ export function Match ({
 	}, [setCurrentPage, match]);
 
 	React.useEffect(function () {
-		if (match) setTitleSuffix(`${match.year} | M${match.seasonIndex+1}`);
+		if (match) setTitleSuffix(`${match.year} • M${match.seasonIndex+1}`);
 	}, [setTitleSuffix, match]);
 
 	if (match === null) return <Four04 {...{setTitleSuffix}} />;

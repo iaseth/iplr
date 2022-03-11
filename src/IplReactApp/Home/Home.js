@@ -14,8 +14,8 @@ export function Home ({
 		return (
 			<div key={i} className="px-4 pt-4 pb-12 md:flex">
 				<div>
-					<div className="px-4 py-4">
-						<Link to={season.getLink()} className="block text-8xl px-2 py-6 text-center rounded duration-300 hover:bg-slate-900" style={season.winner.fgStyle}>{season.year}</Link>
+					<div className="px-2 py-4">
+						<Link to={season.getLink()} className="block text-8xl px-2 py-8 text-center rounded duration-300 hover:bg-slate-900" style={season.winner.fgStyle}>{season.year}</Link>
 					</div>
 					<MatchCard match={season.final} naked={true} />
 				</div>

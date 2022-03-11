@@ -1,4 +1,9 @@
-import {useParams, Link} from 'react-router-dom';
+import {useParams} from 'react-router-dom';
+
+import RivalryHome from './RivalryHome';
+import RivalryTeam from './RivalryTeam';
+import RivalryPage from './RivalryPage';
+import {Four04} from '../Four04';
 
 
 
@@ -7,39 +12,21 @@ export function Rivalry ({
 	PAGE_TYPES, setPageType
 }) {
 
-	let params = useParams();
-	console.log(params);
+	const params = useParams();
+	const {rivalryPath} = params;
+	if (rivalryPath) {
+		const rivalry = ipl.getRivalryFromPath(rivalryPath);
+		if (rivalry) {
+			return <RivalryPage {...{ipl, rivalry}} />;
+		}
 
-	const RivalryScore = ({score}) => <div className="text-5xl font-bold py-4">{score}</div>;
-	const RivalryTeamName = ({team}) => <div className="text-xl font-bold" style={team.fgStyle}>{team.abb}</div>;
+		const team = ipl.getTeamFromPath(rivalryPath);
+		if (team) {
+			return <RivalryTeam {...{ipl, team}} />;
+		}
 
-	const rivalryItems = ipl.rivalries.map((r, i) => {
-		return (
-			<div key={i} className="p-4">
-				<Link to={r.getLink()} className="block md:w-64 px-4 py-6 rounded bg-slate-900 border-2 border-slate-600 duration-300 hover:bg-slate-800">
-					<div className="flex px-4">
-						<div className="grow">
-							<RivalryScore score={r.t1Wins} />
-							<RivalryTeamName team={r.t1} />
-						</div>
-						<div className="grow">
-							<RivalryScore score={r.t2Wins} />
-							<RivalryTeamName team={r.t2} />
-						</div>
-					</div>
-					<div className="hidden">
-						<h4>{r.getLength()} matches</h4>
-					</div>
-				</Link>
-			</div>
-		);
-	});
-
-	return (
-		<div className="Rivalry">
-			<div className="md:flex flex-wrap justify-center px-4 py-4 select-none text-center font-bold">
-				{rivalryItems}
-			</div>
-		</div>
-	);
+		return <Four04 {...{setTitleSuffix}} />;
+	} else {
+		return <RivalryHome ipl={ipl} />;
+	}
 }

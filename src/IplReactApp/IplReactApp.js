@@ -93,7 +93,7 @@ export default function IplReactApp () {
 	});
 
 	React.useEffect(function () {
-		document.title = "IPLR | " + titleSuffix;
+		document.title = "IPLR • " + titleSuffix;
 	}, [titleSuffix]);
 
 	const goSomewhere = path => setTimeout(() => navigate(path), 500);
