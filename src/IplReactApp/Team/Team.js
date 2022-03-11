@@ -2,7 +2,7 @@ import React from 'react';
 import {useParams} from 'react-router-dom';
 
 import {Four04} from '../Four04';
-import CompactPointsTable from '../Home/CompactPointsTable';
+import {NSPointsTable} from '../Utils';
 
 
 
@@ -32,7 +32,7 @@ export function Team ({
 		<div className="Team">
 			<div className="px-4 py-8 flex">
 				<div className="grow mx-auto">
-					<CompactPointsTable pointsTable={team.pointsTable} />
+					<NSPointsTable pointsTable={team.pointsTable} />
 				</div>
 			</div>
 		</div>

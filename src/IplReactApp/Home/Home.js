@@ -1,6 +1,6 @@
 import {Link} from 'react-router-dom';
 
-import {MatchCard} from '../Utils';
+import {NSPointsTable, MatchCard} from '../Utils';
 import CompactPointsTable from './CompactPointsTable';
 
 
@@ -29,7 +29,7 @@ export function Home ({
 	return (
 		<div className="Home">
 			<div className="px-4 py-12">
-				<CompactPointsTable pointsTable={ipl.pointsTable} separator={false} />
+				<NSPointsTable pointsTable={ipl.pointsTable} />
 			</div>
 			<div>
 				{finalItems}
