@@ -33,7 +33,7 @@ function NSPointsTableRow ({row}) {
 			<td className="hidden md:block">
 				<span className="border-b-2 pb-[1px]" style={row.team.bdStyle}>{row.points}</span>
 			</td>
-			<td>{row.getNetRunRate()}</td>
+			<td className={row.hasPlusNRR() ? "text-green-400" : "text-red-400"}>{row.getNetRunRateS()}</td>
 		</tr>
 	);
 }
