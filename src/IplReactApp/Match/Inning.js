@@ -2,6 +2,26 @@ import {Link} from 'react-router-dom';
 
 
 
+function OversGraph ({inning}) {
+	const overItems = inning.overHistory.overs.map((ov, i) => {
+		const style = {
+			height: (ov.getRuns() * 10) + "px",
+			borderColor: inning.team.color
+		};
+		return (
+			<div className="bg-zinc-800 border-2 grow" style={style}></div>
+		);
+	});
+
+	return (
+		<div className="OversGraph py-4">
+			<div className="h-64 px-2 pt-2 flex items-end space-x-1 bg-zinc-900 border-4 border-zinc-700">
+				{overItems}
+			</div>
+		</div>
+	);
+}
+
 function PlayerRow ({b, children}) {
 	return (
 		<div className="border-b lg:border-x border-slate-400 px-2 py-3 flex items-center">
@@ -79,7 +99,7 @@ export default function Inning ({
 				</div>
 			</div>
 
-			<div className="h-4"></div>
+			<OversGraph inning={inning} />
 
 			<div>
 				<div>

@@ -8,14 +8,15 @@ function BestBatsmanAndBowler ({inning}) {
 
 	return (
 		<div className="space-y-1">
-			<div className="px-3 py-3 bg-zinc-900 flex">
+			<div className="mr-8 px-2 py-3 bg-zinc-900 flex items-center rounded">
 				<div className="grow">
-					<span className="border-b-2 pb-1" style={inning.team.bdStyle}>{bat.player.fn}</span>
+					<Link to={bat.player.getLink()} className="inline-block border-b-2 pb-1" style={inning.team.bdStyle}>{bat.player.fn}</Link>
 				</div>
 				<div>{bat.runsString()} ({bat.balls})</div>
-			</div><div className="px-3 py-3 bg-zinc-900 flex">
+			</div>
+			<div className="ml-8 px-2 py-3 bg-zinc-900 flex items-center rounded">
 				<div className="grow">
-					<span className="border-b-2 pb-1" style={inning.opposition.bdStyle}>{bowl.player.fn}</span>
+					<Link to={bowl.player.getLink()} className="inline-block border-b-2 pb-1" style={inning.opposition.bdStyle}>{bowl.player.fn}</Link>
 				</div>
 				<div>{bowl.getString()} ({bowl.overs})</div>
 			</div>
@@ -55,7 +56,7 @@ export function MatchCard ({match, topStuff=true, bottomStuff=true}) {
 					<InningBox inning={match.secondInning} />
 				</div>
 			</Link>
-			{bottomStuff && <div className="px-2 py-3 text-slate-200 text-sm font-bold space-y-2">
+			{bottomStuff && <div className="px-2 py-3 text-slate-200 text-sm font-bold space-y-1">
 				<BestBatsmanAndBowler inning={match.firstInning} />
 				<BestBatsmanAndBowler inning={match.secondInning} />
 			</div>}
