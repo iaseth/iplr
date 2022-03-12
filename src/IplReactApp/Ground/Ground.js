@@ -32,7 +32,7 @@ export function Ground ({
 	return (
 		<div className="Ground">
 			<FrontMatter title={ground.fn}></FrontMatter>
-			<div className="px-4 py-8 flex">
+			<div className="px-2 py-8 flex">
 				<div className="grow mx-auto">
 					<NSPointsTable pointsTable={ground.pointsTable} />
 				</div>
