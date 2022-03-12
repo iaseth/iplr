@@ -5,7 +5,7 @@ import {EA, RainbowBorder} from '../Utils';
 export function Footer () {
 
 	return (
-		<div className="Footer bg-slate-900 text-white">
+		<div className="Footer bg-zinc-900 text-white">
 			<RainbowBorder />
 			<div className="max-w-5xl m-auto px-4 pt-24 pb-28">
 				<div className="font-bold text-center space-y-4">

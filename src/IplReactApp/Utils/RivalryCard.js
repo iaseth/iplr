@@ -8,7 +8,7 @@ export function RivalryCard ({rivalry}) {
 
 	return (
 		<div className="RivalryCard px-4 py-4">
-			<Link to={rivalry.getLink()} className="block md:w-64 px-4 py-6 rounded bg-slate-900 border-2 border-slate-600 duration-300 hover:bg-slate-800">
+			<Link to={rivalry.getLink()} className="block md:w-64 px-4 py-6 rounded bg-zinc-900 border-2 border-zinc-600 duration-300 hover:bg-zinc-800">
 				<div className="flex px-4">
 					<div className="grow">
 						<RivalryScore score={rivalry.t1Wins} />

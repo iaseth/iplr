@@ -49,7 +49,7 @@ export function NSPointsTable ({
 	const pointsTableRows = pointsTable.rows.map((row, i) => <NSPointsTableRow key={i} row={row} />);
 	return (
 		<div className="NSPointsTable">
-			<table className="NSPointsTable w-full max-w-2xl bg-slate-900 mx-auto">
+			<table className="NSPointsTable w-full max-w-2xl bg-zinc-900 mx-auto">
 				<thead>
 					<NSPointsTableRow />
 				</thead>

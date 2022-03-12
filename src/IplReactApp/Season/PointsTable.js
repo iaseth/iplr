@@ -8,7 +8,7 @@ import './PointsTable.css';
 export default function PointsTable ({season}) {
 	const teamRows = season.pointsTable.rows.map((row, i) => {
 		return (
-			<tr key={i} className="PointsTableRow items-center bg-slate-900">
+			<tr key={i} className="PointsTableRow items-center bg-zinc-900">
 				<td># {row.position}</td>
 				<td className="md:w-1/2">
 					<Link to={row.team.getLink()} className="py-1 border-b-2 hidden md:table-cell" style={row.team.bdStyle}>{row.team.fn}</Link>

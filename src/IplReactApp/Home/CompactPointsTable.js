@@ -38,7 +38,7 @@ export default function CompactPointsTable ({pointsTable, separator=true}) {
 	const pointsTableRows = pointsTable.rows.map((row, i) => <CompactPointsTableRow key={i} row={row} />);
 	return (
 		<div className="CompactPointsTable">
-			<table className="CompactPointsTable w-full max-w-lg bg-slate-900">
+			<table className="CompactPointsTable w-full max-w-lg bg-zinc-900">
 				<thead>
 					<CompactPointsTableRow />
 				</thead>

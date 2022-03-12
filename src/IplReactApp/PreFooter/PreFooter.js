@@ -20,7 +20,7 @@ function PreFooterHeading ({children}) {
 
 function PreFooterButton ({to, team, children}) {
 	return (
-		<Link to={to} style={team.bdStyle} className="font-bold bg-slate-900 px-2 py-2 my-2 mx-2 border-2 rounded cursor-pointer duration-300 outline-none hover:bg-slate-700 focus:bg-slate-700">
+		<Link to={to} style={team.bdStyle} className="font-bold bg-zinc-900 px-2 py-2 my-2 mx-2 border-2 rounded cursor-pointer duration-300 outline-none hover:bg-zinc-700 focus:bg-zinc-700">
 			{children}
 		</Link>
 	);
@@ -35,7 +35,7 @@ export function PreFooter ({
 		return (
 			<PreFooterButton key={i} to={s.getLink()} team={s.winner}>
 				<div className="inline-block text-base align-middle w-24 px-1 py-1">{s.year}</div>
-				<div className="inline-block text-sm bg-slate-800 w-10 px-2 py-2 rounded">{s.matches.length}</div>
+				<div className="inline-block text-sm bg-zinc-800 w-10 px-2 py-2 rounded">{s.matches.length}</div>
 			</PreFooterButton>
 		);
 	});
@@ -52,13 +52,13 @@ export function PreFooter ({
 		return (
 			<PreFooterButton key={i} to={g.getLink()} team={g.hometeam}>
 				<div className="inline-block text-sm px-2 p-1">{g.city}</div>
-				<div className="inline-block text-sm bg-slate-800 px-2 py-1 rounded">{g.matches.length}</div>
+				<div className="inline-block text-sm bg-zinc-800 px-2 py-1 rounded">{g.matches.length}</div>
 			</PreFooterButton>
 		);
 	});
 
 	return (
-		<div className="PreFooter bg-slate-800 text-slate-200 select-none">
+		<div className="PreFooter bg-zinc-800 text-slate-200 select-none">
 			<div className="max-w-5xl m-auto px-2 md:px-4 py-24">
 				<PreFooterSection>
 					<PreFooterHeading>Seasons</PreFooterHeading>
