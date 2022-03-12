@@ -14,9 +14,16 @@ def update_file(input, output):
 	else:
 		print(f"\toutput file was found: '{output}'")
 
-	with open(output, "w") as out:
-		out.write(open(input).read())
-		print(f"\t\tupdated: {output}")
+	input_mtime = os.path.getmtime(input)
+	output_mtime = os.path.getmtime(output)
+	if input_mtime > output_mtime:
+		print(f"\t\toutput file needs update: {output}")
+		with open(output, "w") as out:
+			out.write(open(input).read())
+			print(f"\t\tupdated: {output}")
+	else:
+		print(f"\t\toutput file is up-to-date: {output}")
+
 
 def main():
 	if len(sys.argv) < 2:
