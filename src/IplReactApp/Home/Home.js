@@ -17,7 +17,7 @@ export function Home ({
 					<div className="px-2 py-4">
 						<Link to={season.getLink()} className="block text-8xl px-2 py-8 text-center rounded duration-300 hover:bg-zinc-900" style={season.winner.fgStyle}>{season.year}</Link>
 					</div>
-					<MatchCard match={season.final} naked={true} />
+					<MatchCard match={season.final} topStuff={false} />
 				</div>
 				<div className="grow md:px-4 md:py-4">
 					<CompactPointsTable pointsTable={season.pointsTable} />
