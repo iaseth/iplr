@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom';
 
 
 
@@ -27,7 +28,7 @@ export function BattingRecordRow ({
 
 	let hsSpan = <span>{record.getHsString()}</span>;
 	if (record.hs) {
-		hsSpan = <span className="cursor-pointer">{record.getHsString()}</span>;
+		hsSpan = <Link to={record.hs.teamInning.match.getLink()} className="cursor-pointer">{record.getHsString()}</Link>;
 	}
 
 	return (

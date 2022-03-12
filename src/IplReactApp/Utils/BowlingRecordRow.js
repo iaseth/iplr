@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom';
 
 
 
@@ -28,7 +29,7 @@ export function BowlingRecordRow ({
 
 	let bestSpan = <span>{record.getBestString()}</span>;
 	if (record.best) {
-		bestSpan = <span className="cursor-pointer">{record.getBestString()}</span>;
+		bestSpan = <Link to={record.best.teamInning.match.getLink()} className="cursor-pointer">{record.getBestString()}</Link>;
 	}
 
 	return (
