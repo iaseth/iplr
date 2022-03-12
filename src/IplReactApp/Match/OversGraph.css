@@ -1,0 +1,10 @@
+
+.OversGraphInner > div {
+	@apply -mr-[2px] bg-zinc-800 border-2 grow;
+}
+
+.OversGraphInner > div:nth-child(5n) {
+	@apply mr-2;
+}
+
+
