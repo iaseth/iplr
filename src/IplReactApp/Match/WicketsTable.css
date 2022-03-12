@@ -1,0 +1,14 @@
+
+.WicketsTable > table tr {
+	@apply bg-zinc-900 mb-2 border-b-4 border-zinc-800;
+}
+
+.WicketsTable > table tr > td:first-child {
+	@apply pl-6;
+}
+
+.WicketsTable > table tr > td {
+	@apply px-3 py-4;
+}
+
+
