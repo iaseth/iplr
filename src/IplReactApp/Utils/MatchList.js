@@ -1,5 +1,7 @@
 import './MatchList.css';
 
+import {Link} from 'react-router-dom';
+
 
 
 function InningCells ({inning}) {
@@ -15,7 +17,9 @@ function InningCells ({inning}) {
 function MatchListRow ({match, index}) {
 	return (
 		<tr>
-			<td># {index}</td>
+			<td>
+				<Link to={match.getLink()} style={match.fgStyle}># {index}</Link>
+			</td>
 			<td>{match.year}</td>
 			<td className="hidden md:table-cell"># {match.seasonIndex + 1}</td>
 			<InningCells inning={match.firstInning} />

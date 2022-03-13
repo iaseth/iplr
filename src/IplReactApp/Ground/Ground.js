@@ -4,6 +4,7 @@ import {useParams} from 'react-router-dom';
 import FrontMatter from '../FrontMatter';
 import Four04 from '../Four04';
 import {NSPointsTable} from '../Utils';
+import {MatchList} from '../Utils/MatchList';
 
 
 
@@ -36,6 +37,9 @@ export function Ground ({
 				<div className="grow mx-auto">
 					<NSPointsTable pointsTable={ground.pointsTable} />
 				</div>
+			</div>
+			<div>
+				<MatchList matches={ground.matches} />
 			</div>
 		</div>
 	);
