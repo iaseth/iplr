@@ -1,0 +1,22 @@
+
+.MatchList {
+	@apply px-2 py-2;
+}
+
+.MatchList > table {
+	@apply w-full text-sm font-bold;
+}
+
+.MatchList > table tr {
+	@apply bg-zinc-900 border-b-4 border-zinc-800;
+}
+
+.MatchList > table tr > td {
+	@apply text-center;
+}
+
+.MatchList > table tr > td {
+	@apply px-1 py-4;
+}
+
+

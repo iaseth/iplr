@@ -2,6 +2,7 @@ import {MatchCard} from '../Utils/MatchCard';
 import CompactPointsTable from '../Home/CompactPointsTable';
 
 import FrontMatter from '../FrontMatter';
+import {MatchList} from '../Utils/MatchList';
 
 
 
@@ -18,6 +19,9 @@ export default function RivalryPage ({
 				<div className="grow mx-auto">
 					<CompactPointsTable pointsTable={rivalry.pointsTable} />
 				</div>
+			</div>
+			<div>
+				<MatchList matches={rivalry.matchesReversed} />
 			</div>
 			<div className="md:flex flex-wrap px-4 md:px-2 py-12">
 				{matchItems}
