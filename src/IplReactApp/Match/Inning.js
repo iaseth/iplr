@@ -31,15 +31,20 @@ export default function Inning ({
 }) {
 
 	const batsmen = inning.batsmen.map((b, i) => {
-		if (b.dnb) return <PlayerRow key={i} {...{b}}></PlayerRow>;
+		if (b.dnb) return <tr key={i}>
+			<td><PlayerDiv b={b} /></td>
+			<td className="text-xl"></td>
+			<td className="text-slate-500 px-2"></td>
+		</tr>;
 
 		return (
-			<PlayerRow key={i} {...{b}}>
-				<div>
-					<span className="text-xl">{b.runsString()}</span>
-					<span className="text-slate-500 px-2">{b.balls}</span>
-				</div>
-			</PlayerRow>
+			<tr key={i}>
+				<td>
+					<PlayerDiv b={b} />
+				</td>
+				<td className="text-xl">{b.runsString()}</td>
+				<td className="text-slate-500 px-2">{b.balls}</td>
+			</tr>
 		);
 	});
 
@@ -79,12 +84,18 @@ export default function Inning ({
 				</div>
 			</div>
 
-			<div className="">
-				<div>
-					<div className="text-white px-4 py-2 border border-slate-400" style={inning.team.bgStyle}>Batting</div>
+			<table className="w-full">
+				<thead>
+					<tr className="text-white px-4 py-2 border border-slate-400" style={inning.team.bgStyle}>
+						<td>Batting</td>
+						<td>R</td>
+						<td>B</td>
+					</tr>
+				</thead>
+				<tbody>
 					{batsmen}
-				</div>
-			</div>
+				</tbody>
+			</table>
 
 			<OversGraph inning={inning} />
 
