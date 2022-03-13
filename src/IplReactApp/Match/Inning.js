@@ -53,21 +53,21 @@ export default function Inning ({
 	return (
 		<div className="Inning text-white font-bold lg:w-1/2">
 
-			<div className="flex px-4 pt-8 pb-5">
+			<div className="flex px-4 pt-8 pb-6 border-y-8 border-zinc-800" style={inning.team.bgStyle}>
 				<div className="grow py-3">
 					<div className="text-6xl text-white">
-						<Link to={inning.team.getLink()} className="px-4 pb-1 rounded cursor-pointer" style={inning.match.playoff ? inning.team.bgStyle : inning.team.fgStyle}>{inning.team.abb}</Link>
+						<Link to={inning.team.getLink()} className="px-4 pb-1 rounded cursor-pointer">{inning.team.abb}</Link>
 					</div>
 				</div>
-				<div className="px-4">
+				<div className="px-4 text-slate-200">
 					<div className="text-4xl pb-2">
-						<span className="text-6xl">{inning.runs}</span>
-						<span className="mx-3 text-slate-400">/</span>
-						<span className="text-slate-400">{inning.wkts}</span>
+						<span className="text-6xl text-white">{inning.runs}</span>
+						<span className="mx-1">/</span>
+						<span>{inning.wkts}</span>
 					</div>
-					<div className="text-4xl">
-						<span>{inning.overs}</span>
-						<span className="text-2xl text-slate-400 ml-2">overs</span>
+					<div className="text-center">
+						<span className="text-3xl text-white">{inning.overs}</span>
+						<span className="text-xl ml-2">overs</span>
 					</div>
 				</div>
 			</div>
