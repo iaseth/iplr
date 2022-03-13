@@ -1,12 +1,13 @@
 import {Link} from 'react-router-dom';
 import OversGraph from './OversGraph';
 import WicketsTable from './WicketsTable';
+import './Inning.css';
 
 
 
 function PlayerDiv ({b}) {
 	return (
-		<div className="grow space-x-1 py-[2px]">
+		<div className="grow space-x-1 py-[3px]">
 			{b.isCaptain() && <span style={b.for.fgStyle}>c</span>}
 			<Link to={b.player.getLink()}>
 				<span className="py-1 cursor-pointer text-sm border-b-2" style={b.for.bdStyle}>{b.player.fn}</span>
@@ -19,10 +20,12 @@ function PlayerDiv ({b}) {
 
 function PlayerRow ({b, children}) {
 	return (
-		<div className="border-b lg:border-x border-slate-400 px-2 py-3 flex items-center">
-			<PlayerDiv b={b} />
+		<tr>
+			<td>
+				<PlayerDiv b={b} />
+			</td>
 			{children}
-		</div>
+		</tr>
 	);
 }
 
@@ -31,34 +34,31 @@ export default function Inning ({
 }) {
 
 	const batsmen = inning.batsmen.map((b, i) => {
-		if (b.dnb) return <tr key={i}>
-			<td><PlayerDiv b={b} /></td>
+		if (b.dnb) return <PlayerRow key={i} b={b}>
 			<td className="text-xl"></td>
-			<td className="text-slate-500 px-2"></td>
-		</tr>;
+			<td className="text-slate-500"></td>
+			<td></td>
+			<td></td>
+		</PlayerRow>;
 
 		return (
-			<tr key={i}>
-				<td>
-					<PlayerDiv b={b} />
-				</td>
-				<td className="text-xl">{b.runsString()}</td>
-				<td className="text-slate-500 px-2">{b.balls}</td>
-			</tr>
+			<PlayerRow key={i} b={b}>
+				<td className="text-base">{b.runsString()}</td>
+				<td className="text-slate-500">{b.balls}</td>
+				<td>{b.n4}</td>
+				<td>{b.n6}</td>
+			</PlayerRow>
 		);
 	});
 
 	const bowlers = inning.bowlers.map((b, i) => {
 		return (
-			<tr className="text-slate-500" key={i}>
-				<td>
-					<PlayerDiv b={b} />
-				</td>
+			<PlayerRow key={i} b={b}>
 				<td>{b.overs}</td>
 				<td>{b.maidens}</td>
 				<td>{b.runs}</td>
 				<td className="text-xl text-slate-200">{b.wickets}</td>
-			</tr>
+			</PlayerRow>
 		);
 	});
 
@@ -84,12 +84,14 @@ export default function Inning ({
 				</div>
 			</div>
 
-			<table className="w-full">
+			<table className="w-full ScorecardTable">
 				<thead>
-					<tr className="text-white px-4 py-2 border border-slate-400" style={inning.team.bgStyle}>
+					<tr style={inning.team.bgStyle}>
 						<td>Batting</td>
 						<td>R</td>
 						<td>B</td>
+						<td>4s</td>
+						<td>6s</td>
 					</tr>
 				</thead>
 				<tbody>
@@ -100,9 +102,9 @@ export default function Inning ({
 			<OversGraph inning={inning} />
 
 			<div>
-				<table className="w-full">
+				<table className="w-full ScorecardTable">
 					<thead>
-						<tr className="text-white px-4 py-2 border border-slate-400" style={inning.opposition.bgStyle}>
+						<tr style={inning.opposition.bgStyle}>
 							<td>Bowling</td>
 							<td>Ov</td>
 							<td>M</td>

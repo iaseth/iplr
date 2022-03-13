@@ -1,0 +1,18 @@
+
+table.ScorecardTable {
+	@apply text-sm;
+}
+
+table.ScorecardTable tr {
+	@apply bg-zinc-900 border-b-4 border-zinc-800;
+}
+
+table.ScorecardTable > thead > tr > td {
+	@apply px-3 py-1;
+}
+
+table.ScorecardTable tr > td {
+	@apply px-3 py-3;
+}
+
+
