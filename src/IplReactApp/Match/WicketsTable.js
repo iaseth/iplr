@@ -1,5 +1,7 @@
 import './WicketsTable.css';
 
+import {PlayerDiv} from './MatchUtils';
+
 
 
 export default function WicketsTable ({inning}) {
@@ -10,7 +12,13 @@ export default function WicketsTable ({inning}) {
 				<td>{w.runs}</td>
 				<td>{w.over}.{w.ball}</td>
 				<td>{w.getRRF()}</td>
-				<td>{w.batsman.fn}</td>
+				<td>
+					<PlayerDiv b={w.batsmanInning} />
+				</td>
+				<td>
+					<span>{w.batsmanInning.runs}</span>
+					<span className="text-slate-500 pl-4">{w.batsmanInning.balls}</span>
+				</td>
 			</tr>
 		);
 	});
