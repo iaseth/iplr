@@ -9,7 +9,7 @@ div.iplr-table > table {
 }
 
 div.iplr-table > table > thead > tr {
-	@apply bg-slate-900;
+	@apply bg-zinc-800;
 }
 
 div.iplr-table > table > thead > tr > td {
@@ -21,11 +21,11 @@ div.iplr-table > table tr > td:first-child {
 }
 
 div.iplr-table > table > tbody > tr:nth-child(odd) {
-	@apply bg-slate-700;
+	@apply bg-zinc-900;
 }
 
 div.iplr-table > table > tbody > tr:nth-child(even) {
-	@apply bg-slate-900;
+	@apply bg-zinc-800;
 }
 
 div.iplr-table > table tr > td {

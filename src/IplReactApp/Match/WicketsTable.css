@@ -4,7 +4,11 @@
 }
 
 .WicketsTable > table tr > td:first-child {
-	@apply pl-6;
+	@apply pl-4;
+}
+
+.WicketsTable > table > thead > tr > td {
+	@apply px-3 py-2;
 }
 
 .WicketsTable > table tr > td {

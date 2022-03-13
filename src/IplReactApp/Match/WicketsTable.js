@@ -11,7 +11,6 @@ export default function WicketsTable ({inning}) {
 				<td>{w.wicket}</td>
 				<td>{w.runs}</td>
 				<td>{w.over}.{w.ball}</td>
-				<td>{w.getRRF()}</td>
 				<td>
 					<PlayerDiv b={w.batsmanInning} />
 				</td>
@@ -19,13 +18,24 @@ export default function WicketsTable ({inning}) {
 					<span>{w.batsmanInning.runs}</span>
 					<span className="text-slate-500 pl-4">{w.batsmanInning.balls}</span>
 				</td>
+				<td>{w.getRRF(2)}</td>
 			</tr>
 		);
 	});
 
 	return (
-		<div className="WicketsTable px-2 py-6 text-sm">
+		<div className="WicketsTable py-6 text-sm">
 			<table className="w-full">
+				<thead>
+					<tr style={inning.team.bgStyle}>
+						<td>W</td>
+						<td>R</td>
+						<td>Ov</td>
+						<td>Batsman</td>
+						<td>Score</td>
+						<td>RR</td>
+					</tr>
+				</thead>
 				<tbody>
 					{wicketRows}
 				</tbody>
