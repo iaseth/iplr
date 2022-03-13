@@ -3,6 +3,10 @@ import {Link} from 'react-router-dom';
 
 
 function BestBatsmanAndBowler ({inning}) {
+	if (!inning.actuallyHappened()) {
+		return null;
+	}
+
 	const bat = inning.bestBatsman;
 	const bowl = inning.bestBowler;
 
