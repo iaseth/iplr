@@ -26,12 +26,12 @@ export function Splash () {
 	});
 
 	return (
-		<div className="Splash">
-			<div className="bg-green-600 min-h-screen flex flex-col">
+		<div className="Splash fixed w-full top-0">
+			<div className="bg-zinc-800 min-h-screen flex flex-col">
 				<div className="m-auto">
-					<div className="text-white text-4xl lg:text-8xl font-bold">Cricdocs IPL R</div>
+					<div className="text-white text-4xl lg:text-8xl font-bold">Cricdocs' <span className="bg-zinc-900 px-6 py-2">IPLR</span></div>
 					<div className="flex">
-						<div className="m-auto flex space-x-4 py-6">{dots}</div>
+						<div className="m-auto flex space-x-4 py-12">{dots}</div>
 					</div>
 				</div>
 			</div>
