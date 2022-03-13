@@ -4,17 +4,23 @@ import WicketsTable from './WicketsTable';
 
 
 
+function PlayerDiv ({b}) {
+	return (
+		<div className="grow space-x-1 py-[2px]">
+			{b.isCaptain() && <span style={b.for.fgStyle}>c</span>}
+			<Link to={b.player.getLink()}>
+				<span className="py-1 cursor-pointer text-sm border-b-2" style={b.for.bdStyle}>{b.player.fn}</span>
+			</Link>
+			{b.isWk() && <span style={b.for.fgStyle}>k</span>}
+			{b.player.isOverseas() && <span>o</span>}
+		</div>
+	);
+}
+
 function PlayerRow ({b, children}) {
 	return (
 		<div className="border-b lg:border-x border-slate-400 px-2 py-3 flex items-center">
-			<div className="grow space-x-1 py-[2px]">
-				{b.isCaptain() && <span style={b.for.fgStyle}>c</span>}
-				<Link to={b.player.getLink()}>
-					<span className="py-1 cursor-pointer text-sm border-b-2" style={b.for.bdStyle}>{b.player.fn}</span>
-				</Link>
-				{b.isWk() && <span style={b.for.fgStyle}>k</span>}
-				{b.player.isOverseas() && <span>o</span>}
-			</div>
+			<PlayerDiv b={b} />
 			{children}
 		</div>
 	);
@@ -39,17 +45,15 @@ export default function Inning ({
 
 	const bowlers = inning.bowlers.map((b, i) => {
 		return (
-			<PlayerRow key={i} {...{b}}>
-				<div className="text-slate-500">
-					<span>{b.overs}</span>
-					<span className="px-2">-</span>
-					<span>{b.maidens}</span>
-					<span className="px-2">-</span>
-					<span>{b.runs}</span>
-					<span className="px-2">-</span>
-					<span className="text-xl text-slate-200">{b.wickets}</span>
-				</div>
-			</PlayerRow>
+			<tr className="text-slate-500" key={i}>
+				<td>
+					<PlayerDiv b={b} />
+				</td>
+				<td>{b.overs}</td>
+				<td>{b.maidens}</td>
+				<td>{b.runs}</td>
+				<td className="text-xl text-slate-200">{b.wickets}</td>
+			</tr>
 		);
 	});
 
@@ -85,10 +89,20 @@ export default function Inning ({
 			<OversGraph inning={inning} />
 
 			<div>
-				<div>
-					<div className="text-white px-4 py-2 border border-slate-400" style={inning.opposition.bgStyle}>Bowling</div>
-					{bowlers}
-				</div>
+				<table className="w-full">
+					<thead>
+						<tr className="text-white px-4 py-2 border border-slate-400" style={inning.opposition.bgStyle}>
+							<td>Bowling</td>
+							<td>Ov</td>
+							<td>M</td>
+							<td>R</td>
+							<td>W</td>
+						</tr>
+					</thead>
+					<tbody>
+						{bowlers}
+					</tbody>
+				</table>
 			</div>
 
 			<WicketsTable inning={inning} />
