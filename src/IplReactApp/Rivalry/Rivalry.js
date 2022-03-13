@@ -17,7 +17,7 @@ export function Rivalry ({
 	if (rivalryPath) {
 		const rivalry = ipl.getRivalryFromPath(rivalryPath);
 		if (rivalry) {
-			return <RivalryPage {...{ipl, rivalry}} />;
+			return <RivalryPage {...{ipl, rivalry, setCurrentPage}} />;
 		}
 
 		const team = ipl.getTeamFromPath(rivalryPath);

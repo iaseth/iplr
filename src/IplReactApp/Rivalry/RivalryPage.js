@@ -1,3 +1,5 @@
+import React from 'react';
+
 import {MatchCard} from '../Utils/MatchCard';
 import CompactPointsTable from '../Home/CompactPointsTable';
 
@@ -7,8 +9,13 @@ import {MatchList} from '../Utils/MatchList';
 
 
 export default function RivalryPage ({
-	ipl, rivalry
+	ipl, rivalry, setCurrentPage
 }) {
+
+	React.useEffect(function () {
+		// assuming rivalry is not null
+		setCurrentPage(rivalry);
+	}, [setCurrentPage, rivalry]);
 
 	const matchItems = [...rivalry.matches].reverse().map((m, i) => <MatchCard key={i} match={m} />);
 
