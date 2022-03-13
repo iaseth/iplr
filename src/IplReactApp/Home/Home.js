@@ -12,15 +12,19 @@ export function Home ({
 
 	const finalItems = [...ipl.seasons].reverse().map((season, i) => {
 		return (
-			<div key={i} className="px-2 md:px-4 pt-4 pb-8 md:pb-16 md:flex">
+			<div key={i} className="px-2 md:px-4 pt-4 pb-8 md:pb-16">
 				<div>
 					<div className="px-2 py-4">
 						<Link to={season.getLink()} className="block text-8xl px-2 py-8 text-center rounded duration-300 hover:bg-zinc-900" style={season.winner.fgStyle}>{season.year}</Link>
 					</div>
-					<MatchCard match={season.final} topStuff={false} />
 				</div>
-				<div className="grow md:px-4 md:py-4">
-					<CompactPointsTable pointsTable={season.pointsTable} />
+				<div className="md:flex">
+					<div>
+						<MatchCard match={season.final} topStuff={false} />
+					</div>
+					<div className="grow md:pl-4 md:pr-2">
+						<CompactPointsTable pointsTable={season.pointsTable} />
+					</div>
 				</div>
 			</div>
 		);
