@@ -4,6 +4,7 @@ import {useParams} from 'react-router-dom';
 import FrontMatter from '../FrontMatter';
 import Four04 from '../Four04';
 import {NSPointsTable, RivalryCard} from '../Utils';
+import {MatchList} from '../Utils/MatchList';
 
 
 
@@ -47,6 +48,10 @@ export function Team ({
 
 			<div className="md:flex flex-wrap justify-center px-4 py-4 select-none text-center font-bold">
 				{rivalryItems}
+			</div>
+
+			<div>
+				<MatchList matches={team.matches} reverse={true} />
 			</div>
 
 		</div>

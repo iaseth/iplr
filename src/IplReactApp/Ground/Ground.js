@@ -39,7 +39,7 @@ export function Ground ({
 				</div>
 			</div>
 			<div>
-				<MatchList matches={ground.matches} />
+				<MatchList matches={ground.matches} reverse={true} />
 			</div>
 		</div>
 	);

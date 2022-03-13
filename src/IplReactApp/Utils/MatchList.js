@@ -28,7 +28,8 @@ function MatchListRow ({match, index}) {
 	);
 }
 
-export function MatchList ({matches}) {
+export function MatchList ({matches, reverse=false}) {
+	if (reverse) matches = [...matches].reverse();
 
 	const matchListRows = matches.map((m, i) => {
 		return <MatchListRow key={i} match={m} index={matches.length - i} />;
