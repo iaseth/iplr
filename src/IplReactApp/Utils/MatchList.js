@@ -1,5 +1,6 @@
 import './MatchList.css';
 
+import React from 'react';
 import {Link} from 'react-router-dom';
 
 
@@ -29,11 +30,16 @@ function MatchListRow ({match, index}) {
 }
 
 export function MatchList ({matches, reverse=false}) {
+	const [maxN, setMaxN] = React.useState(10);
 	if (reverse) matches = [...matches].reverse();
 
-	const matchListRows = matches.map((m, i) => {
+	const matchListRows = matches.slice(0, maxN).map((m, i) => {
 		return <MatchListRow key={i} match={m} index={matches.length - i} />;
 	});
+
+	function showMore () {
+		setMaxN(maxN => maxN+10);
+	}
 
 	return (
 		<div className="MatchList">
@@ -42,6 +48,9 @@ export function MatchList ({matches, reverse=false}) {
 					{matchListRows}
 				</tbody>
 			</table>
+			{maxN < matches.length && <div className="py-4">
+				<button onClick={showMore} className="text-sm font-bold px-4 py-3 bg-zinc-900 hover:bg-zinc-700">Show More</button>
+			</div>}
 		</div>
 	);
 }
