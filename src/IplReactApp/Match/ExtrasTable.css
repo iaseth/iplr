@@ -10,3 +10,8 @@ table.ExtrasTable tr {
 table.ExtrasTable tr > td {
 	@apply px-3 py-3;
 }
+
+table.ExtrasTable tr > td:nth-child(even) {
+	/* number values have bigger font-size  */
+	@apply text-base;
+}

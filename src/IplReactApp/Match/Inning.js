@@ -128,6 +128,8 @@ export default function Inning ({
 			</table>
 
 			<OversGraph inning={inning} />
+			<ExtrasTable inning={inning} />
+			<div className="h-6"></div>
 
 			<div>
 				<table className="w-full ScorecardTable">
@@ -142,8 +144,6 @@ export default function Inning ({
 
 			<div className="h-6"></div>
 			<WicketsTable inning={inning} />
-			<div className="h-6"></div>
-			<ExtrasTable inning={inning} />
 			<div className="h-12"></div>
 
 		</div>
