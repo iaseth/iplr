@@ -1,6 +1,8 @@
 import './TopPlayersFooter.css';
 
 import {Link} from 'react-router-dom';
+import {BattingAvg, BattingSR, BowlingAvg, BowlingSR, BowlingEcon} from '../Utils/TableUtils';
+
 
 
 const PlayerTD = ({player}) => {
@@ -31,8 +33,12 @@ export function TopPlayersFooter ({
 				<PlayerTD player={r.player} />
 				<td className="nomobile">{r.inns}</td>
 				<td className="text-base">{r.runs}</td>
-				<td>{r.getAvgF()}</td>
-				<td>{r.getSRF()}</td>
+				<td>
+					<BattingAvg avg={r.getAvgF()} />
+				</td>
+				<td>
+					<BattingSR sr={r.getSRF()} />
+				</td>
 				<td className="nomobile">{r.n4}</td>
 				<td className="nomobile">{r.n6}</td>
 				<td className="nomobile">{r.n50} / {r.n100}</td>
@@ -47,9 +53,15 @@ export function TopPlayersFooter ({
 				<PlayerTD player={r.player} />
 				<td className="nomobile">{r.inns}</td>
 				<td className="text-base">{r.wickets}</td>
-				<td>{r.getAvgF()}</td>
-				<td>{r.getSRF()}</td>
-				<td>{r.getEconF()}</td>
+				<td>
+					<BowlingAvg avg={r.getAvgF()} />
+				</td>
+				<td>
+					<BowlingSR sr={r.getSRF()} />
+				</td>
+				<td>
+					<BowlingEcon econ={r.getEconF()} />
+				</td>
 			</tr>
 		);
 	});
