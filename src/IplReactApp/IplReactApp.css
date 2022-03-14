@@ -8,12 +8,11 @@ div.IplrTable {
 }
 
 div.IplrTable > table {
-	@apply font-bold w-full max-w-4xl mx-auto;
-	@apply border-2 border-slate-900;
+	@apply font-bold w-full max-w-5xl mx-auto;
 }
 
-div.IplrTable > table > thead > tr {
-	@apply bg-zinc-800;
+div.IplrTable > table tr {
+	@apply bg-zinc-900 border-b-4 border-zinc-800;
 }
 
 div.IplrTable > table > thead > tr > td {
@@ -22,14 +21,6 @@ div.IplrTable > table > thead > tr > td {
 
 div.IplrTable > table tr > td:first-child {
 	@apply text-center;
-}
-
-div.IplrTable > table > tbody > tr:nth-child(odd) {
-	@apply bg-zinc-900;
-}
-
-div.IplrTable > table > tbody > tr:nth-child(even) {
-	@apply bg-zinc-800;
 }
 
 div.IplrTable > table tr > td {
