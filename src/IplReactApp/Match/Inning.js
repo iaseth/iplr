@@ -17,41 +17,74 @@ function PlayerRow ({b, children}) {
 	);
 }
 
+function BattingScorecardRow ({b, inning}) {
+	if (!b && inning) {
+		return (
+			<tr style={inning.team.bgStyle}>
+				<td>Batting</td>
+				<td>R</td>
+				<td>B</td>
+				<td>4s</td>
+				<td>6s</td>
+				<td>SR</td>
+			</tr>
+		);
+	}
+
+	if (b.dnb) {
+		return (
+			<PlayerRow b={b}>
+				<td className="text-xl"></td>
+				<td className="text-slate-500"></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</PlayerRow>
+		);
+	}
+
+	return (
+		<PlayerRow b={b}>
+			<td className="text-base">{b.runsString()}</td>
+			<td className="text-slate-500">{b.balls}</td>
+			<td>{b.n4S}</td>
+			<td>{b.n6S}</td>
+			<td>{b.srF()}</td>
+		</PlayerRow>
+	);
+}
+
+function BowlingScorecardRow ({b, inning}) {
+	if (!b && inning) {
+		return (
+			<tr style={inning.opposition.bgStyle}>
+				<td>Bowling</td>
+				<td>Ov</td>
+				<td>M</td>
+				<td>R</td>
+				<td>W</td>
+				<td>Econ</td>
+			</tr>
+		);
+	}
+
+	return (
+		<PlayerRow b={b}>
+			<td>{b.overs}</td>
+			<td>{b.maidens}</td>
+			<td>{b.runs}</td>
+			<td className="text-xl text-slate-200">{b.nWS}</td>
+			<td>{b.econF()}</td>
+		</PlayerRow>
+	);
+}
+
 export default function Inning ({
 	inning
 }) {
 
-	const batsmen = inning.batsmen.map((b, i) => {
-		if (b.dnb) return <PlayerRow key={i} b={b}>
-			<td className="text-xl"></td>
-			<td className="text-slate-500"></td>
-			<td></td>
-			<td></td>
-			<td></td>
-		</PlayerRow>;
-
-		return (
-			<PlayerRow key={i} b={b}>
-				<td className="text-base">{b.runsString()}</td>
-				<td className="text-slate-500">{b.balls}</td>
-				<td>{b.n4S}</td>
-				<td>{b.n6S}</td>
-				<td>{b.srF()}</td>
-			</PlayerRow>
-		);
-	});
-
-	const bowlers = inning.bowlers.map((b, i) => {
-		return (
-			<PlayerRow key={i} b={b}>
-				<td>{b.overs}</td>
-				<td>{b.maidens}</td>
-				<td>{b.runs}</td>
-				<td className="text-xl text-slate-200">{b.nWS}</td>
-				<td>{b.econF()}</td>
-			</PlayerRow>
-		);
-	});
+	const batsmen = inning.batsmen.map((b, i) => <BattingScorecardRow key={i} b={b} />);
+	const bowlers = inning.bowlers.map((b, i) => <BowlingScorecardRow key={i} b={b} />);
 
 	return (
 		<div className="Inning text-white font-bold lg:w-1/2">
@@ -77,14 +110,7 @@ export default function Inning ({
 
 			<table className="w-full ScorecardTable">
 				<thead>
-					<tr style={inning.team.bgStyle}>
-						<td>Batting</td>
-						<td>R</td>
-						<td>B</td>
-						<td>4s</td>
-						<td>6s</td>
-						<td>SR</td>
-					</tr>
+					<BattingScorecardRow inning={inning} />
 				</thead>
 				<tbody>
 					{batsmen}
@@ -96,14 +122,7 @@ export default function Inning ({
 			<div>
 				<table className="w-full ScorecardTable">
 					<thead>
-						<tr style={inning.opposition.bgStyle}>
-							<td>Bowling</td>
-							<td>Ov</td>
-							<td>M</td>
-							<td>R</td>
-							<td>W</td>
-							<td>Econ</td>
-						</tr>
+						<BowlingScorecardRow inning={inning} />
 					</thead>
 					<tbody>
 						{bowlers}
