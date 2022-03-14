@@ -1,0 +1,12 @@
+
+table.ExtrasTable {
+	@apply w-full;
+}
+
+table.ExtrasTable tr {
+	@apply bg-zinc-900 border-b-4 border-zinc-800;
+}
+
+table.ExtrasTable tr > td {
+	@apply px-3 py-3;
+}

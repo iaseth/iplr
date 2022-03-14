@@ -1,6 +1,7 @@
 import {Link} from 'react-router-dom';
 import OversGraph from './OversGraph';
 import WicketsTable from './WicketsTable';
+import ExtrasTable from './ExtrasTable';
 import {PlayerDiv} from './MatchUtils';
 import {BattingSR, BowlingEcon} from '../Utils/SpanUtils';
 import './Inning.css';
@@ -139,7 +140,11 @@ export default function Inning ({
 				</table>
 			</div>
 
+			<div className="h-6"></div>
 			<WicketsTable inning={inning} />
+			<div className="h-6"></div>
+			<ExtrasTable inning={inning} />
+			<div className="h-12"></div>
 
 		</div>
 	);

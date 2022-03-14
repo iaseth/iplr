@@ -27,7 +27,8 @@ export default function WicketsTable ({inning}) {
 	});
 
 	return (
-		<div className="WicketsTable py-6 text-sm">
+		<div className="WicketsTable text-sm">
+			<h2 className="px-2 py-2 text-base">Fall of Wickets</h2>
 			<table className="w-full">
 				<thead>
 					<tr style={inning.team.bgStyle}>
