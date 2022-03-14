@@ -89,7 +89,11 @@ export default function Inning ({
 	return (
 		<div className="Inning text-white font-bold lg:w-1/2">
 
-			<div className="flex px-4 pt-8 pb-6 border-y-8 border-zinc-800" style={inning.team.bgStyle}>
+			<div className="px-3 py-2 border-y-8 border-zinc-800" style={inning.team.bgStyle}>
+				<span className="text-sm font-bold">{inning.team.fn}</span>
+			</div>
+
+			<div className="flex px-4 pt-8 pb-6 border-b-8 border-zinc-800" style={inning.team.bgStyle}>
 				<div className="grow py-3">
 					<div className="text-6xl text-white">
 						<Link to={inning.team.getLink()} className="px-4 pb-1 rounded cursor-pointer">{inning.team.abb}</Link>
