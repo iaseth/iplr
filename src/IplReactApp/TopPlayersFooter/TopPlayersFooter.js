@@ -1,7 +1,7 @@
 import './TopPlayersFooter.css';
 
 import {Link} from 'react-router-dom';
-import {BattingAvg, BattingSR, BowlingAvg, BowlingSR, BowlingEcon} from '../Utils/TableUtils';
+import {BattingAvg, BattingSR, BowlingAvg, BowlingSR, BowlingEcon} from '../Utils/SpanUtils';
 
 
 

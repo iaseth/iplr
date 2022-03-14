@@ -1,6 +1,7 @@
 import './WicketsTable.css';
 
 import {PlayerDiv} from './MatchUtils';
+import {RunRate} from '../Utils/SpanUtils';
 
 
 
@@ -18,7 +19,9 @@ export default function WicketsTable ({inning}) {
 					<span>{w.batsmanInning.runs}</span>
 					<span className="text-slate-500 pl-4">{w.batsmanInning.balls}</span>
 				</td>
-				<td>{w.getRRF(2)}</td>
+				<td>
+					<RunRate runrate={w.getRRF(2)} />
+				</td>
 			</tr>
 		);
 	});

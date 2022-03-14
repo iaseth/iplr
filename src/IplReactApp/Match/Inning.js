@@ -2,6 +2,7 @@ import {Link} from 'react-router-dom';
 import OversGraph from './OversGraph';
 import WicketsTable from './WicketsTable';
 import {PlayerDiv} from './MatchUtils';
+import {BattingSR, BowlingEcon} from '../Utils/SpanUtils';
 import './Inning.css';
 
 
@@ -49,7 +50,9 @@ function BattingScorecardRow ({b, inning}) {
 			<td className="text-slate-500">{b.balls}</td>
 			<td>{b.n4S}</td>
 			<td>{b.n6S}</td>
-			<td>{b.srF()}</td>
+			<td>
+				<BattingSR sr={b.srF()} />
+			</td>
 		</PlayerRow>
 	);
 }
@@ -74,7 +77,9 @@ function BowlingScorecardRow ({b, inning}) {
 			<td>{b.maidens}</td>
 			<td>{b.runs}</td>
 			<td className="text-xl text-slate-200">{b.nWS}</td>
-			<td>{b.econF()}</td>
+			<td>
+				<BowlingEcon econ={b.econF()} />
+			</td>
 		</PlayerRow>
 	);
 }

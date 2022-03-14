@@ -1,11 +1,22 @@
 
 const spanClasses = {
-	"excellent": "text-pink-400",
+	"excellent": "text-purple-400",
 	"verygood": "text-green-400",
 	"good": "text-yellow-400",
 	"ok": "text-blue-400",
 	"bad": "text-red-400"
 };
+
+export function RunRate ({runrate}) {
+	let spanClass = "text-red-400";
+	if (runrate > 10) spanClass = spanClasses.excellent;
+	else if (runrate > 9) spanClass = spanClasses.verygood;
+	else if (runrate > 8) spanClass = spanClasses.good;
+	else if (runrate > 7) spanClass = spanClasses.ok;
+
+	return <span className={spanClass}>{runrate}</span>
+}
+
 
 export function BattingAvg ({avg}) {
 	let spanClass = "text-red-400";
