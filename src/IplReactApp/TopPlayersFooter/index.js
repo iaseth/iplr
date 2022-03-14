@@ -1,0 +1,2 @@
+
+export {TopPlayersFooter} from './TopPlayersFooter';

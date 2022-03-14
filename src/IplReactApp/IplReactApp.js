@@ -10,6 +10,8 @@ import {Header} from './Header';
 import {Splash} from './Splash';
 import {DebugInfo} from './DebugInfo';
 import {Settings} from './Settings';
+
+import {TopPlayersFooter} from './TopPlayersFooter';
 import {PreFooter} from './PreFooter';
 import {Footer} from './Footer';
 
@@ -178,6 +180,8 @@ export default function IplReactApp () {
 			{showDebugInfo && <RainbowBorder />}
 			{showSettings && <Settings {...settingsProps} />}
 			{showSettings && <RainbowBorder />}
+			{doneFetching && <TopPlayersFooter ipl={ipl} />}
+			{doneFetching && <RainbowBorder />}
 			{doneFetching && <PreFooter {...preFooterProps} />}
 			<Footer />
 		</div>
