@@ -95,8 +95,9 @@ export default function Inning ({
 	return (
 		<div className="Inning text-white font-bold lg:w-1/2">
 
-			<div className="px-3 py-2 border-y-8 border-zinc-800" style={inning.team.bgStyle}>
-				<span className="text-sm font-bold">{inning.team.fn}</span>
+			<div className="px-3 py-1 border-y-8 border-zinc-800 flex items-center" style={inning.team.bgStyle}>
+				<div className="text-sm font-bold grow">{inning.team.fn}</div>
+				<div><span className="text-xl">{inning.runrateF(2)}</span> rpo</div>
 			</div>
 
 			<div className="flex px-4 pt-8 pb-6 border-b-8 border-zinc-800" style={inning.team.bgStyle}>
