@@ -27,14 +27,16 @@ export default function Inning ({
 			<td className="text-slate-500"></td>
 			<td></td>
 			<td></td>
+			<td></td>
 		</PlayerRow>;
 
 		return (
 			<PlayerRow key={i} b={b}>
 				<td className="text-base">{b.runsString()}</td>
 				<td className="text-slate-500">{b.balls}</td>
-				<td>{b.n4}</td>
-				<td>{b.n6}</td>
+				<td>{b.n4S}</td>
+				<td>{b.n6S}</td>
+				<td>{b.srF()}</td>
 			</PlayerRow>
 		);
 	});
@@ -45,7 +47,8 @@ export default function Inning ({
 				<td>{b.overs}</td>
 				<td>{b.maidens}</td>
 				<td>{b.runs}</td>
-				<td className="text-xl text-slate-200">{b.wickets}</td>
+				<td className="text-xl text-slate-200">{b.nWS}</td>
+				<td>{b.econF()}</td>
 			</PlayerRow>
 		);
 	});
@@ -80,6 +83,7 @@ export default function Inning ({
 						<td>B</td>
 						<td>4s</td>
 						<td>6s</td>
+						<td>SR</td>
 					</tr>
 				</thead>
 				<tbody>
@@ -98,6 +102,7 @@ export default function Inning ({
 							<td>M</td>
 							<td>R</td>
 							<td>W</td>
+							<td>Econ</td>
 						</tr>
 					</thead>
 					<tbody>
