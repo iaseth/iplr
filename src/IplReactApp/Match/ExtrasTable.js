@@ -7,7 +7,7 @@ export default function ExtrasTable ({inning}) {
 
 	return (
 		<div className="ExtrasTable text-sm">
-			<h2 className="px-3 py-2" style={inning.team.bgStyle}>ExtrasTable</h2>
+			<h2 className="px-3 py-2" style={inning.team.bgStyle}>Extras</h2>
 			<table className="ExtrasTable">
 				<thead>
 					<tr>
@@ -25,7 +25,7 @@ export default function ExtrasTable ({inning}) {
 					<tr>
 						<td>Penalty</td>
 						<td>{extras.p}</td>
-						<td>Total</td>
+						<td className="text-base" style={inning.team.fgStyle}>TOTAL</td>
 						<td>{inning.totalExtras}</td>
 					</tr>
 				</thead>

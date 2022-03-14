@@ -8,9 +8,9 @@ import './Inning.css';
 
 
 
-function PlayerRow ({b, children}) {
+function PlayerRow ({b, children, current=false}) {
 	return (
-		<tr>
+		<tr className={current ? "text-green-500" : ""}>
 			<td>
 				<PlayerDiv b={b} />
 			</td>
@@ -46,7 +46,7 @@ function BattingScorecardRow ({b, inning}) {
 	}
 
 	return (
-		<PlayerRow b={b}>
+		<PlayerRow b={b} current={!b.isOut}>
 			<td className="text-base">{b.runsString()}</td>
 			<td className="text-slate-500">{b.balls}</td>
 			<td>{b.n4S}</td>
