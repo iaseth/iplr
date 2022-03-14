@@ -1,4 +1,8 @@
 
+td.nomobile {
+	@apply hidden md:table-cell;
+}
+
 div.IplrTable {
 	@apply py-6 overflow-x-hidden text-sm select-none;
 }
