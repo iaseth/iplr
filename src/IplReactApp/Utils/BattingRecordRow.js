@@ -1,5 +1,7 @@
 import {Link} from 'react-router-dom';
 
+import {BattingAvg, BattingSR} from './SpanUtils';
+
 
 
 export function BattingRecordRow ({
@@ -40,8 +42,12 @@ export function BattingRecordRow ({
 			<td>{record.mats}</td>
 			<td>{record.inns}</td>
 			<td>{record.runs}</td>
-			<td>{record.getAvgF()}</td>
-			<td>{record.getSRF()}</td>
+			<td>
+				<BattingAvg avg={record.getAvgF()} />
+			</td>
+			<td>
+				<BattingSR sr={record.getSRF()} />
+			</td>
 			<td>{record.n4} | {record.n6}</td>
 			<td>{record.n50} | {record.n100}</td>
 			<td>{hsSpan}</td>

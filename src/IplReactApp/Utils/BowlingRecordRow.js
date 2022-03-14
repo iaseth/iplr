@@ -1,5 +1,7 @@
 import {Link} from 'react-router-dom';
 
+import {BowlingAvg, BowlingSR, BowlingEcon} from './SpanUtils';
+
 
 
 export function BowlingRecordRow ({
@@ -43,9 +45,15 @@ export function BowlingRecordRow ({
 			<td>{record.balls}</td>
 			<td>{record.runs}</td>
 			<td>{record.wickets}</td>
-			<td>{record.getAvgF()}</td>
-			<td>{record.getSRF()}</td>
-			<td>{record.getEconF()}</td>
+			<td>
+				<BowlingAvg avg={record.getAvgF()} />
+			</td>
+			<td>
+				<BowlingSR sr={record.getSRF()} />
+			</td>
+			<td>
+				<BowlingEcon econ={record.getEconF()} />
+			</td>
 			<td>{bestSpan}</td>
 		</tr>
 	);

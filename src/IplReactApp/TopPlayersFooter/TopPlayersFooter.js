@@ -68,7 +68,7 @@ export function TopPlayersFooter ({
 
 	return (
 		<div className="TopPlayersFooter bg-zinc-800 text-slate-200">
-			<div className="max-w-5xl m-auto px-2 md:px-4 py-24">
+			<div className="max-w-5xl m-auto md:px-4 py-24">
 				<TPFTable title="Top 10 Batsmen">
 					<tbody>{top10BatsmenItems}</tbody>
 				</TPFTable>
