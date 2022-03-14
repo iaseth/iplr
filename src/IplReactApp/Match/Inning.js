@@ -23,12 +23,12 @@ function BattingScorecardRow ({b, inning}) {
 	if (!b && inning) {
 		return (
 			<tr style={inning.team.bgStyle}>
-				<td>Batting</td>
+				<td>Batsman</td>
 				<td>R</td>
 				<td>B</td>
 				<td>4s</td>
 				<td>6s</td>
-				<td>SR</td>
+				<td className="nomobile">SR</td>
 			</tr>
 		);
 	}
@@ -40,7 +40,7 @@ function BattingScorecardRow ({b, inning}) {
 				<td className="text-slate-500"></td>
 				<td></td>
 				<td></td>
-				<td></td>
+				<td className="nomobile"></td>
 			</PlayerRow>
 		);
 	}
@@ -51,7 +51,7 @@ function BattingScorecardRow ({b, inning}) {
 			<td className="text-slate-500">{b.balls}</td>
 			<td>{b.n4S}</td>
 			<td>{b.n6S}</td>
-			<td>
+			<td className="nomobile">
 				<BattingSR sr={b.srF()} />
 			</td>
 		</PlayerRow>
@@ -62,7 +62,7 @@ function BowlingScorecardRow ({b, inning}) {
 	if (!b && inning) {
 		return (
 			<tr style={inning.opposition.bgStyle}>
-				<td>Bowling</td>
+				<td>Bowler</td>
 				<td>Ov</td>
 				<td>M</td>
 				<td>R</td>

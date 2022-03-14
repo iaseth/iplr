@@ -15,7 +15,7 @@ export default function WicketsTable ({inning}) {
 				<td>
 					<PlayerDiv b={w.batsmanInning} />
 				</td>
-				<td className="hidden md:table-cell">
+				<td className="nomobile">
 					<span>{w.batsmanInning.runs}</span>
 					<span className="text-slate-500 pl-4">{w.batsmanInning.balls}</span>
 				</td>
@@ -36,7 +36,7 @@ export default function WicketsTable ({inning}) {
 						<td>R</td>
 						<td>Ov</td>
 						<td>Batsman</td>
-						<td className="hidden md:table-cell">Score</td>
+						<td className="nomobile">Score</td>
 						<td>RR</td>
 					</tr>
 				</thead>

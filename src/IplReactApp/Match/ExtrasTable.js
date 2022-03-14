@@ -25,8 +25,8 @@ export default function ExtrasTable ({inning}) {
 					<tr>
 						<td>Penalty</td>
 						<td>{extras.p}</td>
-						<td></td>
-						<td></td>
+						<td>Total</td>
+						<td>{inning.totalExtras}</td>
 					</tr>
 				</thead>
 			</table>
