@@ -1,33 +1,33 @@
 
-div.iplr-table {
+div.IplrTable {
 	@apply py-6 overflow-x-hidden text-sm select-none;
 }
 
-div.iplr-table > table {
+div.IplrTable > table {
 	@apply font-bold w-full max-w-4xl mx-auto;
 	@apply border-2 border-slate-900;
 }
 
-div.iplr-table > table > thead > tr {
+div.IplrTable > table > thead > tr {
 	@apply bg-zinc-800;
 }
 
-div.iplr-table > table > thead > tr > td {
+div.IplrTable > table > thead > tr > td {
 	@apply py-2 text-sm text-orange-600;
 }
 
-div.iplr-table > table tr > td:first-child {
+div.IplrTable > table tr > td:first-child {
 	@apply text-center;
 }
 
-div.iplr-table > table > tbody > tr:nth-child(odd) {
+div.IplrTable > table > tbody > tr:nth-child(odd) {
 	@apply bg-zinc-900;
 }
 
-div.iplr-table > table > tbody > tr:nth-child(even) {
+div.IplrTable > table > tbody > tr:nth-child(even) {
 	@apply bg-zinc-800;
 }
 
-div.iplr-table > table tr > td {
+div.IplrTable > table tr > td {
 	@apply px-2 py-2 md:py-3;
 }

@@ -24,7 +24,7 @@ export default function PlayerBattingRecord ({player}) {
 	return (
 		<div className="PlayerBattingRecord">
 
-			<div className="iplr-table">
+			<div className="IplrTable">
 				<PSTHeading>Batting record</PSTHeading>
 				<table>
 					<thead>
@@ -36,7 +36,7 @@ export default function PlayerBattingRecord ({player}) {
 				</table>
 			</div>
 
-			{player.hasEverBatted() && <div className="iplr-table">
+			{player.hasEverBatted() && <div className="IplrTable">
 				<table>
 					<thead>
 						<BattingRecordRow position={true} />
@@ -47,7 +47,7 @@ export default function PlayerBattingRecord ({player}) {
 				</table>
 			</div>}
 
-			{player.hasEverBatted() && <div className="iplr-table">
+			{player.hasEverBatted() && <div className="IplrTable">
 				<table>
 					<thead>
 						<BattingRecordRow forTeam={true} />
@@ -56,7 +56,7 @@ export default function PlayerBattingRecord ({player}) {
 				</table>
 			</div>}
 
-			{player.hasEverBatted() && <div className="iplr-table">
+			{player.hasEverBatted() && <div className="IplrTable">
 				<table>
 					<thead>
 						<BattingRecordRow vsTeam={true} />
