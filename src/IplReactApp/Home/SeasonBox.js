@@ -30,7 +30,7 @@ export default function SeasonBox ({season}) {
 				</div>
 			</div>
 
-			<div className="space-y-12 py-6">
+			<div className="space-x-3 py-6 lg:flex">
 				<IPLRTable RowComponent={BatsmanInningRow} rowsData={orangeCapTable.top10BattingPerformances} />
 				<IPLRTable RowComponent={BowlerInningRow} rowsData={purpleCapTable.top10BowlingPerformances} />
 			</div>

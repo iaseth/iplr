@@ -1,3 +1,4 @@
+import {PlayerLink, BowlingEcon} from './SpanUtils';
 
 
 
@@ -15,13 +16,13 @@ export default function BowlerInningRow ({rowData, index}) {
 
 	const b = rowData;
 	return (
-		<tr className="BowlerInningRow">
+		<tr>
 			<td># {index+1}</td>
-			<td>{b.player.fn}</td>
+			<td><PlayerLink b={b} /></td>
 			<td>{b.wickets}</td>
 			<td>{b.runs}</td>
 			<td>{b.overs}</td>
-			<td>{b.econF()}</td>
+			<td><BowlingEcon econ={b.econF()} /></td>
 		</tr>
 	);
 }

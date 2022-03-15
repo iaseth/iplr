@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom';
 
 const spanClasses = {
 	"excellent": "text-purple-400",
@@ -6,6 +7,20 @@ const spanClasses = {
 	"ok": "text-blue-400",
 	"bad": "text-red-400"
 };
+
+export function PlayerLink ({b}) {
+	return (
+		<div className="space-x-1 py-[3px]">
+			{b.isCaptain() && <span style={b.for.fgStyle}>c</span>}
+			<Link to={b.player.getLink()}>
+				<span className="py-1 cursor-pointer text-sm border-b-2" style={b.for.bdStyle}>{b.player.fn}</span>
+			</Link>
+			{b.isWk() && <span style={b.for.fgStyle}>k</span>}
+			{b.player.isOverseas() && <span>o</span>}
+		</div>
+	);
+}
+
 
 export function RunRate ({runrate}) {
 	let spanClass = "text-red-400";
