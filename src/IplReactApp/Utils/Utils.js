@@ -1,8 +1,5 @@
 import './Utils.css';
 
-export {BattingRecordRow} from './BattingRecordRow';
-export {BowlingRecordRow} from './BowlingRecordRow';
-
 
 
 export function EA ({href, children}) {

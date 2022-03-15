@@ -1,5 +1,5 @@
 import {PSTHeading} from './PlayerUtils';
-import {BattingRecordRow} from '../Utils';
+import BattingRecordRow from './BattingRecordRow';
 
 
 

@@ -12,7 +12,7 @@ table.IPLRTable tr {
 }
 
 table.IPLRTable thead tr > td {
-	@apply px-2 py-1 text-orange-500;
+	@apply px-2 py-2 text-orange-500;
 }
 
 table.IPLRTable tr > td {

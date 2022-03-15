@@ -1,10 +1,10 @@
 import {Link} from 'react-router-dom';
 
-import {BowlingAvg, BowlingSR, BowlingEcon} from './SpanUtils';
+import {BattingAvg, BattingSR} from '../Utils/SpanUtils';
 
 
 
-export function BowlingRecordRow ({
+export default function BattingRecordRow ({
 	year, position, forTeam, vsTeam,
 	record
 }) {
@@ -18,43 +18,39 @@ export function BowlingRecordRow ({
 				{vsTeam && <td>Vs</td>}
 				<td>M</td>
 				<td>I</td>
-				<td>Balls</td>
 				<td>Runs</td>
-				<td>Wkts</td>
 				<td>Avg</td>
 				<td>SR</td>
-				<td>Econ</td>
-				<td>Best</td>
+				<td>4s/6s</td>
+				<td>50/100</td>
+				<td>HS</td>
 			</tr>
 		);
 	}
 
-	let bestSpan = <span>{record.getBestString()}</span>;
-	if (record.best) {
-		bestSpan = <Link to={record.best.teamInning.match.getLink()} className="cursor-pointer">{record.getBestString()}</Link>;
+	let hsSpan = <span>{record.getHsString()}</span>;
+	if (record.hs) {
+		hsSpan = <Link to={record.hs.teamInning.match.getLink()} className="cursor-pointer">{record.getHsString()}</Link>;
 	}
 
 	return (
-		<tr className="BowlingRecordRow">
+		<tr className="BattingRecordRow">
 			{year && <td>{year}</td>}
 			{position && <td># {position}</td>}
 			{forTeam && <td style={forTeam.fgStyle}>{forTeam.abb}</td>}
 			{vsTeam && <td style={vsTeam.fgStyle}>{vsTeam.abb}</td>}
 			<td>{record.mats}</td>
 			<td>{record.inns}</td>
-			<td>{record.balls}</td>
 			<td>{record.runs}</td>
-			<td>{record.wickets}</td>
 			<td>
-				<BowlingAvg avg={record.getAvgF()} />
+				<BattingAvg avg={record.getAvgF()} />
 			</td>
 			<td>
-				<BowlingSR sr={record.getSRF()} />
+				<BattingSR sr={record.getSRF()} />
 			</td>
-			<td>
-				<BowlingEcon econ={record.getEconF()} />
-			</td>
-			<td>{bestSpan}</td>
+			<td>{record.n4} | {record.n6}</td>
+			<td>{record.n50} | {record.n100}</td>
+			<td>{hsSpan}</td>
 		</tr>
 	);
 }
