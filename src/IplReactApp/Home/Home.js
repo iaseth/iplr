@@ -1,5 +1,3 @@
-import {Link} from 'react-router-dom';
-
 import {NSPointsTable} from '../Utils';
 import SeasonBox from './SeasonBox';
 

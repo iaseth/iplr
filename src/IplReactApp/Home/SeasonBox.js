@@ -4,21 +4,9 @@ import './SeasonBox.css';
 
 import CompactPointsTable from './CompactPointsTable';
 import {MatchCard} from '../Utils';
+import BatsmanInningRow from '../Utils/BatsmanInningRow';
 
 
-
-function BatsmanInningRow ({b, index}) {
-	return (
-		<tr className="BatsmanInningRow">
-			<td># {index+1}</td>
-			<td>{b.player.fn}</td>
-			<td>{b.runs}</td>
-			<td>{b.balls}</td>
-			<td>{b.n4}</td>
-			<td>{b.n6}</td>
-		</tr>
-	);
-}
 
 export default function SeasonBox ({season}) {
 
