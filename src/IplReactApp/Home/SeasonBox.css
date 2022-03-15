@@ -1,0 +1,8 @@
+
+tr.BatsmanInningRow {
+	@apply bg-zinc-900 text-sm font-bold;
+}
+
+tr.BatsmanInningRow > td {
+	@apply px-2 py-2;
+}

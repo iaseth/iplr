@@ -1,7 +1,7 @@
 import {Link} from 'react-router-dom';
 
-import {NSPointsTable, MatchCard} from '../Utils';
-import CompactPointsTable from './CompactPointsTable';
+import {NSPointsTable} from '../Utils';
+import SeasonBox from './SeasonBox';
 
 
 
@@ -10,25 +10,7 @@ export function Home ({
 	PAGE_TYPES, setPageType
 }) {
 
-	const finalItems = [...ipl.seasons].reverse().map((season, i) => {
-		return (
-			<div key={i} className="px-2 md:px-4 pt-4 pb-8 md:pb-16">
-				<div>
-					<div className="px-2 py-4">
-						<Link to={season.getLink()} className="block text-8xl px-2 py-8 text-center rounded duration-300 hover:bg-zinc-900" style={season.winner.fgStyle}>{season.year}</Link>
-					</div>
-				</div>
-				<div className="md:flex">
-					<div>
-						<MatchCard match={season.final} topStuff={false} />
-					</div>
-					<div className="grow md:pl-4 md:pr-2">
-						<CompactPointsTable pointsTable={season.pointsTable} />
-					</div>
-				</div>
-			</div>
-		);
-	});
+	const finalItems = [...ipl.seasons].reverse().map((season, i) => <SeasonBox key={i} season={season} />);
 
 	return (
 		<div className="Home">
