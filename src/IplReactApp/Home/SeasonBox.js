@@ -4,16 +4,15 @@ import './SeasonBox.css';
 
 import CompactPointsTable from './CompactPointsTable';
 import {MatchCard} from '../Utils';
+
+import IPLRTable from '../Utils/IPLRTable';
 import BatsmanInningRow from '../Utils/BatsmanInningRow';
 import BowlerInningRow from '../Utils/BowlerInningRow';
 
 
 
 export default function SeasonBox ({season}) {
-
 	const {orangeCapTable, purpleCapTable} = season.seasonPointsTable;
-	const top10BattingPerformances = orangeCapTable.top10BattingPerformances.map((b, i) => <BatsmanInningRow key={i} b={b} index={i} />);
-	const top10BowlingPerformances = purpleCapTable.top10BowlingPerformances.map((b, i) => <BowlerInningRow key={i} b={b} index={i} />);
 
 	return (
 		<div className="px-2 md:px-4 pt-4 pb-8 md:pb-16">
@@ -31,13 +30,9 @@ export default function SeasonBox ({season}) {
 				</div>
 			</div>
 
-			<div>
-				<table>
-					<tbody>{top10BattingPerformances}</tbody>
-				</table>
-				<table>
-					<tbody>{top10BowlingPerformances}</tbody>
-				</table>
+			<div className="space-y-12 py-6">
+				<IPLRTable RowComponent={BatsmanInningRow} rowsData={orangeCapTable.top10BattingPerformances} />
+				<IPLRTable RowComponent={BowlerInningRow} rowsData={purpleCapTable.top10BowlingPerformances} />
 			</div>
 
 		</div>

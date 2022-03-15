@@ -1,0 +1,16 @@
+
+table.IPLRTable {
+	@apply w-full;
+}
+
+table.IPLRTable tr {
+	@apply bg-zinc-900 text-sm font-bold border-b-4 border-zinc-800;
+}
+
+table.IPLRTable thead tr > td {
+	@apply px-2 py-1 text-orange-500;
+}
+
+table.IPLRTable tr > td {
+	@apply px-2 py-3;
+}
