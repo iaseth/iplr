@@ -60,9 +60,15 @@ export default function IplReactApp () {
 			.then(response => response.text())
 			.then(text => JSON.parse(text))
 			.then(json => {
+				const d1 = Date.now();
 				ipl.loadBundle(json);
 				ipl.doStuff();
-				setTimeout(() => setDoneFetching(true), 500);
+				const d2 = Date.now();
+				const ms = d2 - d1;
+				const delay = (ms < 500) ? 500 - ms : 0;
+				console.log(`IPL.loadBundle() took ${ms}ms.`);
+				console.log(`Delayed loading by ${delay}ms.`);
+				setTimeout(() => setDoneFetching(true), delay);
 			});
 	}, []);
 
