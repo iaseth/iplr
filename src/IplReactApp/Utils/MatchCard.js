@@ -12,17 +12,23 @@ function BestBatsmanAndBowler ({inning}) {
 
 	return (
 		<div className="space-y-1">
-			<div className="mr-8 px-2 py-3 bg-zinc-900 flex items-center rounded">
+			<div className="px-2 py-3 bg-zinc-900 flex items-center rounded">
 				<div className="grow">
 					<Link to={bat.player.getLink()} className="inline-block border-b-2 pb-1" style={inning.team.bdStyle}>{bat.player.fn}</Link>
 				</div>
-				<div>{bat.runsString()} ({bat.balls})</div>
+				<div className="space-x-3">
+					<span className="text-base">{bat.runsString()}</span>
+					<span className="text-slate-400">{bat.balls}</span>
+				</div>
 			</div>
-			<div className="ml-8 px-2 py-3 bg-zinc-900 flex items-center rounded">
+			<div className="ml-4 px-2 py-3 bg-zinc-900 flex items-center rounded">
 				<div className="grow">
 					<Link to={bowl.player.getLink()} className="inline-block border-b-2 pb-1" style={inning.opposition.bdStyle}>{bowl.player.fn}</Link>
 				</div>
-				<div>{bowl.getString()} ({bowl.overs})</div>
+				<div className="space-x-3">
+					<span className="text-base">{bowl.getString()}</span>
+					<span className="text-slate-400">{bowl.overs}</span>
+				</div>
 			</div>
 		</div>
 	);
@@ -48,12 +54,12 @@ function InningBox ({inning}) {
 export function MatchCard ({match, topStuff=true, bottomStuff=true}) {
 
 	return (
-		<div className="MatchCard select-none mb-6 md:mb-12">
+		<div className="MatchCard mb-6 md:mb-12">
 			{topStuff && <div className="px-2 py-3 text-slate-200 text-sm font-bold flex space-x-2">
 				<div className="px-4 py-2 bg-zinc-900">{match.season.year}</div>
 				<div className="px-4 py-2 bg-zinc-900"># {match.seasonIndex + 1}</div>
 			</div>}
-			<Link to={match.getLink()} className="block sm:mx-2 px-4 py-5 sm:w-80 bg-zinc-900 text-slate-200 border-2 border-zinc-600 rounded cursor-pointer hover:bg-zinc-800"
+			<Link to={match.getLink()} className="block select-none sm:mx-2 px-4 py-5 sm:w-80 bg-zinc-900 text-slate-200 border-2 border-zinc-600 rounded cursor-pointer hover:bg-zinc-800"
 				style={match.bdStyle}>
 				<div className="flex">
 					<InningBox inning={match.firstInning} />
