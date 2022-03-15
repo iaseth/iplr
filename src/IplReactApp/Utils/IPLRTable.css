@@ -1,6 +1,6 @@
 
 div.IPLRTable {
-	@apply text-sm font-bold;
+	@apply text-sm font-bold py-6;
 }
 
 table.IPLRTable {

@@ -3,26 +3,4 @@ td.nomobile {
 	@apply hidden md:table-cell;
 }
 
-div.IplrTable {
-	@apply py-6 overflow-x-hidden text-sm select-none;
-}
 
-div.IplrTable > table {
-	@apply font-bold w-full max-w-5xl mx-auto;
-}
-
-div.IplrTable > table tr {
-	@apply bg-zinc-900 border-b-4 border-zinc-800;
-}
-
-div.IplrTable > table > thead > tr > td {
-	@apply py-2 text-sm text-orange-600;
-}
-
-div.IplrTable > table tr > td:first-child {
-	@apply text-center;
-}
-
-div.IplrTable > table tr > td {
-	@apply px-2 py-2 md:py-3;
-}

@@ -24,9 +24,9 @@ export default function PlayerBowlingRecord ({player}) {
 	return (
 		<div className="PlayerBowlingRecord">
 
-			<div className="IplrTable">
+			<div className="IPLRTable">
 				<PSTHeading>Bowling record</PSTHeading>
-				<table>
+				<table class="IPLRTable">
 					<thead>
 						<BowlingRecordRow year={true} />
 					</thead>
@@ -36,8 +36,8 @@ export default function PlayerBowlingRecord ({player}) {
 				</table>
 			</div>
 
-			{player.hasEverBowled() && <div className="IplrTable">
-				<table>
+			{player.hasEverBowled() && <div className="IPLRTable">
+				<table class="IPLRTable">
 					<thead>
 						<BowlingRecordRow position={true} />
 					</thead>
@@ -47,8 +47,8 @@ export default function PlayerBowlingRecord ({player}) {
 				</table>
 			</div>}
 
-			{player.hasEverBowled() && <div className="IplrTable">
-				<table>
+			{player.hasEverBowled() && <div className="IPLRTable">
+				<table class="IPLRTable">
 					<thead>
 						<BowlingRecordRow forTeam={true} />
 					</thead>
@@ -56,8 +56,8 @@ export default function PlayerBowlingRecord ({player}) {
 				</table>
 			</div>}
 
-			{player.hasEverBowled() && <div className="IplrTable">
-				<table>
+			{player.hasEverBowled() && <div className="IPLRTable">
+				<table class="IPLRTable">
 					<thead>
 						<BowlingRecordRow vsTeam={true} />
 					</thead>
