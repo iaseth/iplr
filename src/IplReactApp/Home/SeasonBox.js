@@ -9,6 +9,9 @@ import IPLRTable from '../Utils/IPLRTable';
 import BatsmanInningRow from '../Utils/BatsmanInningRow';
 import BowlerInningRow from '../Utils/BowlerInningRow';
 
+import BattingRecordRow from '../Utils/BattingRecordRow';
+import BowlingRecordRow from '../Utils/BowlingRecordRow';
+
 
 
 export default function SeasonBox ({season}) {
@@ -33,6 +36,11 @@ export default function SeasonBox ({season}) {
 			<div className="lg:flex">
 				<IPLRTable RowComponent={BatsmanInningRow} rowsData={orangeCapTable.getTopNScores(5)} title="High Scores" />
 				<IPLRTable RowComponent={BowlerInningRow} rowsData={purpleCapTable.getTopNFigures(5)} title="Best Figures" />
+			</div>
+
+			<div className="lg:flex">
+				<IPLRTable RowComponent={BattingRecordRow} rowsData={orangeCapTable.getTopNByRuns(5)} title="Orange Cap" />
+				<IPLRTable RowComponent={BowlingRecordRow} rowsData={purpleCapTable.getTopNByWickets(5)} title="Purple Cap" />
 			</div>
 
 		</div>
