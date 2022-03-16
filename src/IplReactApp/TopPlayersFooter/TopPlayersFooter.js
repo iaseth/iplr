@@ -1,7 +1,7 @@
 import './TopPlayersFooter.css';
 
 import {Link} from 'react-router-dom';
-import {BattingAvg, BattingSR, BowlingAvg, BowlingSR, BowlingEcon} from '../Utils/SpanUtils';
+import {BattingAvg, BattingSR, BattingBRP, BowlingAvg, BowlingSR, BowlingEcon} from '../Utils/SpanUtils';
 
 
 
@@ -41,6 +41,9 @@ export function TopPlayersFooter ({
 				</td>
 				<td className="nomobile">{r.n4}</td>
 				<td className="nomobile">{r.n6}</td>
+				<td className="nomobile">
+					<BattingBRP brp={r.getBoundaryPercent()} />
+				</td>
 				<td className="nomobile">{r.n50} / {r.n100}</td>
 			</tr>
 		);

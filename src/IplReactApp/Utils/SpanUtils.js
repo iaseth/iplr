@@ -40,7 +40,7 @@ export function BattingAvg ({avg}) {
 	else if (avg > 30) spanClass = spanClasses.good;
 	else if (avg > 25) spanClass = spanClasses.ok;
 
-	return <span className={spanClass}>{avg}</span>
+	return <span className={spanClass}>{avg}</span>;
 }
 
 export function BattingSR ({sr}) {
@@ -50,7 +50,17 @@ export function BattingSR ({sr}) {
 	else if (sr > 130) spanClass = spanClasses.good;
 	else if (sr > 110) spanClass = spanClasses.ok;
 
-	return <span className={spanClass}>{sr}</span>
+	return <span className={spanClass}>{sr}</span>;
+}
+
+export function BattingBRP ({brp}) {
+	let spanClass = spanClasses.bad;
+	if (brp > 70) spanClass = spanClasses.excellent;
+	else if (brp > 60) spanClass = spanClasses.verygood;
+	else if (brp > 50) spanClass = spanClasses.good;
+	else if (brp > 40) spanClass = spanClasses.ok;
+
+	return <span className={spanClass}>{brp}</span>;
 }
 
 
