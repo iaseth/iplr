@@ -1,17 +1,9 @@
 import './TopPlayersFooter.css';
 
-import {Link} from 'react-router-dom';
-import {BattingAvg, BattingSR, BattingBRP, BowlingAvg, BowlingSR, BowlingEcon} from '../Utils/SpanUtils';
+import Top10BatsmanRow from './Top10BatsmanRow';
+import Top10BowlerRow from './Top10BowlerRow';
 
 
-
-const PlayerTD = ({player}) => {
-	return (
-		<td>
-			<Link to={player.getLink()} className="border-b-[3px] pb-1" style={player.bdStyle}>{player.fn}</Link>
-		</td>
-	);
-};
 
 const TPFTable = ({title, children}) => {
 	return (
@@ -26,48 +18,8 @@ export function TopPlayersFooter ({
 	ipl
 }) {
 
-	const top10BatsmenItems = ipl.top10Batsmen.map((r, i) => {
-		return (
-			<tr key={i}>
-				<td># {i+1}</td>
-				<PlayerTD player={r.player} />
-				<td className="nomobile">{r.inns}</td>
-				<td className="text-base">{r.runs}</td>
-				<td>
-					<BattingAvg avg={r.getAvgF()} />
-				</td>
-				<td>
-					<BattingSR sr={r.getSRF()} />
-				</td>
-				<td className="nomobile">{r.n4}</td>
-				<td className="nomobile">{r.n6}</td>
-				<td className="nomobile">
-					<BattingBRP brp={r.getBoundaryPercent()} />
-				</td>
-				<td className="nomobile">{r.n50} / {r.n100}</td>
-			</tr>
-		);
-	});
-
-	const top10BowlersItems = ipl.top10Bowlers.map((r, i) => {
-		return (
-			<tr key={i}>
-				<td># {i+1}</td>
-				<PlayerTD player={r.player} />
-				<td className="nomobile">{r.inns}</td>
-				<td className="text-base">{r.wickets}</td>
-				<td>
-					<BowlingAvg avg={r.getAvgF()} />
-				</td>
-				<td>
-					<BowlingSR sr={r.getSRF()} />
-				</td>
-				<td>
-					<BowlingEcon econ={r.getEconF()} />
-				</td>
-			</tr>
-		);
-	});
+	const top10BatsmenItems = ipl.top10Batsmen.map((r, i) => <Top10BatsmanRow rowData={r} index={i} />);
+	const top10BowlersItems = ipl.top10Bowlers.map((r, i) => <Top10BowlerRow rowData={r} index={i} />);
 
 	return (
 		<div className="TopPlayersFooter bg-zinc-800 text-slate-200">
