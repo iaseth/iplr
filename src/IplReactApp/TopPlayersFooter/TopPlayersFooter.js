@@ -6,15 +6,6 @@ import IPLRTable from '../Utils/IPLRTable';
 
 
 
-const TPFTable = ({title, children}) => {
-	return (
-		<div className="grow md:px-8 py-8">
-			<h2 className="text-xl text-center font-bold py-6">{title}</h2>
-			<table className="TPFTable w-full">{children}</table>
-		</div>
-	);
-};
-
 export function TopPlayersFooter ({
 	ipl
 }) {
