@@ -34,13 +34,13 @@ export default function SeasonBox ({season}) {
 			</div>
 
 			<div className="lg:flex">
-				<IPLRTable RowComponent={BatsmanInningRow} rowsData={orangeCapTable.getTopNScores(5)} title="High Scores" />
-				<IPLRTable RowComponent={BowlerInningRow} rowsData={purpleCapTable.getTopNFigures(5)} title="Best Figures" />
+				<IPLRTable RowComponent={BatsmanInningRow} rowsData={orangeCapTable.getTopNScores(5)} title="High Scores" prefix={season.year} />
+				<IPLRTable RowComponent={BowlerInningRow} rowsData={purpleCapTable.getTopNFigures(5)} title="Best Figures" prefix={season.year} />
 			</div>
 
 			<div className="lg:flex">
-				<IPLRTable RowComponent={BattingRecordRow} rowsData={orangeCapTable.getTopNByRuns(5)} title="Orange Cap" />
-				<IPLRTable RowComponent={BowlingRecordRow} rowsData={purpleCapTable.getTopNByWickets(5)} title="Purple Cap" />
+				<IPLRTable RowComponent={BattingRecordRow} rowsData={orangeCapTable.getTopNByRuns(5)} title="Orange Cap" prefix={season.year} />
+				<IPLRTable RowComponent={BowlingRecordRow} rowsData={purpleCapTable.getTopNByWickets(5)} title="Purple Cap" prefix={season.year} />
 			</div>
 
 		</div>

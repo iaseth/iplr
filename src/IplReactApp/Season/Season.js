@@ -63,13 +63,13 @@ export function Season ({
 			</div>
 
 			<div className="lg:flex">
-				<IPLRTable RowComponent={BatsmanInningRow} rowsData={orangeCapTable.getTopNScores(10)} title="High Scores" />
-				<IPLRTable RowComponent={BowlerInningRow} rowsData={purpleCapTable.getTopNFigures(10)} title="Best Figures" />
+				<IPLRTable RowComponent={BatsmanInningRow} rowsData={orangeCapTable.getTopNScores(10)} title="High Scores" prefix={season.year} />
+				<IPLRTable RowComponent={BowlerInningRow} rowsData={purpleCapTable.getTopNFigures(10)} title="Best Figures" prefix={season.year} />
 			</div>
 
 			<div className="lg:flex">
-				<IPLRTable RowComponent={BattingRecordRow} rowsData={orangeCapTable.getTopNByRuns(10)} title="Orange Cap" />
-				<IPLRTable RowComponent={BowlingRecordRow} rowsData={purpleCapTable.getTopNByWickets(10)} title="Purple Cap" />
+				<IPLRTable RowComponent={BattingRecordRow} rowsData={orangeCapTable.getTopNByRuns(10)} title="Orange Cap" prefix={season.year} />
+				<IPLRTable RowComponent={BowlingRecordRow} rowsData={purpleCapTable.getTopNByWickets(10)} title="Purple Cap" prefix={season.year} />
 			</div>
 
 			<div className="sm:flex flex-wrap justify-center py-12">
