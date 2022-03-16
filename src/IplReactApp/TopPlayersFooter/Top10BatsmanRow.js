@@ -8,15 +8,15 @@ export default function Top10BatsmanRow ({rowData, index}) {
 		return <tr>
 			<td></td>
 			<td>Batsman</td>
-			<td>M</td>
+			<td className="nomobile">I</td>
 			<td>Runs</td>
 			<td>Avg</td>
 			<td>Sr</td>
-			<td>4s</td>
-			<td>6s</td>
-			<td>BR%</td>
-			<td>50s</td>
-			<td>100s</td>
+			<td className="nomobile">4s</td>
+			<td className="nomobile">6s</td>
+			<td className="nomobile">BR%</td>
+			<td className="nomobile">50s</td>
+			<td className="nomobile">100s</td>
 		</tr>;
 	}
 

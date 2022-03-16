@@ -8,10 +8,10 @@ export default function Top10BowlerRow ({rowData, index}) {
 		return <tr>
 			<td></td>
 			<td>Bowler</td>
-			<td>M</td>
+			<td className="nomobile">I</td>
 			<td>W</td>
 			<td>Avg</td>
-			<td>Sr</td>
+			<td className="nomobile">Sr</td>
 			<td>Econ</td>
 		</tr>;
 	}
@@ -26,7 +26,7 @@ export default function Top10BowlerRow ({rowData, index}) {
 			<td>
 				<BowlingAvg avg={r.getAvgF()} />
 			</td>
-			<td>
+			<td className="nomobile">
 				<BowlingSR sr={r.getSRF()} />
 			</td>
 			<td>
