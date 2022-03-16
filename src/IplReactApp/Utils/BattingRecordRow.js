@@ -15,16 +15,16 @@ export default function BattingRecordRow ({rowData, index}) {
 		</tr>;
 	}
 
-	const b = rowData;
+	const record = rowData;
 	return (
 		<tr>
 			<td># {index+1}</td>
-			<td><PlayerLink b={b.performances[0]} /></td>
-			<td>{b.runs}</td>
-			<td><BattingAvg avg={b.getAvgF()} /></td>
-			<td>{b.n4}</td>
-			<td>{b.n6}</td>
-			<td><BattingSR sr={b.getSRF()} /></td>
+			<td><PlayerLink b={record.performances[0]} /></td>
+			<td>{record.runs}</td>
+			<td><BattingAvg avg={record.getAvgF()} /></td>
+			<td>{record.n4}</td>
+			<td>{record.n6}</td>
+			<td><BattingSR sr={record.getSRF()} /></td>
 		</tr>
 	);
 }

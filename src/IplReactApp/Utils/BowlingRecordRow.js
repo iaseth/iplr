@@ -14,19 +14,19 @@ export default function BowlingRecordRow ({rowData, index}) {
 		</tr>;
 	}
 
-	const b = rowData;
+	const record = rowData;
 	return (
 		<tr>
 			<td># {index+1}</td>
-			<td><PlayerLink b={b.performances[0]} /></td>
-			<td>{b.wickets}</td>
+			<td><PlayerLink b={record.performances[0]} /></td>
+			<td>{record.wickets}</td>
 			<td>
-				<BowlingAvg avg={b.getAvgF()} />
+				<BowlingAvg avg={record.getAvgF()} />
 			</td>
 			<td>
-				<BowlingSR sr={b.getSRF()} />
+				<BowlingSR sr={record.getSRF()} />
 			</td>
-			<td><BowlingEcon econ={b.getEconF()} /></td>
+			<td><BowlingEcon econ={record.getEconF()} /></td>
 		</tr>
 	);
 }
