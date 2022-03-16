@@ -2,27 +2,41 @@ import os
 import sys
 
 
-def update_file(input, output):
-	if not os.path.isfile(input):
-		print(f"Input file NOT found: '{input}'")
+class IFile():
+	def __init__(self, path):
+		self.path = path
+
+	def exists(self):
+		return os.path.isfile(self.path)
+
+	def mtime(self):
+		return os.path.getmtime(self.path)
+
+	def __str__(self):
+		return self.path
+
+def update_file(input_path, output_path):
+	input_file = IFile(input_path)
+	output_file = IFile(output_path)
+
+	if not input_file.exists():
+		print(f"Input file NOT found: '{input_file}'")
 		return
 	else:
-		print(f"Input file was found: '{input}'")
+		print(f"Input file was found: '{input_file}'")
 
-	if not os.path.isfile(output):
-		print(f"\toutput file NOT found: '{output}'")
+	if not output_file.exists():
+		print(f"\toutput file NOT found: '{output_file}'")
 	else:
-		print(f"\toutput file was found: '{output}'")
+		print(f"\toutput file was found: '{output_file}'")
 
-	input_mtime = os.path.getmtime(input)
-	output_mtime = os.path.getmtime(output)
-	if input_mtime > output_mtime:
-		print(f"\t\toutput file needs update: {output}")
-		with open(output, "w") as out:
-			out.write(open(input).read())
-			print(f"\t\tupdated: {output}")
+	if input_file.mtime() > output_file.mtime():
+		print(f"\t\toutput file needs update: {output_file}")
+		with open(output_file.path, "w") as out:
+			out.write(open(input_file.path).read())
+			print(f"\t\tupdated: {output_file}")
 	else:
-		print(f"\t\toutput file is up-to-date: {output}")
+		print(f"\t\toutput file is up-to-date: {output_file}")
 
 
 def main():
