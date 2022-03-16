@@ -7,7 +7,7 @@ export default function IPLRTable ({RowComponent, rowsData, title}) {
 
 	return (
 		<div className="IPLRTable w-full px-1 py-2">
-			{title && <div className="bg-zinc-900 px-4 py-4 mb-1">{title}</div>}
+			{title && <div className="bg-zinc-900 px-4 pt-4 pb-3 mb-1 text-base">{title}</div>}
 			<table className="IPLRTable">
 				<thead>
 					<RowComponent />

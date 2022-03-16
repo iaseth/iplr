@@ -10,6 +10,9 @@ import IPLRTable from '../Utils/IPLRTable';
 import BatsmanInningRow from '../Utils/BatsmanInningRow';
 import BowlerInningRow from '../Utils/BowlerInningRow';
 
+import BattingRecordRow from '../Utils/BattingRecordRow';
+import BowlingRecordRow from '../Utils/BowlingRecordRow';
+
 
 
 export function Season ({
@@ -62,6 +65,11 @@ export function Season ({
 			<div className="lg:flex">
 				<IPLRTable RowComponent={BatsmanInningRow} rowsData={orangeCapTable.getTopNScores(10)} title="High Scores" />
 				<IPLRTable RowComponent={BowlerInningRow} rowsData={purpleCapTable.getTopNFigures(10)} title="Best Figures" />
+			</div>
+
+			<div className="lg:flex">
+				<IPLRTable RowComponent={BattingRecordRow} rowsData={orangeCapTable.getTopNByRuns(10)} title="Orange Cap" />
+				<IPLRTable RowComponent={BowlingRecordRow} rowsData={purpleCapTable.getTopNByWickets(10)} title="Purple Cap" />
 			</div>
 
 			<div className="sm:flex flex-wrap justify-center py-12">

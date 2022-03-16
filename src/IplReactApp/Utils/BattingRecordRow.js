@@ -1,4 +1,4 @@
-import {PlayerLink, BattingSR} from './SpanUtils';
+import {PlayerLink, BattingAvg, BattingSR} from './SpanUtils';
 
 
 
@@ -21,7 +21,7 @@ export default function BattingRecordRow ({rowData, index}) {
 			<td># {index+1}</td>
 			<td><PlayerLink b={b.performances[0]} /></td>
 			<td>{b.runs}</td>
-			<td>{b.getAvgF()}</td>
+			<td><BattingAvg avg={b.getAvgF()} /></td>
 			<td>{b.n4}</td>
 			<td>{b.n6}</td>
 			<td><BattingSR sr={b.getSRF()} /></td>
