@@ -4,6 +4,17 @@ import {PlayerTD} from '../Utils/TdUtils';
 
 
 export default function Top10BowlerRow ({rowData, index}) {
+	if (!rowData) {
+		return <tr>
+			<td></td>
+			<td>Bowler</td>
+			<td>M</td>
+			<td>W</td>
+			<td>Avg</td>
+			<td>Sr</td>
+			<td>Econ</td>
+		</tr>;
+	}
 
 	const r = rowData;
 	return (

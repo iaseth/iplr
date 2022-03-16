@@ -1,16 +1,2 @@
 
-table.TPFTable {
-	@apply text-sm font-bold;
-}
 
-table.TPFTable tr {
-	@apply bg-zinc-900 border-b-4 border-zinc-800;
-}
-
-table.TPFTable tr > td:first-child {
-	@apply px-2;
-}
-
-table.TPFTable tr > td {
-	@apply px-1 md:px-2 py-3;
-}

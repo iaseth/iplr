@@ -2,6 +2,7 @@ import './TopPlayersFooter.css';
 
 import Top10BatsmanRow from './Top10BatsmanRow';
 import Top10BowlerRow from './Top10BowlerRow';
+import IPLRTable from '../Utils/IPLRTable';
 
 
 
@@ -18,18 +19,11 @@ export function TopPlayersFooter ({
 	ipl
 }) {
 
-	const top10BatsmenItems = ipl.top10Batsmen.map((r, i) => <Top10BatsmanRow rowData={r} index={i} />);
-	const top10BowlersItems = ipl.top10Bowlers.map((r, i) => <Top10BowlerRow rowData={r} index={i} />);
-
 	return (
 		<div className="TopPlayersFooter bg-zinc-800 text-slate-200">
 			<div className="max-w-5xl m-auto md:px-4 py-24">
-				<TPFTable title="Top 10 Batsmen">
-					<tbody>{top10BatsmenItems}</tbody>
-				</TPFTable>
-				<TPFTable title="Top 10 Bowlers">
-					<tbody>{top10BowlersItems}</tbody>
-				</TPFTable>
+				<IPLRTable RowComponent={Top10BatsmanRow} rowsData={ipl.top10Batsmen} title="Top 10 Batsmen" />
+				<IPLRTable RowComponent={Top10BowlerRow} rowsData={ipl.top10Bowlers} title="Top 10 Bowlers" />
 			</div>
 		</div>
 	);

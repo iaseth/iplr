@@ -7,11 +7,16 @@ export default function Top10BatsmanRow ({rowData, index}) {
 	if (!rowData) {
 		return <tr>
 			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
+			<td>Batsman</td>
+			<td>M</td>
+			<td>Runs</td>
+			<td>Avg</td>
+			<td>Sr</td>
+			<td>4s</td>
+			<td>6s</td>
+			<td>BR%</td>
+			<td>50s</td>
+			<td>100s</td>
 		</tr>;
 	}
 
@@ -33,7 +38,8 @@ export default function Top10BatsmanRow ({rowData, index}) {
 			<td className="nomobile">
 				<BattingBRP brp={r.getBoundaryPercent()} />
 			</td>
-			<td className="nomobile">{r.n50} / {r.n100}</td>
+			<td className="nomobile">{r.n50}</td>
+			<td className="nomobile">{r.n100}</td>
 		</tr>
 	);
 }
