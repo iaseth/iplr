@@ -20,10 +20,10 @@ export default function BowlerInningRow ({rowData, index}) {
 	return (
 		<tr>
 			<td>
-				<Link to={b.teamInning.match.getLink()} style={b.teamInning.team.fgStyle}># {index+1}</Link>
+				<Link to={b.teamInning.match.getLink()} style={b.teamInning.opposition.fgStyle}># {index+1}</Link>
 			</td>
 			<td><PlayerLink b={b} /></td>
-			<td>{b.wickets}</td>
+			<td className="big">{b.wickets}</td>
 			<td>{b.runs}</td>
 			<td>{b.overs}</td>
 			<td><BowlingEcon econ={b.econF()} /></td>

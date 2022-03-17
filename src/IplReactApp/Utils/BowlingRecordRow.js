@@ -19,7 +19,7 @@ export default function BowlingRecordRow ({rowData, index}) {
 		<tr>
 			<td># {index+1}</td>
 			<td><PlayerLink b={record.performances[0]} /></td>
-			<td>{record.wickets}</td>
+			<td className="big">{record.wickets}</td>
 			<td>
 				<BowlingAvg avg={record.getAvgF()} />
 			</td>

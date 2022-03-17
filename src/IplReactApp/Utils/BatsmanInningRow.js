@@ -24,7 +24,7 @@ export default function BatsmanInningRow ({rowData, index}) {
 				<Link to={b.teamInning.match.getLink()} style={b.teamInning.team.fgStyle}># {index+1}</Link>
 			</td>
 			<td><PlayerLink b={b} /></td>
-			<td>{b.runsString()}</td>
+			<td className="big">{b.runsString()}</td>
 			<td>{b.balls}</td>
 			<td>{b.n4}</td>
 			<td>{b.n6}</td>

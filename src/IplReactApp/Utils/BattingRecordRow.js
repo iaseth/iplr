@@ -20,7 +20,7 @@ export default function BattingRecordRow ({rowData, index}) {
 		<tr>
 			<td># {index+1}</td>
 			<td><PlayerLink b={record.performances[0]} /></td>
-			<td>{record.runs}</td>
+			<td className="big">{record.runs}</td>
 			<td><BattingAvg avg={record.getAvgF()} /></td>
 			<td>{record.n4}</td>
 			<td>{record.n6}</td>
