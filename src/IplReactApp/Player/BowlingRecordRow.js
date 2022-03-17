@@ -5,13 +5,14 @@ import {BowlingAvg, BowlingSR, BowlingEcon} from '../Utils/SpanUtils';
 
 
 export default function BowlingRecordRow ({
-	year, position, forTeam, vsTeam,
+	titleColumn, year, position, forTeam, vsTeam,
 	record
 }) {
 
 	if (!record) {
 		return (
 			<tr>
+				{titleColumn && <td></td>}
 				{year && <td>Year</td>}
 				{position && <td>Pos</td>}
 				{forTeam && <td>For</td>}
@@ -36,6 +37,7 @@ export default function BowlingRecordRow ({
 
 	return (
 		<tr className="BowlingRecordRow">
+			{titleColumn && <td>{titleColumn}</td>}
 			{year && <td>{year}</td>}
 			{position && <td># {position}</td>}
 			{forTeam && <td style={forTeam.fgStyle}>{forTeam.abb}</td>}

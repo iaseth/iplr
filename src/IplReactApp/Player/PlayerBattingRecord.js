@@ -25,45 +25,44 @@ export default function PlayerBattingRecord ({player}) {
 		<div className="PlayerBattingRecord">
 
 			<div className="IPLRTable">
-				<PSTHeading>Batting record</PSTHeading>
+				<PSTHeading>by Season</PSTHeading>
 				<table className="IPLRTable">
 					<thead>
 						<BattingRecordRow year={true} />
 					</thead>
-					<tbody>
-						{battingRecord}
-					</tbody>
+					<tbody>{battingRecord}</tbody>
 				</table>
 			</div>
 
-			{player.hasEverBatted() && <div className="IPLRTable">
+			<div className="IPLRTable">
+				<PSTHeading>by Position</PSTHeading>
 				<table className="IPLRTable">
 					<thead>
 						<BattingRecordRow position={true} />
 					</thead>
-					<tbody>
-						{positionWiseBattingRecord}
-					</tbody>
+					<tbody>{positionWiseBattingRecord}</tbody>
 				</table>
-			</div>}
+			</div>
 
-			{player.hasEverBatted() && <div className="IPLRTable">
+			<div className="IPLRTable">
+				<PSTHeading>by Team</PSTHeading>
 				<table className="IPLRTable">
 					<thead>
 						<BattingRecordRow forTeam={true} />
 					</thead>
 					<tbody>{forTeamBattingItems}</tbody>
 				</table>
-			</div>}
+			</div>
 
-			{player.hasEverBatted() && <div className="IPLRTable">
+			<div className="IPLRTable">
+				<PSTHeading>by Opposition</PSTHeading>
 				<table className="IPLRTable">
 					<thead>
 						<BattingRecordRow vsTeam={true} />
 					</thead>
 					<tbody>{vsTeamBattingItems}</tbody>
 				</table>
-			</div>}
+			</div>
 
 		</div>
 	);

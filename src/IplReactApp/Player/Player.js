@@ -4,6 +4,7 @@ import {useParams} from 'react-router-dom';
 import FrontMatter from '../FrontMatter';
 import Four04 from '../Four04';
 
+import PlayerOverallRecord from './PlayerOverallRecord';
 import PlayerBattingRecord from './PlayerBattingRecord';
 import PlayerBowlingRecord from './PlayerBowlingRecord';
 
@@ -45,8 +46,10 @@ export function Player ({
 				</h3>
 			</FrontMatter>
 
-			<PlayerBattingRecord player={player} />
-			<PlayerBowlingRecord player={player} />
+			<PlayerOverallRecord player={player} />
+
+			{player.hasEverBatted() && <PlayerBattingRecord player={player} />}
+			{player.hasEverBowled() && <PlayerBowlingRecord player={player} />}
 
 		</div>
 	);

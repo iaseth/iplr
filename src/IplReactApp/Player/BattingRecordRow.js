@@ -5,13 +5,14 @@ import {BattingAvg, BattingSR} from '../Utils/SpanUtils';
 
 
 export default function BattingRecordRow ({
-	year, position, forTeam, vsTeam,
+	titleColumn, year, position, forTeam, vsTeam,
 	record
 }) {
 
 	if (!record) {
 		return (
 			<tr>
+				{titleColumn && <td></td>}
 				{year && <td>Year</td>}
 				{position && <td>Pos</td>}
 				{forTeam && <td>For</td>}
@@ -35,6 +36,7 @@ export default function BattingRecordRow ({
 
 	return (
 		<tr className="BattingRecordRow">
+			{titleColumn && <td>{titleColumn}</td>}
 			{year && <td>{year}</td>}
 			{position && <td># {position}</td>}
 			{forTeam && <td style={forTeam.fgStyle}>{forTeam.abb}</td>}
