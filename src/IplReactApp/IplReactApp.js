@@ -3,7 +3,7 @@ import React from 'react';
 import {useNavigate, Routes, Route} from 'react-router-dom';
 
 import './IplReactApp.css';
-import IPL from './node-iplr/src';
+import IPL from './v20/src';
 
 import {RainbowBorder} from './Utils';
 import {Header} from './Header';
